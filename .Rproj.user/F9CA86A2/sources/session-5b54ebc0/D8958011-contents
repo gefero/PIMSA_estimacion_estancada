@@ -1,0 +1,149 @@
+library(tidyverse)
+library(Rilostat)
+
+tables <- tibble(
+        id=c("EMP_TEMP_ECO_OCU_NB_A", "EMP_TEMP_SEX_STE_ECO_NB_A", "EMP_TEMP_SEX_STE_OCU_NB_A"),
+        label=c("Ocupación según actividad económica y ocupación (miles) -- Anual",
+                "Ocupación según sexo, situación en la ocupación y actividad económica (miles) -- Anual",
+                "Ocupación según sexo, situación en la ocupación y ocupación (miles) -- Anual"
+                )
+)
+
+calif_rama <- get_ilostat(
+        tables$id[1],
+        type="both",
+        filters=list(
+                sex="T",
+                timefrom=2009,
+                timeto=2019
+                )
+) %>%
+        filter(str_detect(classif2,"SKILL")) %>%
+        filter(str_detect(classif1,"AGGREGATE")) %>%
+        filter(!str_detect(classif2,"_TOTAL")) %>%
+        filter(!str_detect(classif1,"_TOTAL")) %>%
+        mutate(rama2 = case_when(
+                classif1 == "ECO_AGGREGATE_AGR" ~ "1.Agro", 
+                classif1 == "ECO_AGGREGATE_X" ~ "9.SD",
+                TRUE  ~ "2.No_agro"
+                ),
+               calif = case_when(
+                       classif2 == "OCU_SKILL_L1" ~ "1.Baja",
+                       classif2 == "OCU_SKILL_L2" ~ "2.Media",
+                       classif2 == "OCU_SKILL_L3-4" ~ "3.Alta",
+                       classif2 == "OCU_SKILL_X" ~ "9.SD"
+                       )
+        ) 
+
+#calif_rama%>%
+#         select(ref_area, ref_area.label, classif1, classif2, rama2, calif, time, obs_value)
+
+#calif_rama %>% write_csv('./data/raw_data/calif_rama.csv')
+
+calif_rama_agg<-calif_rama %>%
+        group_by(ref_area, ref_area.label, rama2, calif) %>%
+        summarise(n = mean(obs_value, na.rm=TRUE)) %>%
+        pivot_wider(names_from=rama2,
+                    values_from=n,
+                    values_fill = 0)
+calif_rama %>%
+        write_csv('./data/estimacion_estancada/calif_rama.csv')
+
+calif_rama_agg %>%
+        write_csv('./data/estimacion_estancada/calif_rama_agg.csv')
+
+catocup_rama <-  get_ilostat(
+        tables$id[2],
+        type="both",
+        filters=list(
+                sex="T",
+                timefrom=2009,
+                timeto=2019)
+        ) %>%
+        filter(!str_detect(classif1, "_AGGREGATE")) %>%
+        filter(!str_detect(classif1, "_TOTAL")) %>%
+        filter(str_detect(classif2,"AGGREGATE")) %>%
+        filter(!str_detect(classif2,"_TOTAL")) %>%
+        mutate(rama2 = case_when(
+                classif2 == "ECO_AGGREGATE_AGR" ~ "1.Agro", 
+                classif2 == "ECO_AGGREGATE_X" ~ "9.SD",
+                TRUE  ~ "2.No_agro"
+                ),
+               catocup = case_when(
+                       classif1 %in% c("STE_ICSE93_3", "STE_ICSE93_5", "STE_ICSE93_4") ~ "3.TCP_fliares",
+                       classif1 %in% c("STE_ICSE93_1") ~ "1.Asalariado_patr",
+                       classif1 %in% c("STE_ICSE93_2") ~ "1.Asalariado_patr",
+                       TRUE ~ "9.SD"
+               )
+        ) 
+
+#%>%
+#        select(ref_area, ref_area.label, classif1, classif2, rama2, catocup, time, obs_value)
+
+catocup_rama_agg<-catocup_rama %>%
+        group_by(ref_area, ref_area.label, catocup, rama2) %>%
+        summarise(n = mean(obs_value, na.rm=TRUE)) %>%
+        pivot_wider(names_from=rama2,
+                    values_from=n,
+                    values_fill = 0)
+
+#catocup_rama %>% write_csv('./data/raw_data/catocup_rama.csv')
+catocup_rama %>%
+        write_csv('./data/estimacion_estancada/catocup_rama.csv')
+
+catocup_rama_agg %>%
+        write_csv('./data/estimacion_estancada/catocup_rama_agg.csv')
+
+catocup_calif <- get_ilostat(
+        tables$id[3],
+        type="both",
+        filters=list(
+                sex="T",
+                timefrom=2009,
+                timeto=2019
+                )
+        ) %>%
+        filter(!str_detect(classif1,"AGGREGATE")) %>%
+        filter(!str_detect(classif1,"_TOTAL")) %>%
+        filter(str_detect(classif2,"SKILL")) %>%
+        filter(!str_detect(classif2,"_TOTAL")) %>%
+        mutate(catocup = case_when(
+                classif1 %in% c("STE_ICSE93_3", "STE_ICSE93_5", "STE_ICSE93_4") ~ "3.TCP_fliares",
+                classif1 %in% c("STE_ICSE93_1") ~ "1.Asalariado_patr",
+                classif1 %in% c("STE_ICSE93_2") ~ "1.Asalariado_patr",
+                TRUE ~ "9.SD"),
+               calif = case_when(
+                       classif2 == "OCU_SKILL_L1" ~ "1.Baja",
+                       classif2 == "OCU_SKILL_L2" ~ "2.Media",
+                       classif2 == "OCU_SKILL_L3-4" ~ "3-Alta",
+                       classif2 == "OCU_SKILL_X" ~ "9.SD"
+               )
+        )
+
+catocup_calif %>% write_csv("./data/raw_data/catocup_calif.csv")
+
+catocup_calif_agg <- catocup_calif %>%
+        group_by(ref_area, ref_area.label, catocup, calif) %>%
+        summarise(n = mean(obs_value, na.rm=TRUE)) %>%
+        pivot_wider(names_from=calif,
+                    values_from=n,
+                    values_fill = 0)
+
+catocup_calif %>%
+        write_csv('./data/estimacion_estancada/catocup_calif.csv')
+
+catocup_calif_agg %>%
+        write_csv('./data/estimacion_estancada/catocup_calif_agg.csv')
+
+counts_intersect <- tibble(country_select = intersect(
+intersect(
+        calif_rama %>% select(ref_area) %>% distinct() %>% pull(),
+        catocup_rama %>% select(ref_area) %>% distinct() %>% pull()),
+catocup_calif %>% select(ref_area) %>% distinct() %>% pull())
+)
+
+counts_intersect %>%
+        write_csv('./data/estimacion_estancada/country_intersect.csv')
+        
+
+

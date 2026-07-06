@@ -33,8 +33,12 @@ calif_rama <- get_ilostat(
                        classif2 == "OCU_SKILL_L3-4" ~ "3.Alta",
                        classif2 == "OCU_SKILL_X" ~ "9.SD"
                        )
-        ) %>%
-        select(ref_area, ref_area.label, classif1, classif2, rama2, calif, time, obs_value)
+        ) 
+
+#calif_rama%>%
+#         select(ref_area, ref_area.label, classif1, classif2, rama2, calif, time, obs_value)
+
+#calif_rama %>% write_csv('./data/raw_data/calif_rama.csv')
 
 calif_rama_agg<-calif_rama %>%
         group_by(ref_area, ref_area.label, rama2, calif) %>%
@@ -71,8 +75,10 @@ catocup_rama <-  get_ilostat(
                        classif1 %in% c("STE_ICSE93_2") ~ "1.Asalariado_patr",
                        TRUE ~ "9.SD"
                )
-        ) %>%
-        select(ref_area, ref_area.label, classif1, classif2, rama2, catocup, time, obs_value)
+        ) 
+
+#%>%
+#        select(ref_area, ref_area.label, classif1, classif2, rama2, catocup, time, obs_value)
 
 catocup_rama_agg<-catocup_rama %>%
         group_by(ref_area, ref_area.label, catocup, rama2) %>%
