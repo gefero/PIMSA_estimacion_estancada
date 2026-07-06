@@ -73,6 +73,30 @@ FIGS = os.path.join(ROOT, "reports", "figs")
 os.makedirs(OUT, exist_ok=True)
 os.makedirs(FIGS, exist_ok=True)
 
+import argparse
+_ap = argparse.ArgumentParser(description="Análisis de las pruebas EPH e IPUMS")
+_ap.add_argument("--estimacion",
+                 default=os.path.join(DATA, "20251118_estimacion_tcp_final.csv"),
+                 help="CSV de estimación IPF (largo) a validar contra IPUMS")
+_ap.add_argument("--sufijo", default="",
+                 help="sufijo para los nombres de salida (p. ej. _v2)")
+_args = _ap.parse_args()
+ESTIMACION_PATH = _args.estimacion
+SUF = _args.sufijo
+
+
+def O(name):
+    """Ruta de salida CSV en OUT con el sufijo aplicado antes de la extensión."""
+    root, ext = os.path.splitext(name)
+    return os.path.join(OUT, f"{root}{SUF}{ext}")
+
+
+def F(name):
+    """Ruta de figura en FIGS con el sufijo aplicado antes de la extensión."""
+    root, ext = os.path.splitext(name)
+    return os.path.join(FIGS, f"{root}{SUF}{ext}")
+
+
 KEY = dict(calificacion="1.Baja", ocupacion="3.TCP_fliares", rama="2.No_agro")
 
 
@@ -125,7 +149,7 @@ ax.set_title("Prueba EPH (Argentina): distribución conjunta observada vs. estim
 ax.legend(loc="lower right")
 ax.grid(axis="y", visible=False)
 fig.tight_layout()
-fig.savefig(os.path.join(FIGS, "fig1_eph_obs_vs_ipf.png"), dpi=160)
+fig.savefig(F("fig1_eph_obs_vs_ipf.png"), dpi=160)
 plt.close(fig)
 
 # ======================================================================
@@ -165,7 +189,7 @@ ipa = (ip.groupby(["iso3c", "calificacion", "ocupacion", "rama"],
                   as_index=False)[["n_raw", "n_wei"]].sum())
 ipa["ipums_porc"] = 100 * ipa.n_wei / ipa.groupby("iso3c").n_wei.transform("sum")
 
-rk = pd.read_csv(os.path.join(DATA, "20251118_estimacion_tcp_final.csv"))
+rk = pd.read_csv(ESTIMACION_PATH)
 # Armonización de etiquetas: la salida del IPF trae "3-Alta" (typo en 011);
 # el script 103 mapea IPUMS a "3.Alta" -> sin esta línea el join pierde
 # todas las celdas de calificación alta.
@@ -204,14 +228,14 @@ met = (comp.groupby(["rama", "ocupacion", "calificacion"])
        .round(3).reset_index())
 print("\nMétricas por celda:")
 print(met.to_string(index=False))
-met.to_csv(os.path.join(OUT, "metricas_por_celda.csv"), index=False)
-comp.to_csv(os.path.join(OUT, "comp_raking_ipums_full.csv"), index=False)
+met.to_csv(O("metricas_por_celda.csv"), index=False)
+comp.to_csv(O("comp_raking_ipums_full.csv"), index=False)
 
 # --- celda de interés ---
 key = comp[is_key(comp)].copy()
 key["rank_ipums"] = key.ipums_porc.rank()
 key["rank_raking"] = key.raking_porc.rank()
-key.sort_values("diff").to_csv(os.path.join(OUT, "celda_clave_paises.csv"),
+key.sort_values("diff").to_csv(O("celda_clave_paises.csv"),
                                index=False)
 print("\nCelda clave (TCP_fliares × No_agro × Baja): n=%d" % len(key))
 print("Pearson %.3f | Spearman %.3f | MAE %.2f pp | bias %.2f pp"
@@ -243,7 +267,7 @@ fig.supylabel("OIT-IPF (raking, % del empleo)", color=INK2, fontsize=9)
 fig.suptitle("Prueba IPUMS: estimación OIT-IPF vs. censo, por celda de la trivariada "
              "(46 países; recuadro rojo = celda de interés)", fontsize=10)
 fig.tight_layout(rect=[0.01, 0.01, 1, 0.97])
-fig.savefig(os.path.join(FIGS, "fig2_ipums_scatter_celdas.png"), dpi=160)
+fig.savefig(F("fig2_ipums_scatter_celdas.png"), dpi=160)
 plt.close(fig)
 
 # --- Figura 3: celda clave, scatter con etiquetas de país ---
@@ -259,7 +283,7 @@ ax.set_ylabel("OIT-IPF (raking), % del empleo")
 rho = key.raking_porc.corr(key.ipums_porc, method="spearman")
 ax.set_title("Celda de interés por país (ρ Spearman = %.2f; recta = identidad)" % rho)
 fig.tight_layout()
-fig.savefig(os.path.join(FIGS, "fig3_celda_clave_scatter.png"), dpi=160)
+fig.savefig(F("fig3_celda_clave_scatter.png"), dpi=160)
 plt.close(fig)
 
 # ======================================================================
@@ -305,7 +329,7 @@ for iso, d in comp.groupby("iso3c"):
                                  ipf_self=est[i, j, k]))
 st = pd.DataFrame(rows)
 st["err"] = st.ipf_self - st.ipums_true
-st.to_csv(os.path.join(OUT, "selftest_ipf_ipums.csv"), index=False)
+st.to_csv(O("selftest_ipf_ipums.csv"), index=False)
 
 kst = st[is_key(st)]
 print("MAE global: %.3f pp | p90 |err|: %.3f pp | max: %.3f pp"
@@ -329,7 +353,7 @@ ax.set_ylim(0, 1.02)
 ax.set_title("Descomposición del error en la celda de interés (46 países)")
 ax.legend(loc="lower right")
 fig.tight_layout()
-fig.savefig(os.path.join(FIGS, "fig4_ecdf_error_descomposicion.png"), dpi=160)
+fig.savefig(F("fig4_ecdf_error_descomposicion.png"), dpi=160)
 plt.close(fig)
 
 # ======================================================================
@@ -369,7 +393,7 @@ ax.legend(loc="lower right")
 xmax = agro.ipums_porc.max() * 1.08
 ax.set_xlim(0, xmax); ax.set_ylim(0, 92)
 fig.tight_layout()
-fig.savefig(os.path.join(FIGS, "fig5_margen_agro_bug.png"), dpi=160)
+fig.savefig(F("fig5_margen_agro_bug.png"), dpi=160)
 plt.close(fig)
 
 # Margen TCP×No_agro: IPF vs cálculo directo OIT (013) vs IPUMS
@@ -386,6 +410,6 @@ print("  IPF vs IPUMS        : MAE %.2f pp | r %.3f | rho %.3f"
 print("  OIT-directo vs IPUMS: MAE %.2f pp | r %.3f | rho %.3f"
       % ((m.oit_directo - m.ipums).abs().mean(), m.oit_directo.corr(m.ipums),
          m.oit_directo.corr(m.ipums, method="spearman")))
-m.round(3).to_csv(os.path.join(OUT, "margen_tcp_noagro_3fuentes.csv"))
+m.round(3).to_csv(O("margen_tcp_noagro_3fuentes.csv"))
 
 print("\nListo. Salidas en data/test_ipf/ y reports/figs/")

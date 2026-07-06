@@ -191,11 +191,11 @@ comp_path = os.path.join(DATA, "test_ipf", "comp_raking_ipums_full.csv")
 if os.path.exists(comp_path):
     comp = pd.read_csv(comp_path)
     ipums_agro = comp[comp.rama == "1.Agro"].groupby("iso3c").ipums_porc.sum()
-    j = pd.concat([agro.rename("corr"), ipums_agro.rename("ipums")],
+    j = pd.concat([agro.rename("corregido"), ipums_agro.rename("ipums")],
                   axis=1).dropna()
-    bias = (j.corr - j.ipums).mean()
+    bias = (j["corregido"] - j["ipums"]).mean()
     print(f"Margen agro corregido vs IPUMS (n={len(j)}): bias {bias:+.1f} pp | "
-          f"r {j.corr.corr(j.ipums):.3f}  (estimación previa: +24.8 pp)")
+          f"r {j['corregido'].corr(j['ipums']):.3f}  (estimación previa: +24.8 pp)")
     assert abs(bias) < 5, f"bias del margen agro vs IPUMS = {bias:.1f} pp"
 
 print("\nTodos los chequeos pasaron.")

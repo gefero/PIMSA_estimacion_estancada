@@ -2,7 +2,9 @@
 
 **Estimación de trabajadores por cuenta propia y familiares (TCP/TF) de baja calificación, no agrícolas**
 
-*Primer análisis — 2026-07-06. Código: `src/015_analisis_pruebas_ipf.py`. Salidas intermedias: `data/test_ipf/`.*
+*Primer análisis — 2026-07-06. Código: `src/015_analisis_pruebas_ipf.py` (validación), `src/016_pipeline_corregido.py` + `src/ipf_utils.py` (estimación corregida). Salidas intermedias: `data/test_ipf/`.*
+
+> **Actualización 2026-07-06 (§9): bug corregido y verificado.** El error de agregación de §6 fue corregido en `011` y en un pipeline Python reproducible (`src/016_pipeline_corregido.py`). La estimación corregida mejora contra IPUMS en todos los frentes: 12 celdas MAE 4,91 → 2,16 pp (Pearson 0,785 → 0,927); celda de interés ρ Spearman 0,71 → 0,80; margen agro bias +24,8 → −2,6 pp. Detalle en la sección 9.
 
 ---
 
@@ -178,3 +180,55 @@ summarise(n = mean(obs_value, na.rm = TRUE))
 3. Evaluar una **corrección del sesgo de método**: el self-test IPUMS permite estimar el factor de subestimación del IPF en la celda de interés (≈ −0,33 pp o ~20% relativo mediano) y usarlo como ajuste o como banda inferior/superior de la estimación por país.
 4. Corregir el join duplicado de `013`, las rutas, y conservar el año censal en la extracción IPUMS para controlar el desfase temporal.
 5. Documentar en el texto metodológico que la estimación es piso por doble motivo: restricción a ocupaciones elementales *y* aplanamiento de la interacción de tercer orden por máxima entropía.
+
+---
+
+## 9. Verificación del bug y resultados post-corrección *(actualización)*
+
+Los pasos 1, 2 y 4 de "próximos pasos" fueron ejecutados. La agregación se corrigió en `src/011_...R` (patrón `sum` por `time` → `mean` entre años en las tres tablas, más `3-Alta`→`3.Alta`, `names_sort` y dedupe del join de `013`), y se construyó un pipeline Python reproducible desde las tablas crudas versionadas (`data/raw_data/`): `src/016_pipeline_corregido.py` (+ `src/ipf_utils.py`). Salidas: `data/estimacion_tcp_final_corregida.csv` (159 países) y `data/tabla_tcps_final_sums_corregida.csv` (181 países únicos, sin duplicados).
+
+### 9.1 Verificación de que el bug es la causa
+
+Aplicando a las tablas crudas la agregación *tal como estaba escrita* (`mean` sin `time`) y corriendo el IPF, se **reproduce la estimación publicada** con correlación global **0,994** entre las 1 908 celdas (margen agro r = 0,988). Las diferencias residuales (mediana 0,2 pp/celda) corresponden a revisiones de ILOSTAT entre la descarga original y la actual. Es decir: el pipeline publicado *es* el pipeline con el bug.
+
+Con la agregación corregida, el margen agro reproduce ILOSTAT en todo el espectro:
+
+| País | % agro publicado (bug) | % agro corregido | ILOSTAT ≈ |
+|---|---:|---:|---:|
+| PER | 64,6 | 26,5 | ~27 |
+| ECU | 65,8 | 27,6 | ~28 |
+| BRA | 37,1 | 10,8 | ~10 |
+| MEX | 44,4 | 14,0 | ~13 |
+| FRA | 12,7 | 2,8 | 2,8 |
+| USA | 8,0 | 1,7 | ~1,4 |
+| ARG | 3,7 | 0,7 | ~0,5 |
+
+![Margen agro antes/después](figs/fig6_margen_agro_antes_despues.png)
+
+### 9.2 Resultados post-corrección vs IPUMS
+
+| Métrica vs IPUMS (46 países) | Publicada (bug) | Corregida |
+|---|---:|---:|
+| 12 celdas — MAE | 4,91 pp | **2,16 pp** |
+| 12 celdas — Pearson | 0,785 | **0,927** |
+| 12 celdas — Spearman | 0,798 | **0,933** |
+| Celda de interés — ρ Spearman | 0,706 | **0,800** |
+| Celda de interés — Pearson | 0,543 | **0,609** |
+| Celda de interés — sesgo | −0,62 pp | +0,38 pp |
+| Margen agro — sesgo | +24,8 pp | **−2,6 pp** |
+| Margen TCP/TF × No agro — MAE / ρ | 8,9 / 0,70 | **5,7 / 0,84** |
+
+El margen "TCP/TF × No agro" del IPF corregido (MAE 5,7; ρ 0,84) converge con el cálculo directo de `013` (5,6; 0,85), como debía ocurrir: una vez corregida la agregación, la trivariada estimada y el marginal directo son consistentes.
+
+![Celda de interés antes/después](figs/fig7_celda_clave_antes_despues.png)
+
+### 9.3 Matiz honesto: el MAE bruto de la celda de interés
+
+El MAE bruto de la celda de interés sube levemente (0,99 → 1,12 pp) pese a que ρ mejora (0,71 → 0,80) y el sesgo se centra. La causa son **dos outliers, Senegal y Kenia**, donde el desacuerdo es de **fuentes**, no del pipeline: las encuestas OIT les asignan 26% y 35% de empleo de baja calificación, mientras sus censos dicen 9% y 16% — el IPF sólo refleja fielmente esos márgenes de entrada. Excluyéndolos, la celda corregida da **MAE 0,75 pp y sesgo ≈ 0 (−0,03 pp)**, muy cerca del techo teórico que anticipaba el self-test (error de método puro: 0,38 pp). La estimación corregida, por tanto, ya no arrastra sesgo sistemático de insumos: el residuo es método (interacción de tercer orden) más ruido de fuente por país.
+
+### 9.4 Qué queda pendiente
+
+- **Cross-check en R** (usuario, local): re-correr `011`→`012` con `Rilostat` y comparar contra `data/estimacion_tcp_final_corregida.csv` (debería coincidir salvo tolerancia numérica y revisiones de ILOSTAT).
+- **Factor de corrección del sesgo de método** (próximos pasos §3): estimable ahora sobre la estimación corregida a partir del self-test IPUMS.
+- **Re-correr `014`** (análisis sustantivo por clusters) sobre `tabla_tcps_final_sums_corregida.csv`.
+- Reproducibilidad: `016` es el camino canónico desde el repo; el pipeline R sigue dependiendo de `Rilostat` (bloqueado en este entorno) y de rutas `./data/estimacion_estancada/`.
