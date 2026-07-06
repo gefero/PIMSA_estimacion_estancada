@@ -1,0 +1,13 @@
+rama,ocupacion,calificacion,n_paises,pearson,spearman,MAE_pp,bias_pp,media_ipums,media_raking
+1.Agro,1.Asalariado_patr,1.Baja,45.0,0.587,0.871,4.001,3.985,1.888,5.874
+1.Agro,1.Asalariado_patr,2.Media,45.0,0.51,0.491,5.275,4.863,2.253,7.116
+1.Agro,1.Asalariado_patr,3.Alta,45.0,0.118,0.328,0.326,0.157,0.247,0.404
+1.Agro,3.TCP_fliares,1.Baja,42.0,0.576,0.793,5.181,3.99,2.191,6.181
+1.Agro,3.TCP_fliares,2.Media,45.0,0.828,0.886,14.97,11.753,19.451,31.205
+1.Agro,3.TCP_fliares,3.Alta,44.0,-0.21,0.142,0.459,0.311,0.136,0.447
+2.No_agro,1.Asalariado_patr,1.Baja,46.0,0.845,0.865,2.618,-2.142,7.191,5.049
+2.No_agro,1.Asalariado_patr,2.Media,46.0,0.916,0.934,9.475,-9.415,29.476,20.061
+2.No_agro,1.Asalariado_patr,3.Alta,46.0,0.907,0.943,6.393,-6.121,19.209,13.088
+2.No_agro,3.TCP_fliares,1.Baja,45.0,0.543,0.706,0.993,-0.623,1.62,0.997
+2.No_agro,3.TCP_fliares,2.Media,46.0,0.553,0.786,7.959,-7.497,14.564,7.067
+2.No_agro,3.TCP_fliares,3.Alta,46.0,0.62,0.586,1.108,-0.291,2.524,2.233
