@@ -1,0 +1,1027 @@
+COUNTRY_lab,rama_agg,skill_level,cat_ocup,n_raw,n_wei
+Armenia,Agro,Level 1,Own account worker,3,30
+Armenia,Agro,Level 1,Wage/salary worker,52,520
+Armenia,Agro,Level 2,Employer,82,820
+Armenia,Agro,Level 2,Own account worker,22770,227700
+Armenia,Agro,Level 2,Unpaid worker,15476,154760
+Armenia,Agro,Level 2,Wage/salary worker,703,7030
+Armenia,Agro,Level 3-4,Employer,2,20
+Armenia,Agro,Level 3-4,Wage/salary worker,64,640
+Armenia,No agro,Level 1,Own account worker,172,1720
+Armenia,No agro,Level 1,Wage/salary worker,8051,80510
+Armenia,No agro,Level 2,Own account worker,2,20
+Armenia,No agro,Level 2,Unpaid worker,5,50
+Armenia,No agro,Level 2,Wage/salary worker,28553,285530
+Armenia,No agro,Level 3-4,Employer,795,7950
+Armenia,No agro,Level 3-4,Own account worker,659,6590
+Armenia,No agro,Level 3-4,Unpaid worker,1,10
+Armenia,No agro,Level 3-4,Wage/salary worker,26875,268750
+Benin,Agro,Level 1,Employer,16,160
+Benin,Agro,Level 1,Own account worker,44,440
+Benin,Agro,Level 1,Unpaid worker,8,80
+Benin,Agro,Level 1,Wage/salary worker,31,310
+Benin,Agro,Level 2,Employer,2196,21960
+Benin,Agro,Level 2,Own account worker,111986,1119860
+Benin,Agro,Level 2,Unpaid worker,30241,302410
+Benin,Agro,Level 2,Wage/salary worker,2730,27300
+Benin,Agro,Level 3-4,Employer,19,190
+Benin,Agro,Level 3-4,Own account worker,149,1490
+Benin,Agro,Level 3-4,Unpaid worker,37,370
+Benin,Agro,Level 3-4,Wage/salary worker,108,1080
+Benin,No agro,Level 1,Employer,379,3790
+Benin,No agro,Level 1,Own account worker,1281,12810
+Benin,No agro,Level 1,Unpaid worker,248,2480
+Benin,No agro,Level 1,Wage/salary worker,1349,13490
+Benin,No agro,Level 2,Employer,2205,22050
+Benin,No agro,Level 2,Own account worker,110204,1102040
+Benin,No agro,Level 2,Unpaid worker,3545,35450
+Benin,No agro,Level 2,Wage/salary worker,28161,281610
+Benin,No agro,Level 3-4,Employer,627,6270
+Benin,No agro,Level 3-4,Own account worker,9016,90160
+Benin,No agro,Level 3-4,Unpaid worker,157,1570
+Benin,No agro,Level 3-4,Wage/salary worker,15612,156120
+Bolivia,Agro,Level 1,Employer,105,1053.49
+Bolivia,Agro,Level 1,Own account worker,2995,30018
+Bolivia,Agro,Level 1,Unpaid worker,1194,11976.039999999999
+Bolivia,Agro,Level 1,Wage/salary worker,906,9109.14
+Bolivia,Agro,Level 2,Employer,1262,12648.82
+Bolivia,Agro,Level 2,Own account worker,80390,805190.7100000004
+Bolivia,Agro,Level 2,Unpaid worker,6941,69566.33
+Bolivia,Agro,Level 2,Wage/salary worker,10124,101606.93999999999
+Bolivia,Agro,Level 3-4,Employer,54,540.99
+Bolivia,Agro,Level 3-4,Own account worker,180,1805.05
+Bolivia,Agro,Level 3-4,Unpaid worker,4,40.089999999999996
+Bolivia,Agro,Level 3-4,Wage/salary worker,417,4184.45
+Bolivia,No agro,Level 1,Employer,377,3779.37
+Bolivia,No agro,Level 1,Own account worker,3677,36864.009999999995
+Bolivia,No agro,Level 1,Unpaid worker,822,8244.199999999999
+Bolivia,No agro,Level 1,Wage/salary worker,18486,185302.69
+Bolivia,No agro,Level 2,Employer,5605,56188.99
+Bolivia,No agro,Level 2,Own account worker,100375,1006249.1399999999
+Bolivia,No agro,Level 2,Unpaid worker,5542,55570.649999999994
+Bolivia,No agro,Level 2,Wage/salary worker,76329,765166.8699999996
+Bolivia,No agro,Level 3-4,Employer,3136,31447.16
+Bolivia,No agro,Level 3-4,Own account worker,14439,144768.15
+Bolivia,No agro,Level 3-4,Unpaid worker,775,7771.66
+Bolivia,No agro,Level 3-4,Wage/salary worker,41168,412777.08999999985
+Botswana,Agro,Level 1,Employer,34,340
+Botswana,Agro,Level 1,Own account worker,179,1790
+Botswana,Agro,Level 1,Unpaid worker,39,390
+Botswana,Agro,Level 1,Wage/salary worker,4054,40540
+Botswana,Agro,Level 2,Employer,62,620
+Botswana,Agro,Level 2,Own account worker,3568,35680
+Botswana,Agro,Level 2,Unpaid worker,122,1220
+Botswana,Agro,Level 2,Wage/salary worker,405,4050
+Botswana,Agro,Level 3-4,Employer,40,400
+Botswana,Agro,Level 3-4,Own account worker,8,80
+Botswana,Agro,Level 3-4,Wage/salary worker,48,480
+Botswana,No agro,Level 1,Employer,108,1080
+Botswana,No agro,Level 1,Own account worker,1227,12270
+Botswana,No agro,Level 1,Unpaid worker,25,250
+Botswana,No agro,Level 1,Wage/salary worker,10330,103300
+Botswana,No agro,Level 2,Employer,864,8640
+Botswana,No agro,Level 2,Own account worker,2578,25780
+Botswana,No agro,Level 2,Unpaid worker,64,640
+Botswana,No agro,Level 2,Wage/salary worker,22983,229830
+Botswana,No agro,Level 3-4,Employer,762,7620
+Botswana,No agro,Level 3-4,Own account worker,404,4040
+Botswana,No agro,Level 3-4,Unpaid worker,1,10
+Botswana,No agro,Level 3-4,Wage/salary worker,10606,106060
+Brazil,Agro,Level 1,Employer,1456,8722.3
+Brazil,Agro,Level 1,Own account worker,181151,1048269.13
+Brazil,Agro,Level 1,Unpaid worker,29547,173378.45
+Brazil,Agro,Level 1,Wage/salary worker,305176,1826011.17
+Brazil,Agro,Level 2,Employer,7865,55861.68
+Brazil,Agro,Level 2,Own account worker,484805,2866349.36
+Brazil,Agro,Level 2,Unpaid worker,48276,284052.9
+Brazil,Agro,Level 2,Wage/salary worker,352759,2209766.86
+Brazil,Agro,Level 3-4,Employer,3416,28404.7
+Brazil,Agro,Level 3-4,Own account worker,8299,60651.85
+Brazil,Agro,Level 3-4,Unpaid worker,259,1825.44
+Brazil,Agro,Level 3-4,Wage/salary worker,21954,157761.94
+Brazil,No agro,Level 1,Employer,901,8688.99
+Brazil,No agro,Level 1,Own account worker,99006,1020628.32
+Brazil,No agro,Level 1,Unpaid worker,10404,92311.93
+Brazil,No agro,Level 1,Wage/salary worker,1253900,11900689.36
+Brazil,No agro,Level 2,Employer,38957,383402.1
+Brazil,No agro,Level 2,Own account worker,825462,8318144.68
+Brazil,No agro,Level 2,Unpaid worker,33754,302232.56
+Brazil,No agro,Level 2,Wage/salary worker,2508228,26014491.580000002
+Brazil,No agro,Level 3-4,Employer,80729,905615.43
+Brazil,No agro,Level 3-4,Own account worker,276208,3232014.27
+Brazil,No agro,Level 3-4,Unpaid worker,4881,54701.02
+Brazil,No agro,Level 3-4,Wage/salary worker,1092642,12027246.68
+Cambodia,Agro,Level 1,Employer,95,1764.2
+Cambodia,Agro,Level 1,Own account worker,1253,15642.22
+Cambodia,Agro,Level 1,Unpaid worker,440,8551.08
+Cambodia,Agro,Level 1,Wage/salary worker,13665,271328.18
+Cambodia,Agro,Level 2,Employer,1276,17047.49
+Cambodia,Agro,Level 2,Own account worker,278384,4818188.22
+Cambodia,Agro,Level 2,Unpaid worker,219753,4724048.03
+Cambodia,Agro,Level 2,Wage/salary worker,3187,49917.87
+Cambodia,Agro,Level 3-4,Employer,26,260
+Cambodia,Agro,Level 3-4,Own account worker,80,1094.17
+Cambodia,Agro,Level 3-4,Unpaid worker,33,330
+Cambodia,Agro,Level 3-4,Wage/salary worker,122,1521.66
+Cambodia,No agro,Level 1,Employer,258,3165.95
+Cambodia,No agro,Level 1,Own account worker,4980,88683.83
+Cambodia,No agro,Level 1,Unpaid worker,987,23135.4
+Cambodia,No agro,Level 1,Wage/salary worker,30985,560782.49
+Cambodia,No agro,Level 2,Employer,2309,33814.79
+Cambodia,No agro,Level 2,Own account worker,98727,1790411.49
+Cambodia,No agro,Level 2,Unpaid worker,22360,479836.98
+Cambodia,No agro,Level 2,Wage/salary worker,177466,2675695.21
+Cambodia,No agro,Level 3-4,Employer,1072,13482.4
+Cambodia,No agro,Level 3-4,Own account worker,6003,126823.81
+Cambodia,No agro,Level 3-4,Unpaid worker,654,7032.95
+Cambodia,No agro,Level 3-4,Wage/salary worker,38008,664813.93
+Canada,Agro,Level 1,Own account worker,14,513.7
+Canada,Agro,Level 1,Unpaid worker,4,175.14000000000001
+Canada,Agro,Level 1,Wage/salary worker,125,4448.29
+Canada,Agro,Level 2,Own account worker,903,32984.61
+Canada,Agro,Level 2,Unpaid worker,191,7016
+Canada,Agro,Level 2,Wage/salary worker,4040,148445.39
+Canada,Agro,Level 3-4,Own account worker,3317,125339.78
+Canada,Agro,Level 3-4,Unpaid worker,175,6103.35
+Canada,Agro,Level 3-4,Wage/salary worker,2171,79729.99
+Canada,No agro,Level 1,Own account worker,2114,76715.07
+Canada,No agro,Level 1,Unpaid worker,57,1962.49
+Canada,No agro,Level 1,Wage/salary worker,20091,731910.39
+Canada,No agro,Level 2,Own account worker,14973,536004.05
+Canada,No agro,Level 2,Unpaid worker,347,12016.9
+Canada,No agro,Level 2,Wage/salary worker,178403,6353554.4300000025
+Canada,No agro,Level 3-4,Own account worker,30026,1043624.19
+Canada,No agro,Level 3-4,Unpaid worker,507,17117.09
+Canada,No agro,Level 3-4,Wage/salary worker,212998,7389491.640000005
+Costa Rica,Agro,Level 1,Employer,195,1950
+Costa Rica,Agro,Level 1,Own account worker,2208,22080
+Costa Rica,Agro,Level 1,Unpaid worker,391,3910
+Costa Rica,Agro,Level 1,Wage/salary worker,8888,88880
+Costa Rica,Agro,Level 2,Employer,727,7270
+Costa Rica,Agro,Level 2,Own account worker,4072,40720
+Costa Rica,Agro,Level 2,Unpaid worker,208,2080
+Costa Rica,Agro,Level 2,Wage/salary worker,2330,23300
+Costa Rica,Agro,Level 3-4,Employer,82,820
+Costa Rica,Agro,Level 3-4,Own account worker,50,500
+Costa Rica,Agro,Level 3-4,Unpaid worker,8,80
+Costa Rica,Agro,Level 3-4,Wage/salary worker,481,4810
+Costa Rica,No agro,Level 1,Employer,199,1990
+Costa Rica,No agro,Level 1,Own account worker,2482,24820
+Costa Rica,No agro,Level 1,Unpaid worker,244,2440
+Costa Rica,No agro,Level 1,Wage/salary worker,16840,168400
+Costa Rica,No agro,Level 2,Employer,5594,55940
+Costa Rica,No agro,Level 2,Own account worker,16322,163220
+Costa Rica,No agro,Level 2,Unpaid worker,579,5790
+Costa Rica,No agro,Level 2,Wage/salary worker,50360,503600
+Costa Rica,No agro,Level 3-4,Employer,3013,30130
+Costa Rica,No agro,Level 3-4,Own account worker,4208,42080
+Costa Rica,No agro,Level 3-4,Unpaid worker,158,1580
+Costa Rica,No agro,Level 3-4,Wage/salary worker,32629,326290
+Dominican Republic,Agro,Level 1,Employer,398,3980
+Dominican Republic,Agro,Level 1,Own account worker,2063,20630
+Dominican Republic,Agro,Level 1,Unpaid worker,435,4350
+Dominican Republic,Agro,Level 1,Wage/salary worker,5752,57520
+Dominican Republic,Agro,Level 2,Employer,1755,17550
+Dominican Republic,Agro,Level 2,Own account worker,6880,68800
+Dominican Republic,Agro,Level 2,Unpaid worker,1085,10850
+Dominican Republic,Agro,Level 2,Wage/salary worker,8804,88040
+Dominican Republic,Agro,Level 3-4,Employer,38,380
+Dominican Republic,Agro,Level 3-4,Own account worker,28,280
+Dominican Republic,Agro,Level 3-4,Unpaid worker,7,70
+Dominican Republic,Agro,Level 3-4,Wage/salary worker,327,3270
+Dominican Republic,No agro,Level 1,Employer,598,5980
+Dominican Republic,No agro,Level 1,Own account worker,3948,39480
+Dominican Republic,No agro,Level 1,Unpaid worker,982,9820
+Dominican Republic,No agro,Level 1,Wage/salary worker,31628,316280
+Dominican Republic,No agro,Level 2,Employer,12707,127070
+Dominican Republic,No agro,Level 2,Own account worker,45155,451550
+Dominican Republic,No agro,Level 2,Unpaid worker,3353,33530
+Dominican Republic,No agro,Level 2,Wage/salary worker,100358,1003580
+Dominican Republic,No agro,Level 3-4,Employer,3172,31720
+Dominican Republic,No agro,Level 3-4,Own account worker,4073,40730
+Dominican Republic,No agro,Level 3-4,Unpaid worker,374,3740
+Dominican Republic,No agro,Level 3-4,Wage/salary worker,35091,350910
+Ecuador,Agro,Level 1,Employer,184,1840
+Ecuador,Agro,Level 1,Own account worker,4589,45890
+Ecuador,Agro,Level 1,Unpaid worker,879,8790
+Ecuador,Agro,Level 1,Wage/salary worker,48937,489370
+Ecuador,Agro,Level 2,Employer,2229,22290
+Ecuador,Agro,Level 2,Own account worker,49837,498370
+Ecuador,Agro,Level 2,Unpaid worker,1459,14590
+Ecuador,Agro,Level 2,Wage/salary worker,15962,159620
+Ecuador,Agro,Level 3-4,Employer,454,4540
+Ecuador,Agro,Level 3-4,Own account worker,69,690
+Ecuador,Agro,Level 3-4,Unpaid worker,4,40
+Ecuador,Agro,Level 3-4,Wage/salary worker,1187,11870
+Ecuador,No agro,Level 1,Employer,883,8830
+Ecuador,No agro,Level 1,Own account worker,14388,143880
+Ecuador,No agro,Level 1,Unpaid worker,997,9970
+Ecuador,No agro,Level 1,Wage/salary worker,48825,488250
+Ecuador,No agro,Level 2,Employer,13257,132570
+Ecuador,No agro,Level 2,Own account worker,83415,834150
+Ecuador,No agro,Level 2,Unpaid worker,4050,40500
+Ecuador,No agro,Level 2,Wage/salary worker,155428,1554280
+Ecuador,No agro,Level 3-4,Employer,6424,64240
+Ecuador,No agro,Level 3-4,Own account worker,6134,61340
+Ecuador,No agro,Level 3-4,Unpaid worker,461,4610
+Ecuador,No agro,Level 3-4,Wage/salary worker,67857,678570
+Fiji,Agro,Level 1,Employer,3,30
+Fiji,Agro,Level 1,Own account worker,327,3270
+Fiji,Agro,Level 1,Unpaid worker,16,160
+Fiji,Agro,Level 1,Wage/salary worker,477,4770
+Fiji,Agro,Level 2,Employer,66,660
+Fiji,Agro,Level 2,Own account worker,12292,122920
+Fiji,Agro,Level 2,Unpaid worker,24,240
+Fiji,Agro,Level 2,Wage/salary worker,509,5090
+Fiji,Agro,Level 3-4,Employer,11,110
+Fiji,Agro,Level 3-4,Own account worker,19,190
+Fiji,Agro,Level 3-4,Wage/salary worker,90,900
+Fiji,No agro,Level 1,Employer,8,80
+Fiji,No agro,Level 1,Own account worker,646,6460
+Fiji,No agro,Level 1,Unpaid worker,23,230
+Fiji,No agro,Level 1,Wage/salary worker,1842,18420
+Fiji,No agro,Level 2,Employer,49,490
+Fiji,No agro,Level 2,Own account worker,1771,17710
+Fiji,No agro,Level 2,Unpaid worker,11,110
+Fiji,No agro,Level 2,Wage/salary worker,8855,88550
+Fiji,No agro,Level 3-4,Employer,258,2580
+Fiji,No agro,Level 3-4,Own account worker,604,6040
+Fiji,No agro,Level 3-4,Unpaid worker,14,140
+Fiji,No agro,Level 3-4,Wage/salary worker,5814,58140
+Finland,Agro,Level 1,Wage/salary worker,52,1040
+Finland,Agro,Level 2,Own account worker,2703,54060
+Finland,Agro,Level 2,Wage/salary worker,1037,20740
+Finland,Agro,Level 3-4,Own account worker,43,860
+Finland,Agro,Level 3-4,Wage/salary worker,287,5740
+Finland,No agro,Level 1,Own account worker,3,60
+Finland,No agro,Level 1,Wage/salary worker,7478,149560
+Finland,No agro,Level 2,Own account worker,4692,93840
+Finland,No agro,Level 2,Wage/salary worker,48972,979440
+Finland,No agro,Level 3-4,Own account worker,3176,63520
+Finland,No agro,Level 3-4,Wage/salary worker,41605,832100
+France,Agro,Level 1,Wage/salary worker,4368,16134.33
+France,Agro,Level 2,Employer,32585,125562.23999999999
+France,Agro,Level 2,Own account worker,79984,306591.78
+France,Agro,Level 2,Unpaid worker,3126,11992.77
+France,Agro,Level 2,Wage/salary worker,66441,243867.34
+France,Agro,Level 3-4,Employer,1202,4467.95
+France,Agro,Level 3-4,Own account worker,1182,4371.79
+France,Agro,Level 3-4,Unpaid worker,53,201.2
+France,Agro,Level 3-4,Wage/salary worker,11231,40161.41
+France,No agro,Level 1,Wage/salary worker,707915,2278848.7099999995
+France,No agro,Level 2,Employer,177095,585831.26
+France,No agro,Level 2,Own account worker,218409,715202.05
+France,No agro,Level 2,Unpaid worker,6601,22390.47
+France,No agro,Level 2,Wage/salary worker,3769432,11944773.270000007
+France,No agro,Level 3-4,Employer,164860,523563.44
+France,No agro,Level 3-4,Own account worker,215865,663938.36
+France,No agro,Level 3-4,Unpaid worker,2481,7805.65
+France,No agro,Level 3-4,Wage/salary worker,2948782,9020170.72
+Ghana,Agro,Level 1,Employer,48,480
+Ghana,Agro,Level 1,Own account worker,1130,11300
+Ghana,Agro,Level 1,Unpaid worker,1254,12540
+Ghana,Agro,Level 1,Wage/salary worker,2360,23600
+Ghana,Agro,Level 2,Employer,12393,123930
+Ghana,Agro,Level 2,Own account worker,293259,2932590
+Ghana,Agro,Level 2,Unpaid worker,154692,1546920
+Ghana,Agro,Level 2,Wage/salary worker,20389,203890
+Ghana,Agro,Level 3-4,Employer,91,910
+Ghana,Agro,Level 3-4,Own account worker,325,3250
+Ghana,Agro,Level 3-4,Unpaid worker,47,470
+Ghana,Agro,Level 3-4,Wage/salary worker,813,8130
+Ghana,No agro,Level 1,Employer,1275,12750
+Ghana,No agro,Level 1,Own account worker,37640,376400
+Ghana,No agro,Level 1,Unpaid worker,4127,41270
+Ghana,No agro,Level 1,Wage/salary worker,15658,156580
+Ghana,No agro,Level 2,Employer,28981,289810
+Ghana,No agro,Level 2,Own account worker,268277,2682770
+Ghana,No agro,Level 2,Unpaid worker,52120,521200
+Ghana,No agro,Level 2,Wage/salary worker,98550,985500
+Ghana,No agro,Level 3-4,Employer,7478,74780
+Ghana,No agro,Level 3-4,Own account worker,17150,171500
+Ghana,No agro,Level 3-4,Unpaid worker,1527,15270
+Ghana,No agro,Level 3-4,Wage/salary worker,70634,706340
+Greece,Agro,Level 1,Own account worker,4,40
+Greece,Agro,Level 1,Unpaid worker,97,970
+Greece,Agro,Level 1,Wage/salary worker,5075,50750
+Greece,Agro,Level 2,Employer,1921,19210
+Greece,Agro,Level 2,Own account worker,23135,231350
+Greece,Agro,Level 2,Unpaid worker,1232,12320
+Greece,Agro,Level 2,Wage/salary worker,4031,40310
+Greece,Agro,Level 3-4,Employer,34,340
+Greece,Agro,Level 3-4,Own account worker,68,680
+Greece,Agro,Level 3-4,Unpaid worker,5,50
+Greece,Agro,Level 3-4,Wage/salary worker,257,2570
+Greece,No agro,Level 1,Employer,530,5300
+Greece,No agro,Level 1,Own account worker,2160,21600
+Greece,No agro,Level 1,Unpaid worker,300,3000
+Greece,No agro,Level 1,Wage/salary worker,25901,259010
+Greece,No agro,Level 2,Employer,12657,126570
+Greece,No agro,Level 2,Own account worker,33605,336050
+Greece,No agro,Level 2,Unpaid worker,2438,24380
+Greece,No agro,Level 2,Wage/salary worker,131579,1315790
+Greece,No agro,Level 3-4,Employer,12119,121190
+Greece,No agro,Level 3-4,Own account worker,23767,237670
+Greece,No agro,Level 3-4,Unpaid worker,627,6270
+Greece,No agro,Level 3-4,Wage/salary worker,83267,832670
+Guinea,Agro,Level 1,Employer,4,40
+Guinea,Agro,Level 1,Own account worker,73,730
+Guinea,Agro,Level 1,Unpaid worker,54,540
+Guinea,Agro,Level 1,Wage/salary worker,14,140
+Guinea,Agro,Level 2,Employer,781,7810
+Guinea,Agro,Level 2,Own account worker,165221,1652210
+Guinea,Agro,Level 2,Unpaid worker,59438,594380
+Guinea,Agro,Level 2,Wage/salary worker,3058,30580
+Guinea,Agro,Level 3-4,Employer,8,80
+Guinea,Agro,Level 3-4,Own account worker,194,1940
+Guinea,Agro,Level 3-4,Unpaid worker,63,630
+Guinea,Agro,Level 3-4,Wage/salary worker,102,1020
+Guinea,No agro,Level 1,Employer,72,720
+Guinea,No agro,Level 1,Own account worker,2958,29580
+Guinea,No agro,Level 1,Unpaid worker,515,5150
+Guinea,No agro,Level 1,Wage/salary worker,1230,12300
+Guinea,No agro,Level 2,Employer,1548,15480
+Guinea,No agro,Level 2,Own account worker,116733,1167330
+Guinea,No agro,Level 2,Unpaid worker,27742,277420
+Guinea,No agro,Level 2,Wage/salary worker,14448,144480
+Guinea,No agro,Level 3-4,Employer,157,1570
+Guinea,No agro,Level 3-4,Own account worker,3973,39730
+Guinea,No agro,Level 3-4,Unpaid worker,426,4260
+Guinea,No agro,Level 3-4,Wage/salary worker,5557,55570
+Honduras,Agro,Level 1,Employer,154,1625.57
+Honduras,Agro,Level 1,Own account worker,2244,23504.77
+Honduras,Agro,Level 1,Unpaid worker,4701,48521.86
+Honduras,Agro,Level 1,Wage/salary worker,8542,90346.98
+Honduras,Agro,Level 2,Employer,122,1357.23
+Honduras,Agro,Level 2,Own account worker,45234,471795.45
+Honduras,Agro,Level 2,Unpaid worker,10891,114219.36
+Honduras,Agro,Level 2,Wage/salary worker,22697,244708.75
+Honduras,Agro,Level 3-4,Employer,49,554
+Honduras,Agro,Level 3-4,Own account worker,72,822.22
+Honduras,Agro,Level 3-4,Unpaid worker,5,52.17
+Honduras,Agro,Level 3-4,Wage/salary worker,1264,14161.02
+Honduras,No agro,Level 1,Employer,136,1471.35
+Honduras,No agro,Level 1,Own account worker,1390,15194.42
+Honduras,No agro,Level 1,Unpaid worker,271,2949.34
+Honduras,No agro,Level 1,Wage/salary worker,13240,146713.81
+Honduras,No agro,Level 2,Employer,2471,27322.87
+Honduras,No agro,Level 2,Own account worker,22997,253649.92
+Honduras,No agro,Level 2,Unpaid worker,1437,15864.72
+Honduras,No agro,Level 2,Wage/salary worker,42657,473722.44
+Honduras,No agro,Level 3-4,Employer,793,9134.74
+Honduras,No agro,Level 3-4,Own account worker,3454,39545.19
+Honduras,No agro,Level 3-4,Unpaid worker,87,977.72
+Honduras,No agro,Level 3-4,Wage/salary worker,20621,233211.97
+Hungary,Agro,Level 1,Own account worker,81,1620
+Hungary,Agro,Level 1,Unpaid worker,9,180
+Hungary,Agro,Level 1,Wage/salary worker,964,19280
+Hungary,Agro,Level 2,Own account worker,2867,57340
+Hungary,Agro,Level 2,Unpaid worker,181,3620
+Hungary,Agro,Level 2,Wage/salary worker,3806,76120
+Hungary,Agro,Level 3-4,Own account worker,200,4000
+Hungary,Agro,Level 3-4,Unpaid worker,2,40
+Hungary,Agro,Level 3-4,Wage/salary worker,746,14920
+Hungary,No agro,Level 1,Own account worker,360,7200
+Hungary,No agro,Level 1,Unpaid worker,59,1180
+Hungary,No agro,Level 1,Wage/salary worker,16608,332160
+Hungary,No agro,Level 2,Own account worker,11704,234080
+Hungary,No agro,Level 2,Unpaid worker,248,4960
+Hungary,No agro,Level 2,Wage/salary worker,87489,1749780
+Hungary,No agro,Level 3-4,Own account worker,9559,191180
+Hungary,No agro,Level 3-4,Unpaid worker,59,1180
+Hungary,No agro,Level 3-4,Wage/salary worker,61617,1232340
+Iran,Agro,Level 1,Employer,64,3193.7999999999997
+Iran,Agro,Level 1,Own account worker,1365,68087.04
+Iran,Agro,Level 1,Unpaid worker,391,19414.54
+Iran,Agro,Level 1,Wage/salary worker,4130,206436.72
+Iran,Agro,Level 2,Employer,1553,77636.88
+Iran,Agro,Level 2,Own account worker,47188,2355412.68
+Iran,Agro,Level 2,Unpaid worker,14894,742578.0599999999
+Iran,Agro,Level 2,Wage/salary worker,4332,216239.78
+Iran,Agro,Level 3-4,Employer,62,3098.25
+Iran,Agro,Level 3-4,Own account worker,124,6209.61
+Iran,Agro,Level 3-4,Unpaid worker,2,98.6
+Iran,Agro,Level 3-4,Wage/salary worker,367,18320.39
+Iran,No agro,Level 1,Employer,681,34020.09
+Iran,No agro,Level 1,Own account worker,3911,195255.99
+Iran,No agro,Level 1,Unpaid worker,126,6277.8
+Iran,No agro,Level 1,Wage/salary worker,37741,1885530.0599999998
+Iran,No agro,Level 2,Employer,8581,429050.41
+Iran,No agro,Level 2,Own account worker,70512,3524380.4600000014
+Iran,No agro,Level 2,Unpaid worker,1290,64672.77
+Iran,No agro,Level 2,Wage/salary worker,83491,4172899.2600000016
+Iran,No agro,Level 3-4,Employer,3755,187757.49
+Iran,No agro,Level 3-4,Own account worker,6531,326429.75
+Iran,No agro,Level 3-4,Unpaid worker,66,3296.49
+Iran,No agro,Level 3-4,Wage/salary worker,56124,2805521.0300000007
+Ireland,Agro,Level 1,Employer,21,210
+Ireland,Agro,Level 1,Own account worker,51,510
+Ireland,Agro,Level 1,Unpaid worker,24,240
+Ireland,Agro,Level 1,Wage/salary worker,534,5340
+Ireland,Agro,Level 2,Employer,911,9110
+Ireland,Agro,Level 2,Own account worker,5510,55100
+Ireland,Agro,Level 2,Unpaid worker,143,1430
+Ireland,Agro,Level 2,Wage/salary worker,1220,12200
+Ireland,Agro,Level 3-4,Employer,46,460
+Ireland,Agro,Level 3-4,Own account worker,47,470
+Ireland,Agro,Level 3-4,Unpaid worker,1,10
+Ireland,Agro,Level 3-4,Wage/salary worker,179,1790
+Ireland,No agro,Level 1,Employer,255,2550
+Ireland,No agro,Level 1,Own account worker,387,3870
+Ireland,No agro,Level 1,Unpaid worker,33,330
+Ireland,No agro,Level 1,Wage/salary worker,13498,134980
+Ireland,No agro,Level 2,Employer,3065,30650
+Ireland,No agro,Level 2,Own account worker,6248,62480
+Ireland,No agro,Level 2,Unpaid worker,185,1850
+Ireland,No agro,Level 2,Wage/salary worker,66838,668380
+Ireland,No agro,Level 3-4,Employer,5979,59790
+Ireland,No agro,Level 3-4,Own account worker,5688,56880
+Ireland,No agro,Level 3-4,Unpaid worker,87,870
+Ireland,No agro,Level 3-4,Wage/salary worker,57293,572930
+Italy,Agro,Level 1,Employer,295,5900
+Italy,Agro,Level 1,Own account worker,2262,45240
+Italy,Agro,Level 1,Unpaid worker,692,13840
+Italy,Agro,Level 1,Wage/salary worker,31877,637540
+Italy,Agro,Level 2,Employer,1772,35440
+Italy,Agro,Level 2,Own account worker,11756,235120
+Italy,Agro,Level 2,Unpaid worker,3063,61260
+Italy,Agro,Level 2,Wage/salary worker,8379,167580
+Italy,Agro,Level 3-4,Employer,3909,78180
+Italy,Agro,Level 3-4,Own account worker,731,14620
+Italy,Agro,Level 3-4,Wage/salary worker,2122,42440
+Italy,No agro,Level 1,Employer,678,13560
+Italy,No agro,Level 1,Own account worker,3109,62180
+Italy,No agro,Level 1,Unpaid worker,3968,79360
+Italy,No agro,Level 1,Wage/salary worker,149707,2994140
+Italy,No agro,Level 2,Employer,24804,496080
+Italy,No agro,Level 2,Own account worker,80611,1612220
+Italy,No agro,Level 2,Unpaid worker,12176,243520
+Italy,No agro,Level 2,Wage/salary worker,440217,8804340
+Italy,No agro,Level 3-4,Employer,47668,953360
+Italy,No agro,Level 3-4,Own account worker,64195,1283900
+Italy,No agro,Level 3-4,Wage/salary worker,237978,4759560
+Kenya,Agro,Level 1,Employer,3701,37010
+Kenya,Agro,Level 1,Own account worker,26502,265020
+Kenya,Agro,Level 1,Unpaid worker,45909,459090
+Kenya,Agro,Level 1,Wage/salary worker,68808,688080
+Kenya,Agro,Level 2,Employer,30229,302290
+Kenya,Agro,Level 2,Own account worker,234654,2346540
+Kenya,Agro,Level 2,Unpaid worker,311728,3117280
+Kenya,Agro,Level 2,Wage/salary worker,398826,3988260
+Kenya,Agro,Level 3-4,Employer,1637,16370
+Kenya,Agro,Level 3-4,Own account worker,7186,71860
+Kenya,Agro,Level 3-4,Unpaid worker,9893,98930
+Kenya,Agro,Level 3-4,Wage/salary worker,21586,215860
+Kenya,No agro,Level 1,Employer,6671,66710
+Kenya,No agro,Level 1,Own account worker,28613,286130
+Kenya,No agro,Level 1,Unpaid worker,15067,150670
+Kenya,No agro,Level 1,Wage/salary worker,119378,1193780
+Kenya,No agro,Level 2,Employer,14985,149850
+Kenya,No agro,Level 2,Own account worker,61033,610330
+Kenya,No agro,Level 2,Unpaid worker,31670,316700
+Kenya,No agro,Level 2,Wage/salary worker,215067,2150670
+Kenya,No agro,Level 3-4,Employer,18890,188900
+Kenya,No agro,Level 3-4,Own account worker,68570,685700
+Kenya,No agro,Level 3-4,Unpaid worker,35619,356190
+Kenya,No agro,Level 3-4,Wage/salary worker,149304,1493040
+Malawi,Agro,Level 1,Employer,593,5930
+Malawi,Agro,Level 1,Own account worker,103469,1034690
+Malawi,Agro,Level 1,Unpaid worker,37815,378150
+Malawi,Agro,Level 1,Wage/salary worker,5418,54180
+Malawi,Agro,Level 2,Employer,1519,15190
+Malawi,Agro,Level 2,Own account worker,224158,2241580
+Malawi,Agro,Level 2,Unpaid worker,66631,666310
+Malawi,Agro,Level 2,Wage/salary worker,5179,51790
+Malawi,Agro,Level 3-4,Employer,226,2260
+Malawi,Agro,Level 3-4,Own account worker,6593,65930
+Malawi,Agro,Level 3-4,Unpaid worker,569,5690
+Malawi,Agro,Level 3-4,Wage/salary worker,1203,12030
+Malawi,No agro,Level 1,Employer,1046,10460
+Malawi,No agro,Level 1,Own account worker,10524,105240
+Malawi,No agro,Level 1,Unpaid worker,1739,17390
+Malawi,No agro,Level 1,Wage/salary worker,13150,131500
+Malawi,No agro,Level 2,Employer,1873,18730
+Malawi,No agro,Level 2,Own account worker,20785,207850
+Malawi,No agro,Level 2,Unpaid worker,2605,26050
+Malawi,No agro,Level 2,Wage/salary worker,15602,156020
+Malawi,No agro,Level 3-4,Employer,979,9790
+Malawi,No agro,Level 3-4,Own account worker,1388,13880
+Malawi,No agro,Level 3-4,Unpaid worker,90,900
+Malawi,No agro,Level 3-4,Wage/salary worker,15315,153150
+Mauritius,Agro,Level 1,Employer,48,480
+Mauritius,Agro,Level 1,Own account worker,198,1980
+Mauritius,Agro,Level 1,Unpaid worker,26,260
+Mauritius,Agro,Level 1,Wage/salary worker,1375,13750
+Mauritius,Agro,Level 2,Employer,140,1400
+Mauritius,Agro,Level 2,Own account worker,960,9600
+Mauritius,Agro,Level 2,Unpaid worker,69,690
+Mauritius,Agro,Level 2,Wage/salary worker,674,6740
+Mauritius,Agro,Level 3-4,Employer,8,80
+Mauritius,Agro,Level 3-4,Own account worker,4,40
+Mauritius,Agro,Level 3-4,Wage/salary worker,105,1050
+Mauritius,No agro,Level 1,Employer,51,510
+Mauritius,No agro,Level 1,Own account worker,275,2750
+Mauritius,No agro,Level 1,Unpaid worker,46,460
+Mauritius,No agro,Level 1,Wage/salary worker,6322,63220
+Mauritius,No agro,Level 2,Employer,1086,10860
+Mauritius,No agro,Level 2,Own account worker,4535,45350
+Mauritius,No agro,Level 2,Unpaid worker,474,4740
+Mauritius,No agro,Level 2,Wage/salary worker,23365,233650
+Mauritius,No agro,Level 3-4,Employer,896,8960
+Mauritius,No agro,Level 3-4,Own account worker,708,7080
+Mauritius,No agro,Level 3-4,Unpaid worker,140,1400
+Mauritius,No agro,Level 3-4,Wage/salary worker,10392,103920
+Mexico,Agro,Level 1,Employer,1069,6798
+Mexico,Agro,Level 1,Own account worker,29483,151863
+Mexico,Agro,Level 1,Unpaid worker,32876,148997
+Mexico,Agro,Level 1,Wage/salary worker,184996,1308504
+Mexico,Agro,Level 2,Employer,32359,220668
+Mexico,Agro,Level 2,Own account worker,767893,3179697
+Mexico,Agro,Level 2,Unpaid worker,409301,1501702
+Mexico,Agro,Level 2,Wage/salary worker,643796,3943522
+Mexico,Agro,Level 3-4,Employer,860,10673
+Mexico,Agro,Level 3-4,Own account worker,1658,18247
+Mexico,Agro,Level 3-4,Unpaid worker,284,1706
+Mexico,Agro,Level 3-4,Wage/salary worker,7970,86608
+Mexico,No agro,Level 1,Employer,12607,181012
+Mexico,No agro,Level 1,Own account worker,230094,3078899
+Mexico,No agro,Level 1,Unpaid worker,20789,200014
+Mexico,No agro,Level 1,Wage/salary worker,771016,9114740
+Mexico,No agro,Level 2,Employer,118660,1622053
+Mexico,No agro,Level 2,Own account worker,924836,10887132
+Mexico,No agro,Level 2,Unpaid worker,79890,668617
+Mexico,No agro,Level 2,Wage/salary worker,2400311,34454553
+Mexico,No agro,Level 3-4,Employer,29319,586812
+Mexico,No agro,Level 3-4,Own account worker,92614,1732219
+Mexico,No agro,Level 3-4,Unpaid worker,5266,71032
+Mexico,No agro,Level 3-4,Wage/salary worker,716945,11918889
+Mongolia,Agro,Level 1,Employer,2,19.700000000000003
+Mongolia,Agro,Level 1,Own account worker,36,359.1
+Mongolia,Agro,Level 1,Unpaid worker,9,90.1
+Mongolia,Agro,Level 1,Wage/salary worker,111,1107.6
+Mongolia,Agro,Level 2,Employer,146,1461.5
+Mongolia,Agro,Level 2,Own account worker,11667,117616.1
+Mongolia,Agro,Level 2,Unpaid worker,10650,107409
+Mongolia,Agro,Level 2,Wage/salary worker,713,7130
+Mongolia,Agro,Level 3-4,Employer,65,646.1
+Mongolia,Agro,Level 3-4,Own account worker,26,258.9
+Mongolia,Agro,Level 3-4,Unpaid worker,7,70
+Mongolia,Agro,Level 3-4,Wage/salary worker,125,1243.4
+Mongolia,No agro,Level 1,Employer,25,248.9
+Mongolia,No agro,Level 1,Own account worker,709,7054.8
+Mongolia,No agro,Level 1,Unpaid worker,57,569.5
+Mongolia,No agro,Level 1,Wage/salary worker,5914,58609.200000000004
+Mongolia,No agro,Level 2,Employer,249,2467.4
+Mongolia,No agro,Level 2,Own account worker,11376,112742.59999999999
+Mongolia,No agro,Level 2,Unpaid worker,706,7018.7
+Mongolia,No agro,Level 2,Wage/salary worker,20428,201811.4
+Mongolia,No agro,Level 3-4,Employer,1901,18840.100000000002
+Mongolia,No agro,Level 3-4,Own account worker,1558,15459.7
+Mongolia,No agro,Level 3-4,Unpaid worker,150,1488
+Mongolia,No agro,Level 3-4,Wage/salary worker,23062,228870.3
+Morocco,Agro,Level 1,Employer,44,440
+Morocco,Agro,Level 1,Own account worker,2748,27480
+Morocco,Agro,Level 1,Unpaid worker,53719,537190
+Morocco,Agro,Level 1,Wage/salary worker,66401,664010
+Morocco,Agro,Level 2,Employer,7507,75070
+Morocco,Agro,Level 2,Own account worker,91305,913050
+Morocco,Agro,Level 2,Unpaid worker,251,2510
+Morocco,Agro,Level 2,Wage/salary worker,2604,26040
+Morocco,Agro,Level 3-4,Employer,704,7040
+Morocco,Agro,Level 3-4,Own account worker,48,480
+Morocco,Agro,Level 3-4,Unpaid worker,6,60
+Morocco,Agro,Level 3-4,Wage/salary worker,694,6940
+Morocco,No agro,Level 1,Employer,2772,27720
+Morocco,No agro,Level 1,Own account worker,36793,367930
+Morocco,No agro,Level 1,Unpaid worker,10131,101310
+Morocco,No agro,Level 1,Wage/salary worker,104518,1045180
+Morocco,No agro,Level 2,Employer,22008,220080
+Morocco,No agro,Level 2,Own account worker,151511,1515110
+Morocco,No agro,Level 2,Unpaid worker,6691,66910
+Morocco,No agro,Level 2,Wage/salary worker,264490,2644900
+Morocco,No agro,Level 3-4,Employer,8550,85500
+Morocco,No agro,Level 3-4,Own account worker,4944,49440
+Morocco,No agro,Level 3-4,Unpaid worker,154,1540
+Morocco,No agro,Level 3-4,Wage/salary worker,78657,786570
+Nepal,Agro,Level 1,Employer,469,3798.8999999999996
+Nepal,Agro,Level 1,Own account worker,4880,39528
+Nepal,Agro,Level 1,Unpaid worker,273,2211.2999999999997
+Nepal,Agro,Level 1,Wage/salary worker,43305,350770.4999999999
+Nepal,Agro,Level 2,Employer,12847,104060.70000000001
+Nepal,Agro,Level 2,Own account worker,652856,5288133.599999968
+Nepal,Agro,Level 2,Unpaid worker,10636,86151.6
+Nepal,Agro,Level 2,Wage/salary worker,31568,255700.79999999993
+Nepal,Agro,Level 3-4,Employer,181,1466.1
+Nepal,Agro,Level 3-4,Own account worker,623,5046.3
+Nepal,Agro,Level 3-4,Unpaid worker,15,121.5
+Nepal,Agro,Level 3-4,Wage/salary worker,538,4357.8
+Nepal,No agro,Level 1,Employer,848,6868.799999999999
+Nepal,No agro,Level 1,Own account worker,16547,134030.7
+Nepal,No agro,Level 1,Unpaid worker,884,7160.4
+Nepal,No agro,Level 1,Wage/salary worker,43965,356116.4999999999
+Nepal,No agro,Level 2,Employer,6488,52552.8
+Nepal,No agro,Level 2,Own account worker,105495,854509.5000000007
+Nepal,No agro,Level 2,Unpaid worker,2886,23376.6
+Nepal,No agro,Level 2,Wage/salary worker,124542,1008790.2000000011
+Nepal,No agro,Level 3-4,Employer,4084,33080.4
+Nepal,No agro,Level 3-4,Own account worker,15206,123168.60000000002
+Nepal,No agro,Level 3-4,Unpaid worker,673,5451.3
+Nepal,No agro,Level 3-4,Wage/salary worker,65596,531327.5999999997
+Netherlands,Agro,Level 1,Own account worker,24,591.68
+Netherlands,Agro,Level 1,Wage/salary worker,265,8067.87
+Netherlands,Agro,Level 2,Own account worker,2169,78169.85
+Netherlands,Agro,Level 2,Wage/salary worker,1785,58511.53
+Netherlands,Agro,Level 3-4,Own account worker,100,3553.97
+Netherlands,Agro,Level 3-4,Wage/salary worker,270,9384.45
+Netherlands,No agro,Level 1,Own account worker,572,20341.41
+Netherlands,No agro,Level 1,Wage/salary worker,15453,511739.83
+Netherlands,No agro,Level 2,Own account worker,11553,455489.96
+Netherlands,No agro,Level 2,Wage/salary worker,99609,3420800.71
+Netherlands,No agro,Level 3-4,Own account worker,9916,408542.27
+Netherlands,No agro,Level 3-4,Wage/salary worker,90639,3184243.13
+Palestine,Agro,Level 1,Employer,5,49.730000000000004
+Palestine,Agro,Level 1,Own account worker,60,598.71
+Palestine,Agro,Level 1,Unpaid worker,51,510.93
+Palestine,Agro,Level 1,Wage/salary worker,2211,22110.56
+Palestine,Agro,Level 2,Employer,30,300.27
+Palestine,Agro,Level 2,Own account worker,930,9300.75
+Palestine,Agro,Level 2,Unpaid worker,372,3705.04
+Palestine,Agro,Level 2,Wage/salary worker,60,600.21
+Palestine,Agro,Level 3-4,Employer,364,3630.43
+Palestine,Agro,Level 3-4,Own account worker,14,139.81
+Palestine,Agro,Level 3-4,Wage/salary worker,12,119.85
+Palestine,No agro,Level 1,Employer,85,849.11
+Palestine,No agro,Level 1,Own account worker,657,6569.19
+Palestine,No agro,Level 1,Unpaid worker,242,2419.06
+Palestine,No agro,Level 1,Wage/salary worker,12501,125004.08
+Palestine,No agro,Level 2,Employer,3513,35142.99
+Palestine,No agro,Level 2,Own account worker,10498,104976.18000000001
+Palestine,No agro,Level 2,Unpaid worker,1107,11069.15
+Palestine,No agro,Level 2,Wage/salary worker,23565,235690.8
+Palestine,No agro,Level 3-4,Employer,3510,35102.1
+Palestine,No agro,Level 3-4,Own account worker,1331,13305.84
+Palestine,No agro,Level 3-4,Unpaid worker,82,818.11
+Palestine,No agro,Level 3-4,Wage/salary worker,25252,252472.69
+Panama,Agro,Level 1,Employer,35,350
+Panama,Agro,Level 1,Own account worker,1103,11030
+Panama,Agro,Level 1,Unpaid worker,100,1000
+Panama,Agro,Level 1,Wage/salary worker,5325,53250
+Panama,Agro,Level 2,Employer,216,2160
+Panama,Agro,Level 2,Own account worker,8036,80360
+Panama,Agro,Level 2,Unpaid worker,991,9910
+Panama,Agro,Level 2,Wage/salary worker,677,6770
+Panama,Agro,Level 3-4,Employer,78,780
+Panama,Agro,Level 3-4,Own account worker,61,610
+Panama,Agro,Level 3-4,Unpaid worker,4,40
+Panama,Agro,Level 3-4,Wage/salary worker,368,3680
+Panama,No agro,Level 1,Employer,41,410
+Panama,No agro,Level 1,Own account worker,4321,43210
+Panama,No agro,Level 1,Unpaid worker,44,440
+Panama,No agro,Level 1,Wage/salary worker,17193,171930
+Panama,No agro,Level 2,Employer,653,6530
+Panama,No agro,Level 2,Own account worker,15359,153590
+Panama,No agro,Level 2,Unpaid worker,199,1990
+Panama,No agro,Level 2,Wage/salary worker,41943,419430
+Panama,No agro,Level 3-4,Employer,494,4940
+Panama,No agro,Level 3-4,Own account worker,2182,21820
+Panama,No agro,Level 3-4,Unpaid worker,17,170
+Panama,No agro,Level 3-4,Wage/salary worker,29498,294980
+Peru,Agro,Level 1,Own account worker,51,483.99
+Peru,Agro,Level 1,Unpaid worker,3089,29314.61
+Peru,Agro,Level 1,Wage/salary worker,79783,757140.6700000004
+Peru,Agro,Level 2,Employer,6891,65395.59000000001
+Peru,Agro,Level 2,Own account worker,142312,1350540.880000001
+Peru,Agro,Level 2,Unpaid worker,50,474.5
+Peru,Agro,Level 2,Wage/salary worker,2134,20251.66
+Peru,Agro,Level 3-4,Employer,188,1784.1200000000001
+Peru,Agro,Level 3-4,Own account worker,290,2752.1
+Peru,Agro,Level 3-4,Unpaid worker,12,113.88
+Peru,Agro,Level 3-4,Wage/salary worker,1486,14102.14
+Peru,No agro,Level 1,Employer,1918,18201.82
+Peru,No agro,Level 1,Own account worker,52451,497759.99000000017
+Peru,No agro,Level 1,Unpaid worker,3886,36878.14
+Peru,No agro,Level 1,Wage/salary worker,100633,955007.1700000006
+Peru,No agro,Level 2,Employer,26344,250004.55999999997
+Peru,No agro,Level 2,Own account worker,245551,2330278.990000002
+Peru,No agro,Level 2,Unpaid worker,17600,167024
+Peru,No agro,Level 2,Wage/salary worker,288391,2736830.590000002
+Peru,No agro,Level 3-4,Employer,16522,156793.78
+Peru,No agro,Level 3-4,Own account worker,41543,394243.07000000007
+Peru,No agro,Level 3-4,Unpaid worker,1444,13703.56
+Peru,No agro,Level 3-4,Wage/salary worker,189098,1794540.0200000014
+Portugal,Agro,Level 1,Employer,51,1020
+Portugal,Agro,Level 1,Own account worker,83,1660
+Portugal,Agro,Level 1,Unpaid worker,20,400
+Portugal,Agro,Level 1,Wage/salary worker,993,19860
+Portugal,Agro,Level 2,Employer,304,6080
+Portugal,Agro,Level 2,Own account worker,1458,29160
+Portugal,Agro,Level 2,Unpaid worker,304,6080
+Portugal,Agro,Level 2,Wage/salary worker,2384,47680
+Portugal,Agro,Level 3-4,Employer,876,17520
+Portugal,Agro,Level 3-4,Own account worker,8,160
+Portugal,Agro,Level 3-4,Wage/salary worker,281,5620
+Portugal,No agro,Level 1,Employer,864,17280
+Portugal,No agro,Level 1,Own account worker,1750,35000
+Portugal,No agro,Level 1,Unpaid worker,366,7320
+Portugal,No agro,Level 1,Wage/salary worker,24533,490660
+Portugal,No agro,Level 2,Employer,6964,139280
+Portugal,No agro,Level 2,Own account worker,8476,169520
+Portugal,No agro,Level 2,Unpaid worker,437,8740
+Portugal,No agro,Level 2,Wage/salary worker,94382,1887640
+Portugal,No agro,Level 3-4,Employer,13968,279360
+Portugal,No agro,Level 3-4,Own account worker,2827,56540
+Portugal,No agro,Level 3-4,Unpaid worker,26,520
+Portugal,No agro,Level 3-4,Wage/salary worker,52954,1059080
+Puerto Rico,Agro,Level 1,Wage/salary worker,4,219
+Puerto Rico,Agro,Level 2,Own account worker,29,1230
+Puerto Rico,Agro,Level 2,Unpaid worker,9,227
+Puerto Rico,Agro,Level 2,Wage/salary worker,438,16164
+Puerto Rico,Agro,Level 3-4,Own account worker,174,5901
+Puerto Rico,Agro,Level 3-4,Wage/salary worker,36,1739
+Puerto Rico,No agro,Level 1,Own account worker,329,13832
+Puerto Rico,No agro,Level 1,Unpaid worker,2,54
+Puerto Rico,No agro,Level 1,Wage/salary worker,1418,58870
+Puerto Rico,No agro,Level 2,Own account worker,4067,157933
+Puerto Rico,No agro,Level 2,Unpaid worker,64,2450
+Puerto Rico,No agro,Level 2,Wage/salary worker,30825,1221518
+Puerto Rico,No agro,Level 3-4,Own account worker,2192,77254
+Puerto Rico,No agro,Level 3-4,Unpaid worker,25,710
+Puerto Rico,No agro,Level 3-4,Wage/salary worker,17110,630799
+Romania,Agro,Level 1,Own account worker,14574,145740
+Romania,Agro,Level 1,Unpaid worker,12650,126500
+Romania,Agro,Level 1,Wage/salary worker,4335,43350
+Romania,Agro,Level 2,Own account worker,108189,1081890
+Romania,Agro,Level 2,Unpaid worker,85799,857990
+Romania,Agro,Level 2,Wage/salary worker,11299,112990
+Romania,Agro,Level 3-4,Own account worker,401,4010
+Romania,Agro,Level 3-4,Wage/salary worker,3700,37000
+Romania,No agro,Level 1,Own account worker,5752,57520
+Romania,No agro,Level 1,Unpaid worker,561,5610
+Romania,No agro,Level 1,Wage/salary worker,48957,489570
+Romania,No agro,Level 2,Own account worker,16855,168550
+Romania,No agro,Level 2,Unpaid worker,1715,17150
+Romania,No agro,Level 2,Wage/salary worker,316724,3167240
+Romania,No agro,Level 3-4,Own account worker,9498,94980
+Romania,No agro,Level 3-4,Unpaid worker,4,40
+Romania,No agro,Level 3-4,Wage/salary worker,205500,2055000
+Rwanda,Agro,Level 1,Employer,50,500
+Rwanda,Agro,Level 1,Own account worker,1185,11850
+Rwanda,Agro,Level 1,Unpaid worker,446,4460
+Rwanda,Agro,Level 1,Wage/salary worker,7211,72110
+Rwanda,Agro,Level 2,Employer,620,6200
+Rwanda,Agro,Level 2,Own account worker,215144,2151440
+Rwanda,Agro,Level 2,Unpaid worker,27896,278960
+Rwanda,Agro,Level 2,Wage/salary worker,10640,106400
+Rwanda,Agro,Level 3-4,Employer,7,70
+Rwanda,Agro,Level 3-4,Own account worker,60,600
+Rwanda,Agro,Level 3-4,Unpaid worker,3,30
+Rwanda,Agro,Level 3-4,Wage/salary worker,253,2530
+Rwanda,No agro,Level 1,Employer,78,780
+Rwanda,No agro,Level 1,Own account worker,2719,27190
+Rwanda,No agro,Level 1,Unpaid worker,491,4910
+Rwanda,No agro,Level 1,Wage/salary worker,6267,62670
+Rwanda,No agro,Level 2,Employer,624,6240
+Rwanda,No agro,Level 2,Own account worker,28333,283330
+Rwanda,No agro,Level 2,Unpaid worker,1776,17760
+Rwanda,No agro,Level 2,Wage/salary worker,31256,312560
+Rwanda,No agro,Level 3-4,Employer,160,1600
+Rwanda,No agro,Level 3-4,Own account worker,1199,11990
+Rwanda,No agro,Level 3-4,Unpaid worker,25,250
+Rwanda,No agro,Level 3-4,Wage/salary worker,10089,100890
+Senegal,Agro,Level 1,Employer,31,327.01
+Senegal,Agro,Level 1,Own account worker,1983,20849.27
+Senegal,Agro,Level 1,Unpaid worker,369,3882.99
+Senegal,Agro,Level 1,Wage/salary worker,135,1427.11
+Senegal,Agro,Level 2,Employer,1196,12559.199999999999
+Senegal,Agro,Level 2,Own account worker,50008,525581.7000000001
+Senegal,Agro,Level 2,Unpaid worker,7710,81089.68000000001
+Senegal,Agro,Level 2,Wage/salary worker,2085,21946.09
+Senegal,Agro,Level 3-4,Employer,46,485.12
+Senegal,Agro,Level 3-4,Own account worker,1090,11432.279999999999
+Senegal,Agro,Level 3-4,Unpaid worker,50,524.8399999999999
+Senegal,Agro,Level 3-4,Wage/salary worker,174,1829.6799999999998
+Senegal,No agro,Level 1,Employer,1133,11967.35
+Senegal,No agro,Level 1,Own account worker,7846,82820.08
+Senegal,No agro,Level 1,Unpaid worker,1173,12353.39
+Senegal,No agro,Level 1,Wage/salary worker,7545,80020.20999999999
+Senegal,No agro,Level 2,Employer,6109,64474.17
+Senegal,No agro,Level 2,Own account worker,73964,779829.4599999998
+Senegal,No agro,Level 2,Unpaid worker,15584,164443.6
+Senegal,No agro,Level 2,Wage/salary worker,18495,195737.25
+Senegal,No agro,Level 3-4,Employer,1296,13687.539999999999
+Senegal,No agro,Level 3-4,Own account worker,9245,97544.49
+Senegal,No agro,Level 3-4,Unpaid worker,735,7762.3099999999995
+Senegal,No agro,Level 3-4,Wage/salary worker,15239,160724.79
+Sierra Leone,No agro,Level 1,Employer,318,3180
+Sierra Leone,No agro,Level 1,Own account worker,5887,58870
+Sierra Leone,No agro,Level 1,Unpaid worker,476,4760
+Sierra Leone,No agro,Level 1,Wage/salary worker,1147,11470
+Sierra Leone,No agro,Level 2,Employer,10083,100830
+Sierra Leone,No agro,Level 2,Own account worker,203047,2030470
+Sierra Leone,No agro,Level 2,Unpaid worker,17496,174960
+Sierra Leone,No agro,Level 2,Wage/salary worker,13364,133640
+Sierra Leone,No agro,Level 3-4,Employer,1629,16290
+Sierra Leone,No agro,Level 3-4,Own account worker,4569,45690
+Sierra Leone,No agro,Level 3-4,Unpaid worker,736,7360
+Sierra Leone,No agro,Level 3-4,Wage/salary worker,13965,139650
+Slovak Republic,Agro,Level 1,Employer,1,10
+Slovak Republic,Agro,Level 1,Own account worker,35,350
+Slovak Republic,Agro,Level 1,Unpaid worker,2,20
+Slovak Republic,Agro,Level 1,Wage/salary worker,283,2830
+Slovak Republic,Agro,Level 2,Employer,115,1150
+Slovak Republic,Agro,Level 2,Own account worker,1141,11410
+Slovak Republic,Agro,Level 2,Unpaid worker,3,30
+Slovak Republic,Agro,Level 2,Wage/salary worker,3509,35090
+Slovak Republic,Agro,Level 3-4,Employer,97,970
+Slovak Republic,Agro,Level 3-4,Own account worker,315,3150.01
+Slovak Republic,Agro,Level 3-4,Unpaid worker,8,80
+Slovak Republic,Agro,Level 3-4,Wage/salary worker,950,9500.01
+Slovak Republic,No agro,Level 1,Employer,91,910
+Slovak Republic,No agro,Level 1,Own account worker,724,7240
+Slovak Republic,No agro,Level 1,Unpaid worker,22,220
+Slovak Republic,No agro,Level 1,Wage/salary worker,10493,104930.01
+Slovak Republic,No agro,Level 2,Employer,1996,19960.01
+Slovak Republic,No agro,Level 2,Own account worker,13070,130700
+Slovak Republic,No agro,Level 2,Unpaid worker,146,1460
+Slovak Republic,No agro,Level 2,Wage/salary worker,86599,865989.97
+Slovak Republic,No agro,Level 3-4,Employer,4149,41490
+Slovak Republic,No agro,Level 3-4,Own account worker,7457,74570.01
+Slovak Republic,No agro,Level 3-4,Unpaid worker,62,620
+Slovak Republic,No agro,Level 3-4,Wage/salary worker,57344,573439.98
+Spain,Agro,Level 1,Employer,24,181.41
+Spain,Agro,Level 1,Own account worker,203,1663.34
+Spain,Agro,Level 1,Unpaid worker,297,2637.75
+Spain,Agro,Level 1,Wage/salary worker,18717,221195.5
+Spain,Agro,Level 2,Employer,11498,75204.67
+Spain,Agro,Level 2,Own account worker,36437,178759.07
+Spain,Agro,Level 2,Unpaid worker,965,6474.17
+Spain,Agro,Level 2,Wage/salary worker,27138,241846.04
+Spain,Agro,Level 3-4,Employer,831,7549.71
+Spain,Agro,Level 3-4,Own account worker,1088,7085
+Spain,Agro,Level 3-4,Unpaid worker,37,266.57
+Spain,Agro,Level 3-4,Wage/salary worker,3554,37826.95
+Spain,No agro,Level 1,Employer,1731,20494.68
+Spain,No agro,Level 1,Own account worker,3262,39031.87
+Spain,No agro,Level 1,Unpaid worker,1653,17693.34
+Spain,No agro,Level 1,Wage/salary worker,130113,1629822.94
+Spain,No agro,Level 2,Employer,58866,631585.01
+Spain,No agro,Level 2,Own account worker,90853,940449.82
+Spain,No agro,Level 2,Unpaid worker,5146,54311.43
+Spain,No agro,Level 2,Wage/salary worker,629569,7633391.43
+Spain,No agro,Level 3-4,Employer,39963,488336.95
+Spain,No agro,Level 3-4,Own account worker,42829,536799.52
+Spain,No agro,Level 3-4,Unpaid worker,1169,13441.56
+Spain,No agro,Level 3-4,Wage/salary worker,377614,4729240.03
+Suriname,Agro,Level 1,Own account worker,54,540
+Suriname,Agro,Level 1,Unpaid worker,1,10
+Suriname,Agro,Level 1,Wage/salary worker,205,2050
+Suriname,Agro,Level 2,Employer,9,90
+Suriname,Agro,Level 2,Own account worker,358,3580
+Suriname,Agro,Level 2,Unpaid worker,26,260
+Suriname,Agro,Level 2,Wage/salary worker,171,1710
+Suriname,Agro,Level 3-4,Employer,3,30
+Suriname,Agro,Level 3-4,Own account worker,4,40
+Suriname,Agro,Level 3-4,Wage/salary worker,34,340
+Suriname,No agro,Level 1,Employer,43,430
+Suriname,No agro,Level 1,Own account worker,369,3690
+Suriname,No agro,Level 1,Unpaid worker,41,410
+Suriname,No agro,Level 1,Wage/salary worker,1973,19730
+Suriname,No agro,Level 2,Employer,222,2220
+Suriname,No agro,Level 2,Own account worker,1929,19290
+Suriname,No agro,Level 2,Unpaid worker,151,1510
+Suriname,No agro,Level 2,Wage/salary worker,5713,57130
+Suriname,No agro,Level 3-4,Employer,144,1440
+Suriname,No agro,Level 3-4,Own account worker,328,3280
+Suriname,No agro,Level 3-4,Unpaid worker,25,250
+Suriname,No agro,Level 3-4,Wage/salary worker,3353,33530
+Switzerland,Agro,Level 1,Own account worker,11,299.08
+Switzerland,Agro,Level 1,Unpaid worker,45,1289.24
+Switzerland,Agro,Level 1,Wage/salary worker,178,5462.45
+Switzerland,Agro,Level 2,Own account worker,745,22298.9
+Switzerland,Agro,Level 2,Unpaid worker,257,7668.7
+Switzerland,Agro,Level 2,Wage/salary worker,742,21375.85
+Switzerland,Agro,Level 3-4,Own account worker,62,1488.91
+Switzerland,Agro,Level 3-4,Unpaid worker,15,405.52
+Switzerland,Agro,Level 3-4,Wage/salary worker,491,13725.57
+Switzerland,No agro,Level 1,Own account worker,148,4402.21
+Switzerland,No agro,Level 1,Unpaid worker,164,5097.26
+Switzerland,No agro,Level 1,Wage/salary worker,5508,165291.6
+Switzerland,No agro,Level 2,Own account worker,2606,69933.73
+Switzerland,No agro,Level 2,Unpaid worker,1706,50806.77
+Switzerland,No agro,Level 2,Wage/salary worker,46542,1321471.57
+Switzerland,No agro,Level 3-4,Own account worker,3946,106637.22
+Switzerland,No agro,Level 3-4,Unpaid worker,774,22086.95
+Switzerland,No agro,Level 3-4,Wage/salary worker,58418,1618900.92
+Tanzania,Agro,Level 1,Employer,154,1671.25
+Tanzania,Agro,Level 1,Own account worker,39538,370165.25
+Tanzania,Agro,Level 1,Unpaid worker,4375,41855.99
+Tanzania,Agro,Level 1,Wage/salary worker,4405,41342.83
+Tanzania,Agro,Level 2,Employer,2606,24234.73
+Tanzania,Agro,Level 2,Own account worker,1061882,9681140.419999998
+Tanzania,Agro,Level 2,Unpaid worker,59419,547757.86
+Tanzania,Agro,Level 2,Wage/salary worker,18711,182173.33
+Tanzania,Agro,Level 3-4,Employer,277,3275.02
+Tanzania,Agro,Level 3-4,Own account worker,19422,185327.03
+Tanzania,Agro,Level 3-4,Unpaid worker,1368,12735.14
+Tanzania,Agro,Level 3-4,Wage/salary worker,8800,99081.91
+Tanzania,No agro,Level 1,Employer,819,12596.33
+Tanzania,No agro,Level 1,Own account worker,78792,911570.5700000001
+Tanzania,No agro,Level 1,Unpaid worker,14940,143581.84
+Tanzania,No agro,Level 1,Wage/salary worker,19633,250157.34
+Tanzania,No agro,Level 2,Employer,1453,18631.14
+Tanzania,No agro,Level 2,Own account worker,218419,2225202.46
+Tanzania,No agro,Level 2,Unpaid worker,23952,231050.7
+Tanzania,No agro,Level 2,Wage/salary worker,76257,940293.89
+Tanzania,No agro,Level 3-4,Employer,922,12616.74
+Tanzania,No agro,Level 3-4,Own account worker,51426,560369.85
+Tanzania,No agro,Level 3-4,Unpaid worker,2939,31229.01
+Tanzania,No agro,Level 3-4,Wage/salary worker,58374,653001.67
+Togo,Agro,Level 1,Own account worker,14,149.66
+Togo,Agro,Level 1,Unpaid worker,11,117.61999999999999
+Togo,Agro,Level 1,Wage/salary worker,27,288.75
+Togo,Agro,Level 2,Employer,145,1552.7
+Togo,Agro,Level 2,Own account worker,75035,802326.8499999999
+Togo,Agro,Level 2,Unpaid worker,15357,164179.85999999996
+Togo,Agro,Level 2,Wage/salary worker,535,5748.54
+Togo,Agro,Level 3-4,Employer,2,21.44
+Togo,Agro,Level 3-4,Own account worker,20,213.98
+Togo,Agro,Level 3-4,Unpaid worker,2,21.38
+Togo,Agro,Level 3-4,Wage/salary worker,75,806.71
+Togo,No agro,Level 1,Employer,37,402.56
+Togo,No agro,Level 1,Own account worker,760,8282.16
+Togo,No agro,Level 1,Unpaid worker,487,5281.91
+Togo,No agro,Level 1,Wage/salary worker,2488,27175.38
+Togo,No agro,Level 2,Employer,655,7098.36
+Togo,No agro,Level 2,Own account worker,79206,856459.0900000002
+Togo,No agro,Level 2,Unpaid worker,12385,133929.22999999998
+Togo,No agro,Level 2,Wage/salary worker,8944,97335.35999999999
+Togo,No agro,Level 3-4,Employer,246,2671.63
+Togo,No agro,Level 3-4,Own account worker,3681,39990.17
+Togo,No agro,Level 3-4,Unpaid worker,227,2462.15
+Togo,No agro,Level 3-4,Wage/salary worker,8273,89434.18
+United States,Agro,Level 1,Own account worker,665,45023
+United States,Agro,Level 1,Unpaid worker,246,19026
+United States,Agro,Level 1,Wage/salary worker,10282,845203
+United States,Agro,Level 2,Own account worker,16517,697556
+United States,Agro,Level 2,Unpaid worker,2028,31371
+United States,Agro,Level 2,Wage/salary worker,59933,1479631
+United States,Agro,Level 3-4,Own account worker,39021,521588
+United States,Agro,Level 3-4,Unpaid worker,72,1111
+United States,Agro,Level 3-4,Wage/salary worker,12308,271267
+United States,No agro,Level 1,Own account worker,28175,1258454
+United States,No agro,Level 1,Unpaid worker,739,24324
+United States,No agro,Level 1,Wage/salary worker,237665,9479337
+United States,No agro,Level 2,Own account worker,437764,13163233
+United States,No agro,Level 2,Unpaid worker,8557,237163
+United States,No agro,Level 2,Wage/salary worker,4086817,142324036
+United States,No agro,Level 3-4,Own account worker,340215,11833124
+United States,No agro,Level 3-4,Unpaid worker,3209,97251
+United States,No agro,Level 3-4,Wage/salary worker,3070366,102911868
+Vietnam,Agro,Level 1,Employer,1835,18828.06
+Vietnam,Agro,Level 1,Own account worker,647765,6406058.7
+Vietnam,Agro,Level 1,Unpaid worker,720721,6733573.29
+Vietnam,Agro,Level 1,Wage/salary worker,98945,993780.5599999999
+Vietnam,Agro,Level 2,Employer,3469,36649.37
+Vietnam,Agro,Level 2,Own account worker,299277,3048717.21
+Vietnam,Agro,Level 2,Unpaid worker,74483,767385.74
+Vietnam,Agro,Level 2,Wage/salary worker,29598,318240.29
+Vietnam,Agro,Level 3-4,Employer,160,2031.59
+Vietnam,Agro,Level 3-4,Own account worker,217,2526.93
+Vietnam,Agro,Level 3-4,Unpaid worker,131,1466.04
+Vietnam,Agro,Level 3-4,Wage/salary worker,2573,29866.63
+Vietnam,No agro,Level 1,Employer,2470,28738.62
+Vietnam,No agro,Level 1,Own account worker,49545,587002.06
+Vietnam,No agro,Level 1,Unpaid worker,19687,223276.89
+Vietnam,No agro,Level 1,Wage/salary worker,190449,2299823.51
+Vietnam,No agro,Level 2,Employer,57505,750767.35
+Vietnam,No agro,Level 2,Own account worker,648133,8039458.5
+Vietnam,No agro,Level 2,Unpaid worker,182634,2209489.25
+Vietnam,No agro,Level 2,Wage/salary worker,1000939,13773179.230000002
+Vietnam,No agro,Level 3-4,Employer,13395,201880.76
+Vietnam,No agro,Level 3-4,Own account worker,16361,250325.85
+Vietnam,No agro,Level 3-4,Unpaid worker,3503,52669.03
+Vietnam,No agro,Level 3-4,Wage/salary worker,398557,5279462.5
+Zambia,Agro,Level 1,Employer,111,1110
+Zambia,Agro,Level 1,Own account worker,11245,112450
+Zambia,Agro,Level 1,Unpaid worker,14736,147360
+Zambia,Agro,Level 1,Wage/salary worker,4658,46580
+Zambia,Agro,Level 2,Employer,384,3840
+Zambia,Agro,Level 2,Own account worker,93815,938150
+Zambia,Agro,Level 2,Unpaid worker,81707,817070
+Zambia,Agro,Level 2,Wage/salary worker,4235,42350
+Zambia,Agro,Level 3-4,Employer,49,490
+Zambia,Agro,Level 3-4,Own account worker,486,4860
+Zambia,Agro,Level 3-4,Unpaid worker,294,2940
+Zambia,Agro,Level 3-4,Wage/salary worker,487,4870
+Zambia,No agro,Level 1,Employer,141,1410
+Zambia,No agro,Level 1,Own account worker,5251,52510
+Zambia,No agro,Level 1,Unpaid worker,713,7130
+Zambia,No agro,Level 1,Wage/salary worker,7067,70670
+Zambia,No agro,Level 2,Employer,994,9940
+Zambia,No agro,Level 2,Own account worker,31992,319920
+Zambia,No agro,Level 2,Unpaid worker,3663,36630
+Zambia,No agro,Level 2,Wage/salary worker,38396,383960
+Zambia,No agro,Level 3-4,Employer,802,8020
+Zambia,No agro,Level 3-4,Own account worker,3386,33860
+Zambia,No agro,Level 3-4,Unpaid worker,228,2280
+Zambia,No agro,Level 3-4,Wage/salary worker,21841,218410
