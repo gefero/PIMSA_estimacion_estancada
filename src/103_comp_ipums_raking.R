@@ -1,9 +1,9 @@
 library(tidyverse)
 library(countrycode)
-source('./src/99_plotly_plots.R')
+source('./src/199_plotly_plots.R')
 
 
-ipums <- read_csv('./data/outputs/v2_tcp_by_calif.csv')
+ipums <- read_csv('./data/ipums_ifp_v2_tcp_by_calif.csv')
 ipums <- ipums %>%
         mutate(iso3c = countrycode(COUNTRY_lab, 
                                    origin = 'country.name', 
@@ -34,11 +34,17 @@ ipums <- ipums %>%
 ipums %>%
         group_by(COUNTRY_lab, rama_agg, skill_level)
 
-countries <- read_csv("../PIMSA_spr_mundo/data/ouputs/country_classification.csv")
+countries <- read_csv("./data/tabla_tcps_final_sums.csv") %>%
+        distinct(iso3c, .keep_all = TRUE) %>%
+        select(iso3c, country, region, income_group, income_group_2,
+               cluster_pimsa, peq_estado, excl_tamaño, ocde)
 
-raking <- read_csv('../PIMSA_spr_mundo/data/estimacion_estancada/20251118_estimacion_tcp_final.csv')
+raking <- read_csv('./data/20251118_estimacion_tcp_final.csv')
 
 raking <- raking %>%
+        # armonización defensiva: la estimación vieja trae "3-Alta"
+        mutate(calificacion = if_else(calificacion == "3-Alta",
+                                      "3.Alta", calificacion)) %>%
         rename(raking_porc = freq)
 
 countries_ipums <- ipums %>% select(iso3c) %>% unique() %>% pull()

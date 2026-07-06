@@ -21,11 +21,14 @@ catocup_calif_agg <- read_csv('./data/estimacion_estancada/catocup_calif_agg.csv
 
 
 
-format_table <- function(df_raw, a, 
+format_table <- function(df_raw, a,
                          cols_to_drop=c("ref_area", "ref_area.label", "catocup")){
-        table <- df_raw %>% 
-                filter(ref_area == a)
-        
+        # La 3ra columna es la clave de fila (catocup o calif); se ordena para
+        # que las dimensiones queden alineadas entre las tres tablas del IPF.
+        table <- df_raw %>%
+                filter(ref_area == a) %>%
+                arrange(across(3))
+
         names <- table[, 3] %>% pull()
         
         table <- table %>%
@@ -116,7 +119,7 @@ tabla_final <- run_tcp_estimates()
 tictoc::toc()
 
 
-tabla_final %>% write_csv(paste0('./data/estimacion_estancada/', 
+tabla_final %>% write_csv(paste0('./data/estimacion_estancada/',
                                  format(Sys.Date(), format="%Y%m%d"),
-                                 '_estimacion_tcp_final.csv')
+                                 '_estimacion_tcp_final_v2.csv')
 )

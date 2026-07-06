@@ -1,6 +1,9 @@
 library(tidyverse)
 
-estanc <-read_csv('./data/estimacion_estancada/20251118_estimacion_tcp_final.csv')
+# Ruta de la estimación IPF a usar (actualizar al re-correr 012)
+ESTIMACION_PATH <- './data/estimacion_estancada/20251118_estimacion_tcp_final.csv'
+
+estanc <-read_csv(ESTIMACION_PATH)
 
 catocup_rama <- read_csv('./data/estimacion_estancada/catocup_rama.csv') 
 catocup_rama <- catocup_rama %>%
@@ -142,11 +145,14 @@ tabla_final <- tabla_final %>%
 
 
 #tcps <- read_csv('./data/estimacion_estancada/tabla_tcps_final.csv')
-country_classif <- read_csv('./data/ouputs/country_classification.csv') 
+country_classif <- read_csv('./data/ouputs/country_classification.csv') %>%
+        # el archivo trae iso3c repetidos (grafías distintas del nombre de
+        # país); sin dedupe el join duplica países en la tabla final
+        distinct(iso3c, .keep_all = TRUE)
 
 tabla_final <- tabla_final %>%
         rename(iso3c=ref_area) %>%
-        left_join(country_classif) %>%
+        left_join(country_classif, by = "iso3c") %>%
         select(iso3c, ref_area.label, country:ocde, everything())
 
 

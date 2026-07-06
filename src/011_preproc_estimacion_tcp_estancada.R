@@ -35,19 +35,20 @@ calif_rama <- get_ilostat(
                        )
         ) 
 
-#calif_rama%>%
-#         select(ref_area, ref_area.label, classif1, classif2, rama2, calif, time, obs_value)
-
-#calif_rama %>% write_csv('./data/raw_data/calif_rama.csv')
-
+# Agregación en dos pasos: "2.No_agro" agrupa ~5 categorías ECO, por lo que
+# hay que sumarlas dentro de cada año y recién después promediar entre años.
+# Un mean() directo (sin time en el group_by) divide el no-agro por ~5.
 calif_rama_agg<-calif_rama %>%
+        group_by(ref_area, ref_area.label, time, rama2, calif) %>%
+        summarise(n = sum(obs_value, na.rm=TRUE)) %>%
         group_by(ref_area, ref_area.label, rama2, calif) %>%
-        summarise(n = mean(obs_value, na.rm=TRUE)) %>%
+        summarise(n = mean(n, na.rm=TRUE)) %>%
         pivot_wider(names_from=rama2,
                     values_from=n,
-                    values_fill = 0)
+                    values_fill = 0,
+                    names_sort = TRUE)
 calif_rama %>%
-        write_csv('./data/estimacion_estancada/calif_rama.csv')
+        write_csv('./data/raw_data/calif_rama.csv')
 
 calif_rama_agg %>%
         write_csv('./data/estimacion_estancada/calif_rama_agg.csv')
@@ -77,19 +78,21 @@ catocup_rama <-  get_ilostat(
                )
         ) 
 
-#%>%
-#        select(ref_area, ref_area.label, classif1, classif2, rama2, catocup, time, obs_value)
-
+# Igual que arriba: "1.Asalariado_patr" agrupa 2 categorías ICSE y
+# "3.TCP_fliares" agrupa 3 -> sumar dentro del año, promediar entre años.
 catocup_rama_agg<-catocup_rama %>%
+        group_by(ref_area, ref_area.label, time, catocup, rama2) %>%
+        summarise(n = sum(obs_value, na.rm=TRUE)) %>%
         group_by(ref_area, ref_area.label, catocup, rama2) %>%
-        summarise(n = mean(obs_value, na.rm=TRUE)) %>%
+        summarise(n = mean(n, na.rm=TRUE)) %>%
         pivot_wider(names_from=rama2,
                     values_from=n,
-                    values_fill = 0)
+                    values_fill = 0,
+                    names_sort = TRUE)
 
 
 catocup_rama %>%
-        write_csv('./data/estimacion_estancada/catocup_rama.csv')
+        write_csv('./data/raw_data/catocup_rama.csv')
 
 catocup_rama_agg %>%
         write_csv('./data/estimacion_estancada/catocup_rama_agg.csv')
@@ -115,20 +118,23 @@ catocup_calif <- get_ilostat(
                calif = case_when(
                        classif2 == "OCU_SKILL_L1" ~ "1.Baja",
                        classif2 == "OCU_SKILL_L2" ~ "2.Media",
-                       classif2 == "OCU_SKILL_L3-4" ~ "3-Alta",
+                       classif2 == "OCU_SKILL_L3-4" ~ "3.Alta",
                        classif2 == "OCU_SKILL_X" ~ "9.SD"
                )
         )
 
 catocup_calif_agg <- catocup_calif %>%
+        group_by(ref_area, ref_area.label, time, catocup, calif) %>%
+        summarise(n = sum(obs_value, na.rm=TRUE)) %>%
         group_by(ref_area, ref_area.label, catocup, calif) %>%
-        summarise(n = mean(obs_value, na.rm=TRUE)) %>%
+        summarise(n = mean(n, na.rm=TRUE)) %>%
         pivot_wider(names_from=calif,
                     values_from=n,
-                    values_fill = 0)
+                    values_fill = 0,
+                    names_sort = TRUE)
 
 catocup_calif %>%
-        write_csv('./data/estimacion_estancada/catocup_calif.csv')
+        write_csv('./data/raw_data/catocup_calif.csv')
 
 catocup_calif_agg %>%
         write_csv('./data/estimacion_estancada/catocup_calif_agg.csv')

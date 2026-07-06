@@ -25,7 +25,9 @@ test <- data %>%
         dplyr::filter(rama_agg != "Sin dato") %>%
         dplyr::filter(skill_level != "Sin dato de skill") %>%
         dplyr::filter(cat_ocup != "No data") %>%
-        dplyr::group_by(COUNTRY_lab, rama_agg, skill_level, cat_ocup) %>%
+        # se conserva YEAR para poder controlar el desfase temporal
+        # censo vs. promedio OIT 2009-2019 en las comparaciones
+        dplyr::group_by(COUNTRY_lab, YEAR, rama_agg, skill_level, cat_ocup) %>%
         dplyr::summarise(n_raw = dplyr::n(),
                          n_wei = sum(PERWT)
         ) %>%
