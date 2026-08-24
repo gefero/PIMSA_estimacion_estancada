@@ -17,8 +17,8 @@
 # pycountry (no disponible en R): 45 de los 47 países de IPUMS matchean por
 # nombre exacto; Iran y Palestine se recodifican a mano antes del join.
 #
-# Uso:
-#   Rscript 015_analisis_pruebas_ipf.R --estimacion <csv> --sufijo <str>
+# Uso (correr con la raíz del repo como working directory, igual que 011-014/102/103):
+#   Rscript src/015_analisis_pruebas_ipf.R --estimacion <csv> --sufijo <str>
 
 suppressMessages({
   library(dplyr)
@@ -63,18 +63,12 @@ theme_set(
 )
 
 # ----------------------------------------------------------------------
-# Rutas (relativas a la ubicación del script, no al cwd de invocación)
+# Rutas (relativas a la raíz del repo, igual que el resto de src/*.R —
+# correr con la raíz del repo como working directory)
 # ----------------------------------------------------------------------
-get_script_dir <- function() {
-  cmd_args <- commandArgs(trailingOnly = FALSE)
-  file_arg <- grep("^--file=", cmd_args, value = TRUE)
-  if (length(file_arg) == 1) return(dirname(normalizePath(sub("^--file=", "", file_arg))))
-  normalizePath(".")
-}
-ROOT  <- normalizePath(file.path(get_script_dir(), ".."))
-DATA  <- file.path(ROOT, "data")
-OUT   <- file.path(DATA, "test_ipf")
-FIGS  <- file.path(ROOT, "reports", "figs")
+DATA  <- "./data"
+OUT   <- "./data/test_ipf"
+FIGS  <- "./reports/figs"
 dir.create(OUT, recursive = TRUE, showWarnings = FALSE)
 dir.create(FIGS, recursive = TRUE, showWarnings = FALSE)
 
