@@ -15,6 +15,32 @@ urbana disfrazada de trabajo por cuenta propia (ver §3).
 
 ---
 
+## 0. El método: Iterative Proportional Fitting (IPF)
+
+ILOSTAT no publica una tabla que cruce simultáneamente las tres dimensiones que interesan (calificación de
+la ocupación, situación en el empleo y rama de actividad); publica tres tablas **bivariadas** por separado
+(calificación × ocupación, calificación × rama, ocupación × rama). El IPF —también llamado *raking*— es el
+método que permite reconstruir, a partir de esas tres tablas de a pares, una estimación de la tabla
+**trivariada** completa que nunca se observó directamente.
+
+La lógica es un ajuste iterativo: se parte de una distribución inicial uniforme sobre las 12 celdas de la
+trivariada (3 calificaciones × 2 situaciones de empleo × 2 ramas) y se la reescala repetidamente, un margen
+bivariado a la vez, hasta que las tres proyecciones de la tabla ajustada coinciden con las tres tablas
+observadas de ILOSTAT. El resultado es, entre todas las tablas trivariadas compatibles con esos tres
+márgenes, la de **máxima entropía**: la más "neutra" posible, que no supone ninguna asociación entre las
+tres variables más allá de la que ya está implícita en cada par observado por separado (sin **interacción de
+tercer orden**). En R se usa la implementación real del paquete `mipfp` (`Ipfp`); en Python existe una
+reimplementación propia (`ipf_utils.py`) usada para validar de forma independiente los resultados de R.
+
+Ese supuesto de "sin interacción de tercer orden" es, a la vez, la fortaleza y el límite del método: permite
+estimar lo que no se observa directamente a partir de información parcial, pero si en la realidad existe una
+asociación genuina entre las tres variables que no se reduce a la suma de las asociaciones de a pares, el IPF
+no puede captarla. La Prueba 1 (§1) valida que el algoritmo reconstruye bien la tabla cuando esa asociación
+extra es chica o nula; el self-test dentro de la Prueba 2 (§2.3) mide directamente cuánto pesa esa
+limitación en la celda de interés.
+
+---
+
 ## 1. Comparación con EPH (Argentina)
 
 Se reconstruyeron a partir de la Encuesta Permanente de Hogares (EPH) las tres tablas bivariadas que
