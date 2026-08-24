@@ -100,28 +100,94 @@ Las limitaciones en la disposición refieren a que la plataforma ILOSTAT no pres
 
 Para estimar la cantidad de trabajadores por cuenta propia de baja calificación del sector no agraria,
 se parte de las tres tablas bivaradas mencionadas y se busca estimar a partir de las mismas la distriución conjunta:
-la tabla trivariada que combine/cruce rama de actividad, 
+la tabla trivariada que combine/cruce rama de actividad, situación en el empleo y calificación de la ocupación.
 
-Para esto se usa el método de Iterative Proportional Fiting (IPF). El código para la estimación se encuentra en: ""
+Para esto se usa el método de Iterative Proportional Fitting (IPF): en R, con el paquete `mipfp` (función `Ipfp`);
+en Python, con una implementación propia (`src/ipf_utils.py`) usada para validar de forma independiente los
+resultados de R (ver "Pruebas realizadas").
 
 ## Código
-El código de la estimación para las tablas de OIT se encuentra en 
-- "./src/011_preproc_estimacion_tcp_estancada.R""
-- "./src/012_estimacion_tcp_estancada.R
-- "./src/013_tcp_estancada_tabla_final.R
-- "./src/014_tcp_estancada_analysis.R"./"
 
-Los resultados desagregados por país se encuentran en: "/media/grosati/Elements1/PEN/Datasets_ML/PIMSA_estimacion_estancada/data/tabla_tcps_final_sums.csv"
+Pipeline de estimación en R (orden de ejecución):
+- `./src/011_preproc_estimacion_tcp_estancada.R` — descarga de ILOSTAT (`Rilostat`) y agregación de las tres
+  tablas bivariadas (crudas y agregadas por país). **Corrige un bug de agregación**: hay que sumar las
+  categorías finas dentro de cada año y recién después promediar entre años (`group_by(..., time) %>%
+  summarise(sum) %>% ... %>% summarise(mean)`); un `mean()` directo sobre datos ya des-agregados por año
+  dividía "No_agro" (~5 categorías ECO agrupadas) por su cantidad de subcomponentes, inflando el margen
+  "Agro" en ~25 puntos porcentuales en la estimación final.
+- `./src/012_estimacion_tcp_estancada.R` — corre el IPF (`mipfp::Ipfp`) por país sobre las tres tablas
+  agregadas y arma la tabla trivariada de salida.
+- `./src/013_tcp_estancada_tabla_final.R` — arma la tabla final con indicadores por país (marginales +
+  celda de interés) y el join con la clasificación de países.
+- `./src/014_tcp_estancada_analysis.R` — análisis sustantivo (clusters, regiones, etc.) sobre la tabla final.
 
+Scripts de validación (Python, no dependen de `Rilostat` ni de rutas locales fuera del repo):
+- `./src/015_analisis_pruebas_ipf.py` — análisis de las dos pruebas de validación (EPH e IPUMS). Parametrizado
+  con `--estimacion <csv>` (estimación IPF a validar) y `--sufijo <str>` (sufijo de las salidas), para poder
+  correrlo contra distintas versiones de la estimación sin pisar resultados previos.
+- `./src/016_pipeline_corregido.py` + `./src/ipf_utils.py` — reimplementación en Python del pipeline
+  011→012→013 (agregación corregida + IPF propio), usada para (a) tener una estimación reproducible en
+  entornos sin R/`Rilostat`, y (b) validar de forma independiente los resultados de `mipfp::Ipfp` en R.
 
-## Pruebas realizadas 
-- Estimación TCP baja calificación no agro EPH-IPF - Argentina: A partir de la EPH 
-se reconstruyeron las tres tablas bivariadas para Argentina, es estimó el IPF y se compararon los resultados.
-Los mismo se encuentran en "./data/test_ipf/prop_comparacion_agg_eph_test.csv"
+## Rutas de datos (relativas a la raíz del repo)
 
-- Estimación TCP baja calificación no agro IPUMS-IPF - Mundo: se compara la estimación 
-en base a las tablas de la OIT con las muestras censales de IPUMS (https://international.ipums.org/international/). 
-Los resultados se encuentran en "./data/ipums_ifp_v2_tcp_by_calif.csv"
+- `./data/raw_data/` — tablas bivariadas crudas de ILOSTAT, una fila por país-año-categoría
+  (`calif_rama.csv`, `catocup_calif.csv`, `catocup_rama.csv`). Salida de `011`, insumo de `013` y de `016`.
+- `./data/estimacion/` — tablas agregadas por país (`calif_rama_agg.csv`, `catocup_calif_agg.csv`,
+  `catocup_rama_agg.csv`), `country_intersect.csv` (intersección de países entre las tres tablas, 159
+  países), la estimación IPF trivariada (`AAAAMMDD_estimacion_tcp_final_v2.csv`, salida de `012` — actualizar
+  `ESTIMACION_PATH` en `013` a la versión vigente en cada corrida) y `tabla_tcps_final_sums.csv` (**tabla
+  final con los resultados desagregados por país**, salida de `013`, 181 países).
+- `./data/outputs/` — `country_classification.csv` (clasificación de países: región, ingreso, cluster PIMSA,
+  etc., usada en el join final de `013`).
+- `./data/test_ipf/` — salidas de las pruebas de validación (ver abajo).
+- `./data/estimacion_tcp_final_corregida.csv` / `./data/tabla_tcps_final_sums_corregida.csv` — estimación y
+  tabla final calculadas con el pipeline Python (`016`), equivalentes a las de R para comparación directa.
+- `./reports/` — informes de análisis (`analisis_pruebas_ipf.md`, `testeo_python_vs_r_20260824.md`) y sus
+  figuras (`./reports/figs/`).
+
+## Pruebas realizadas
+
+- **Estimación TCP baja calificación no agro EPH-IPF (Argentina)**: a partir de la EPH se reconstruyeron las
+  tres tablas bivariadas para Argentina, se estimó el IPF y se compararon los resultados contra los datos
+  observados. Valida que el método (no los insumos de ILOSTAT) funciona correctamente: error máximo por celda
+  de 0,02 pp. Resultados en `./data/eph_ipf_comparacion_agg_test.csv` y `./data/test_ipf/`.
+
+- **Estimación TCP baja calificación no agro IPUMS-IPF (mundo)**: se compara la estimación en base a las
+  tablas de la OIT con las muestras censales de IPUMS (https://international.ipums.org/international/), 47
+  países. Insumo: `./data/ipums_ifp_v2_tcp_by_calif.csv`. Este cruce fue el que permitió detectar el bug de
+  agregación de `011` (margen "Agro" implícito en la estimación publicada +24,8 pp por encima de IPUMS antes
+  de la corrección; −2,6 pp después). Resultados en `./data/test_ipf/` (`comp_raking_ipums_full*.csv`,
+  `metricas_por_celda*.csv`, `celda_clave_paises*.csv`) y en `./reports/analisis_pruebas_ipf.md`.
+
+- **Validación cruzada R vs. Python del IPF (`mipfp::Ipfp` vs. implementación propia)**: se corrió el IPF de
+  forma independiente en R (paquete `mipfp` real) y en Python (`016`) sobre los mismos insumos agregados
+  (159 países), para descartar que hubiera una diferencia de algoritmo entre ambas implementaciones. Resultado:
+  correlación 0,9955, sesgo medio ≈0, mediana del error absoluto 0,004 pp en la celda de interés; una cola de
+  ~10 países (Senegal, Burkina Faso, Guinea-Bissau, entre los mayores) con diferencias de hasta 1,75 pp,
+  atribuible a inconsistencia entre los márgenes bivariados de entrada de esos países (límite conocido del
+  método, no bug de implementación). Detalle completo, metodología y tabla país por país en
+  `./reports/testeo_python_vs_r_20260824.md`; salidas en `./data/test_ipf/estimacion_R_mipfp_full_independiente.csv`,
+  `./data/test_ipf/comparacion_python_vs_R_completa.csv` y `./data/test_ipf/celda_interes_comparacion_final.csv`.
+
+## Cambios realizados (changelog resumido)
+
+1. Corregido el bug de agregación en `011` (sum por año → mean entre años) y bugs menores en `012`/`013`
+   (alineación de dimensiones del IPF, ruta de la estimación a usar, dedupe del join de clasificación de
+   países) y en `102`/`103` (año censal IPUMS conservado, ruta de `source()`, armonización de etiquetas).
+2. Corregido un bug de 27 países duplicados en `tabla_tcps_final_sums.csv`: la fila del indicador clave
+   armaba `ref_area.label` con `countrycode::countrycode()` en vez de tomarlo de las tablas ILOSTAT nativas,
+   lo que partía cada país afectado en dos filas al hacer `pivot_wider()`.
+3. Reorganización de carpetas de datos: `./data/estimacion_estancada/` (no versionada) → `./data/raw_data/` +
+   `./data/estimacion/` + `./data/outputs/` (versionadas), con las rutas de `011`/`012`/`013` actualizadas
+   en consecuencia.
+4. Agregado el pipeline paralelo en Python (`016` + `ipf_utils.py`) y el script de validación parametrizado
+   (`015`), para poder correr y validar la estimación sin depender de R/`Rilostat`.
 
 ## Tu tarea
-Avanzar en el análisis de las dos pruebas.
+
+Las dos pruebas de validación (EPH-IPF Argentina e IPUMS-IPF mundo) están completas y documentadas en
+`./reports/analisis_pruebas_ipf.md`, con la corrección del bug de agregación ya aplicada y verificada
+(`./reports/testeo_python_vs_r_20260824.md`). Próximos pasos sugeridos: re-correr `014` (análisis por
+clusters/regiones) sobre `tabla_tcps_final_sums.csv` ya corregida, y estimar un factor de corrección del
+sesgo de método del IPF (subestimación estructural de la celda de interés, detectada en el self-test IPUMS).
