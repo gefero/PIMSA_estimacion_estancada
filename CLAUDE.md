@@ -1,13 +1,38 @@
 # Estimación de la cantidad de trabajadores por cuenta propia de baja calificación urbanos
 
 ## Introducción
-Herramientas metodológicas
-En el auto-empleo se confunden posiciones sociales diversas: pequeños empresarios con alguna capacidad de acumulación, profesionales independientes con honorarios, pequeños comerciantes y productores con alguna posibilidad de ahorro y todo tipo de proletarios con trabajos irregulares. Esto es lo que posibilita las dimensiones de comparación puedan fácilmente, en un instante orientarse hacia el capital, extendiéndose a los empleadores, e incluso en escalas que pueden culminar en empresas con un número muy considerable de empleados, y al siguiente hacia el trabajo asalariado, ampliándose hacia sus capas más bajas por pobres, por menos calificadas o por subordinadas en forma encubierta por el capital. “Exitosos” y “fracasados”, en una línea que debe hacer numerosas abstracciones para llegar a ese continuo, según en qué dirección se quiera prolongarla. El trabajo por cuenta propia funciona así como el vector de la informalidad que permite ver en el vendedor ambulante tanto a un gran comerciante en potencia como a un trabajador sin derechos.
-Hay allí o bien un capital latente a ser desencadenado o bien un asalariado encadenado  a ser reconocido, pero no superpoblación relativa. En el trabajador por cuenta propia (y por extensión, en la informalidad) quedan depositados todos las promesas que se espera que el capitalismo cumpla: para los reformistas, un lugar reconocido en la división del trabajo para todos los trabajadores, para los liberales, la liberación del empresario que pretende que cada uno de ellos esconde. Nada que un ajuste institucional no pueda resolver.
-La pobreza, la imposibilidad de fijar horarios propios y la dependencia de algún cliente dominante nos podrían estar indicando la presencia de algunos rasgos proletarios entre esta población aparentemente independiente. Pero incluso estos elementos podrían funcionar tan solo como un mínimo: el hecho de que el ingreso de nuestro vendedor ambulante provenga de numerosos clientes de poca monta cada uno, que él decida por sí mismo extender su horario por el escaso resultado de su jornada o que eventualmente el trabajo sin descanso le rinda lo suficiente para estar al día, nada de esto hace cambiar su posición social.
+
+En el auto-empleo se confunden posiciones sociales diversas: pequeños 
+empresarios con alguna capacidad de acumulación, profesionales independientes 
+con honorarios, pequeños comerciantes y productores con alguna posibilidad de 
+ahorro y todo tipo de proletarios con trabajos irregulares. Esto es lo que 
+posibilita las dimensiones de comparación puedan fácilmente, en un instante 
+orientarse hacia el capital, extendiéndose a los empleadores, e incluso en 
+escalas que pueden culminar en empresas con un número muy considerable de
+empleados, y al siguiente hacia el trabajo asalariado, ampliándose hacia sus 
+capas más bajas por pobres, por menos calificadas o por subordinadas en forma 
+encubierta por el capital. 
+“Exitosos” y “fracasados”, en una línea que debe hacer numerosas abstracciones 
+para llegar a ese continuo, según en qué dirección se quiera prolongarla. El 
+trabajo por cuenta propia funciona así como el vector de la informalidad que 
+permite ver en el vendedor ambulante tanto a un gran comerciante en potencia 
+como a un trabajador sin derechos.
+Hay allí o bien un capital latente a ser desencadenado o bien un asalariado 
+encadenado  a ser reconocido, pero no superpoblación relativa. En el trabajador 
+por cuenta propia (y por extensión, en la informalidad) quedan depositados 
+todos las promesas que se espera que el capitalismo cumpla: para los reformistas, 
+un lugar reconocido en la división del trabajo para todos los trabajadores, 
+para los liberales, la liberación del empresario que pretende que cada uno de 
+ellos esconde. Nada que un ajuste institucional no pueda resolver.
+La pobreza, la imposibilidad de fijar horarios propios y la dependencia de 
+algún cliente dominante nos podrían estar indicando la presencia de algunos 
+rasgos proletarios entre esta población aparentemente independiente. Pero 
+incluso estos elementos podrían funcionar tan solo como un mínimo: el hecho de 
+que el ingreso de nuestro vendedor ambulante provenga de numerosos clientes de poca monta cada uno, que él decida por sí mismo extender su horario por el escaso resultado de su jornada o que eventualmente el trabajo sin descanso le rinda lo suficiente para estar al día, nada de esto hace cambiar su posición social.
 Pero llegados a este punto, lo mismo puede pasarle al comerciante que abre su negocio temprano y lo cierra tarde para atender a clientes múltiples y variados que le permitan asegurarse una remuneración que no lo haga pasar por pobre. No se trata solo de que las herramientas estadísticas parecen insuficientes para distinguir al pequeño comerciante del vendedor ambulante, sino que las imprecisiones en los rasgos no son meramente instrumentales, corresponden a una concepción teórica a partir de la cual está construido un instrumento que detecta más similitudes que diferencias en los rasgos de quienes acceden a medios de vida en base a la pequeña propiedad respecto de aquellos que lo logran irregularmente a falta de ella. El trabajo por cuenta propia funciona como emplasto por sobre las diferencias entre pequeños propietarios y población obrera sobrante.  Su perdurabilidad como categoría estadística se sostiene en parte en lo que renuncia a conocer.
 No podremos aquí superar las limitaciones que nos impone para una comparación internacional. Sin embargo, en función de lo que venimos desarrollando buscaremos otra aproximación, consistente en utilizar como principal indicador el nivel de calificación de la ocupación.
 Según la Clasificación Internacional Uniforme de Ocupaciones (CIUO-08) utilizada por OIT (2012) las ocupaciones son discriminadas en las siguientes categorías, las cuales a su vez son agrupadas en la plataforma ILOSTAT en tres grandes grupos:
+
 | Grandes grupos                                                            | Nivel general de calificación           |
 |---------------------------------------------------------------------------|-----------------------------------------|
 | 1 Gerentes                                                                |                   Alta                  |
