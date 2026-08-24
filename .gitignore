@@ -3,3 +3,7 @@
 .RData
 .Ruserdata
 .positai
+__pycache__/
+*.pyc
+.Rproj.user/
+
