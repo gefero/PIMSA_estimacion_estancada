@@ -63,14 +63,60 @@ TCP/TF no agro, no agro calif. baja (margen), y la celda de interés (TCP/TF no 
 por arriba (líneas amarillas/verdes que se disparan) corresponden a los mismos pocos países con valores
 extremos que ya aparecían como outliers en la prueba de validación contra IPUMS.
 
-## Síntesis
+## Lectura teórica: TCP/TF de baja calificación no agraria como superpoblación estancada
+
+El indicador que se releva acá es, como plantea la introducción del proyecto, un **piso mínimo** de la
+superpoblación relativa urbana disfrazada de trabajo por cuenta propia: se restringe deliberadamente a las
+"ocupaciones elementales" (grupo 9 de la CIUO-08) para no forzar la hipótesis, dejando afuera —indiscriminada
+en la calificación media— a buena parte de la capa que también podría leerse como proletaria (talleristas,
+choferes, comerciantes menores, repartidores en moto en vez de bicicleta, etc.). Lo que el gradiente empírico
+por cluster, ingreso y región permite es poner a prueba, con ese piso, si la distribución del fenómeno sigue
+la lógica que la teoría anticiparía para la forma **estancada** de la superpoblación relativa, y no otra.
+
+Marx caracteriza a la superpoblación estancada por una ocupación "sumamente irregular", condiciones de vida
+"por debajo del nivel medio normal de la clase obrera" y una disposición a aceptar el "máximo de tiempo de
+trabajo" por el "mínimo de salario" —rasgos que la hacen, a la vez, "campo de reclutamiento" inagotable para
+el capital y depósito de una población que éste ya no necesita regularizar. A diferencia de la superpoblación
+**flotante** (la que rota dentro y fuera del empleo asalariado regular en los propios centros de la gran
+industria) y de la **latente** (la que la penetración capitalista todavía no termina de expulsar del campo,
+manteniéndola dentro de la agricultura como fuerza de trabajo virtualmente disponible), la estancada es
+precisamente la que ya fue separada de sus medios de vida agrarios pero **no** fue absorbida por el trabajo
+asalariado regular: queda flotando en los intersticios urbanos y semi-urbanos, y el "cuentapropismo" de baja
+calificación —el cartonero, el repartidor, el vendedor ambulante, el changarín (subgrupos 91-96 de la CIUO-08
+listados en la introducción)— es una de sus formas fenoménicas más visibles, aunque estadísticamente quede
+emplastada bajo la misma categoría que el pequeño propietario exitoso.
+
+Leído así, el gradiente por cluster PIMSA (C1→C4: 0,6% → 6,2%) no es simplemente "más pobreza, más
+cuentapropismo": es un gradiente en la **capacidad del capital para absorber, en trabajo asalariado regular,
+a la población que su propia extensión separa de los medios de vida agrarios**. Cuanto menor esa capacidad
+relativa de absorción (C4: "extensión escasa"), mayor la fracción de esa población que queda flotando como
+estancada en circuitos urbanos no agrarios de baja calificación, en vez de ser regularizada como asalariada.
+C5 ("pequeña propiedad en el campo") rompe la monotonía porque ahí la separación respecto de los medios de
+vida agrarios todavía no se completó del todo: la superpoblación sigue estando, en los términos de la teoría,
+predominantemente en su forma **latente** (retenida dentro del campo, con TCP/TF total alto pero mayormente
+agrícola) más que en su forma estancada no agraria —de ahí que su celda de interés (3,1%) sea menor a la de
+C4 pese a tener el TCP/TF total más alto de todos los clusters.
+
+La misma lógica explica el pico no monótono por ingreso (medio-bajo, no el más pobre) y la concentración
+regional en South Asia y Sub-Saharan Africa: son las zonas donde el proceso de expulsión agraria ya avanzó lo
+suficiente como para generar una masa urbana considerable, pero donde la industrialización y el empleo
+asalariado formal no crecieron al mismo ritmo para absorberla. En los países de ingreso más bajo, en cambio,
+esa masa todavía tiende a estar retenida como superpoblación latente dentro del propio campo; y en los países
+de ingreso alto (Europa/Asia Central, Norteamérica), la capacidad de absorción asalariada —o, alternativamente,
+la cobertura de protecciones que regularizan aun al cuentapropismo residual— reduce la celda casi a cero. El
+patrón, en suma, es compatible con leer al TCP/TF de baja calificación no agraria no como una capa de pequeños
+empresarios en potencia, sino como una expresión estadística —parcial y necesariamente subestimada, por la
+restricción a ocupaciones elementales— de la superpoblación relativa estancada.
+
+### Síntesis empírica
 
 - El gradiente por cluster PIMSA es el patrón más nítido: de C1 a C4 la celda de interés crece de forma
-  monótona y en un orden de magnitud (0,6% → 6,2%).
+  monótona y en un orden de magnitud (0,6% → 6,2%); C5 rompe la monotonía por el peso todavía agrario de su
+  TCP/TF.
 - Por ingreso, la relación no es monótona: el pico está en ingreso medio-bajo, no en el más pobre.
 - Por región, South Asia y Sub-Saharan Africa concentran los valores más altos; el resto del mundo queda muy
   por debajo, con Europa/Asia Central y Norteamérica cerca de cero.
-- Los tres cortes son consistentes entre sí: apuntan a que la sobre-representación de TCP/TF de baja
-  calificación no agrícola no es simplemente un fenómeno de "pobreza de país", sino que está asociado a un
-  tipo específico de estructura productiva (capacidad de acumulación escasa con peso del campo, o ingreso
-  medio-bajo) más que al nivel de ingreso o pobreza per se.
+- Los tres cortes son consistentes entre sí y con la lectura teórica: la sobre-representación de TCP/TF de
+  baja calificación no agrícola no es un fenómeno de "pobreza de país" sin más, sino que sigue la lógica de
+  dónde la separación respecto de los medios de vida agrarios ya avanzó pero la absorción asalariada regular
+  todavía no la siguió.
