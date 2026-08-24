@@ -1,11 +1,11 @@
 library(tidyverse)
 
 # Ruta de la estimación IPF a usar (actualizar al re-correr 012)
-ESTIMACION_PATH <- './data/20251118_estimacion_tcp_final.csv'
+ESTIMACION_PATH <- './data/estimacion/20260824_estimacion_tcp_final_v2.csv'
 
 estanc <-read_csv(ESTIMACION_PATH)
 
-catocup_rama <- read_csv('./data/raw/estimacion/catocup_rama.csv') 
+catocup_rama <- read_csv('./data/raw_data/catocup_rama.csv')
 catocup_rama <- catocup_rama %>%
         #filter(ref_area %in% intersect) %>%
         filter(catocup != "9.SD" & rama2 != "9.SD")
@@ -43,7 +43,7 @@ catocup_rama_agg <- catocup_rama %>%
 
 
 
-catocup_calif<- read_csv('./data/estimacion/catocup_calif.csv') %>%
+catocup_calif<- read_csv('./data/raw_data/catocup_calif.csv') %>%
 #        filter(ref_area %in% intersect) %>%
         filter(catocup != "9.SD" & calif != "9.SD")
         
@@ -60,7 +60,7 @@ catocup_calif_agg <- catocup_calif %>%
 
 
 
-calif_rama <- read_csv('./data/estimacion/calif_rama.csv') %>%
+calif_rama <- read_csv('./data/raw_data/calif_rama.csv') %>%
       #  filter(ref_area %in% intersect) %>%
         filter(rama2 != "9.SD" & calif != "9.SD")
 
@@ -145,7 +145,7 @@ tabla_final <- tabla_final %>%
 
 
 #tcps <- read_csv('./data/estimacion_estancada/tabla_tcps_final.csv')
-country_classif <- read_csv('./data/ouputs/country_classification.csv') %>%
+country_classif <- read_csv('./data/outputs/country_classification.csv') %>%
         # el archivo trae iso3c repetidos (grafías distintas del nombre de
         # país); sin dedupe el join duplica países en la tabla final
         distinct(iso3c, .keep_all = TRUE)

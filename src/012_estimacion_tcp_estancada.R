@@ -119,7 +119,7 @@ tabla_final <- run_tcp_estimates()
 tictoc::toc()
 
 
-tabla_final %>% write_csv(paste0('./data/estimacion_estancada/',
+tabla_final %>% write_csv(paste0('./data/estimacion/',
                                  format(Sys.Date(), format="%Y%m%d"),
                                  '_estimacion_tcp_final_v2.csv')
 )
