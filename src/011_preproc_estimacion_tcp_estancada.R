@@ -51,7 +51,7 @@ calif_rama %>%
         write_csv('./data/raw_data/calif_rama.csv')
 
 calif_rama_agg %>%
-        write_csv('./data/estimacion_estancada/calif_rama_agg.csv')
+        write_csv('./data/estimacion/calif_rama_agg.csv')
 
 catocup_rama <-  get_ilostat(
         tables$id[2],
@@ -95,7 +95,7 @@ catocup_rama %>%
         write_csv('./data/raw_data/catocup_rama.csv')
 
 catocup_rama_agg %>%
-        write_csv('./data/estimacion_estancada/catocup_rama_agg.csv')
+        write_csv('./data/estimacion/catocup_rama_agg.csv')
 
 catocup_calif <- get_ilostat(
         tables$id[3],
@@ -137,7 +137,7 @@ catocup_calif %>%
         write_csv('./data/raw_data/catocup_calif.csv')
 
 catocup_calif_agg %>%
-        write_csv('./data/estimacion_estancada/catocup_calif_agg.csv')
+        write_csv('./data/estimacion/catocup_calif_agg.csv')
 
 counts_intersect <- tibble(country_select = intersect(
 intersect(
@@ -147,7 +147,7 @@ catocup_calif %>% select(ref_area) %>% distinct() %>% pull())
 )
 
 counts_intersect %>%
-        write_csv('./data/estimacion_estancada/country_intersect.csv')
+        write_csv('./data/estimacion/country_intersect.csv')
         
 
 

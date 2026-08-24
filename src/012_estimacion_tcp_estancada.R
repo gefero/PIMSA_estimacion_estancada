@@ -1,20 +1,20 @@
 library(tidyverse)
 library(mipfp)
 
-intersect <- read_csv('./data/estimacion_estancada/country_intersect.csv') %>% pull()
+intersect <- read_csv('./data/estimacion/country_intersect.csv') %>% pull()
 
-catocup_rama_agg <- read_csv('./data/estimacion_estancada/catocup_rama_agg.csv') %>%
+catocup_rama_agg <- read_csv('./data/estimacion/catocup_rama_agg.csv') %>%
         filter(ref_area %in% intersect) %>%
         filter(catocup != "9.SD") %>%
         select(-`9.SD`)
 
-calif_rama_agg <- read_csv('./data/estimacion_estancada/calif_rama_agg.csv') %>%
+calif_rama_agg <- read_csv('./data/estimacion/calif_rama_agg.csv') %>%
         filter(ref_area %in% intersect) %>%
         filter(calif != "9.SD") %>%
         select(-`9.SD`)
 
 
-catocup_calif_agg <- read_csv('./data/estimacion_estancada/catocup_calif_agg.csv')%>%
+catocup_calif_agg <- read_csv('./data/estimacion/catocup_calif_agg.csv')%>%
         filter(ref_area %in% intersect) %>%
         filter(catocup != "9.SD") %>%
         select(-`9.SD`)
