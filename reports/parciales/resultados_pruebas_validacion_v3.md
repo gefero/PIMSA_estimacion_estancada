@@ -33,7 +33,7 @@ observada directamente en la encuesta.
 - **Índice de disimilitud** (0,5 × Σ|diferencias|): 0,091 pp
 - **Correlación de Pearson** observado vs. estimado: 0,999999
 
-![Prueba EPH: observado vs. estimado por IPF](figs/fig1_eph_obs_vs_ipf_v3.png)
+![Prueba EPH: observado vs. estimado por IPF](../figs/fig1_eph_obs_vs_ipf_v3.png)
 
 El método reproduce con altísima fidelidad la distribución conjunta cuando los tres márgenes bivariados de
 entrada provienen de la misma fuente y período.
@@ -69,7 +69,7 @@ parte de los 159 países de la estimación OIT-IPF vigente).
 
 La fila resaltada es la **celda de interés** del proyecto (TCP/familiares de baja calificación, no agro).
 
-![Estimación OIT-IPF vs. censo, por celda de la trivariada](figs/fig2_ipums_scatter_celdas_v3.png)
+![Estimación OIT-IPF vs. censo, por celda de la trivariada](../figs/fig2_ipums_scatter_celdas_v3.png)
 
 ### 2.2 Celda de interés, país por país
 
@@ -92,7 +92,7 @@ Excluyendo los dos mayores outliers (Senegal y Kenia, donde las encuestas de fue
 los censos difieren fuertemente en el nivel general de baja calificación: 26% vs. 9% y 35% vs. 16%
 respectivamente), la celda de interés queda con **MAE 0,76 pp y sesgo −0,05 pp sobre 43 países**.
 
-![Celda de interés por país](figs/fig3_celda_clave_scatter_v3.png)
+![Celda de interés por país](../figs/fig3_celda_clave_scatter_v3.png)
 
 ---
 
@@ -106,7 +106,7 @@ trivariada reconstruida y la verdadera aísla el error del supuesto de no-intera
 - **MAE global:** 0,31 pp | **percentil 90 del error absoluto:** 1,05 pp | **máximo:** 2,37 pp
 - **Celda de interés:** MAE 0,38 pp | sesgo −0,33 pp | Spearman 0,90
 
-![Descomposición del error en la celda de interés](figs/fig4_ecdf_error_descomposicion_v3.png)
+![Descomposición del error en la celda de interés](../figs/fig4_ecdf_error_descomposicion_v3.png)
 
 El método por sí solo introduce un error acotado y con un sesgo negativo moderado: en la celda de interés,
 el IPF de máxima entropía tiende a **subestimar** levemente la proporción real cuando los márgenes de

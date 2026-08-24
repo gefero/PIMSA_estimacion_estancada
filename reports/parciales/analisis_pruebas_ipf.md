@@ -55,7 +55,7 @@ Insumo: `data/eph_ipf_comparacion_agg_test.csv` (las tres bivariadas reconstruid
 - **Celda de interés: 0,798% observado vs 0,795% estimado (error relativo 0,36%).**
 - Los errores relativos grandes ocurren solo en celdas minúsculas de agro (n = 1 y n = 34 casos muestrales), donde la propia EPH no es confiable. Nótese la estructura del error: dentro de cada nivel de calificación las diferencias son iguales y de signo alternado — el IPF reproduce los márgenes bivariados *exactamente* y el error residual es puramente la interacción de tercer orden, que en Argentina resulta despreciable.
 
-![Prueba EPH](figs/fig1_eph_obs_vs_ipf.png)
+![Prueba EPH](../figs/fig1_eph_obs_vs_ipf.png)
 
 **Lectura:** el método reproduce la conjunta casi a la perfección cuando las tres bivariadas provienen de la misma fuente y son mutuamente consistentes. La prueba EPH valida el *método*, no el *pipeline* con datos OIT.
 
@@ -84,7 +84,7 @@ Insumos: `data/ipums_ifp_v2_tcp_by_calif.csv` (trivariada "verdadera" de muestra
 
 El patrón es inequívoco: **todas las celdas agro están sobreestimadas y todas las no-agro subestimadas**. No es ruido de comparabilidad entre fuentes: es un desplazamiento masivo del margen de rama (§6).
 
-![Scatter por celda](figs/fig2_ipums_scatter_celdas.png)
+![Scatter por celda](../figs/fig2_ipums_scatter_celdas.png)
 
 ### 4.2 La celda de interés (TCP/TF × No agro × Baja calificación)
 
@@ -93,7 +93,7 @@ El patrón es inequívoco: **todas las celdas agro están sobreestimadas y todas
 - Mayores discrepancias: TZA (−4,8 pp), KEN (+3,3), MAR (−3,3), GHA (−3,3), MEX (−2,9). Mejores acuerdos: BRA, PRI, NLD, ARM, ECU (|dif| < 0,15 pp). El error absoluto crece con el nivel censal de la celda (r = 0,85): donde el fenómeno es grande, la subestimación es mayor — el sesgo por región es más severo donde más importa (África subsahariana −1,0 pp; Europa y A. Central −0,3 pp).
 - Detalle país por país en `data/test_ipf/celda_clave_paises.csv`.
 
-![Celda clave](figs/fig3_celda_clave_scatter.png)
+![Celda clave](../figs/fig3_celda_clave_scatter.png)
 
 ---
 
@@ -106,7 +106,7 @@ El patrón es inequívoco: **todas las celdas agro están sobreestimadas y todas
 | (a) Sólo supuesto IPF (self-test IPUMS) | 0,38 | −0,33 | 0,90 |
 | (b) Pipeline completo OIT-IPF vs IPUMS | 0,99 | −0,62 | 0,71 |
 
-![ECDF descomposición](figs/fig4_ecdf_error_descomposicion.png)
+![ECDF descomposición](../figs/fig4_ecdf_error_descomposicion.png)
 
 Dos conclusiones:
 
@@ -132,7 +132,7 @@ summarise(n = mean(obs_value, na.rm = TRUE))
 
 1. Si "No agro" se divide por 5, el margen agro observado en la estimación debería seguir la curva `f(a) = a/(a+(100−a)/5)`. Los 46 países caen sobre esa curva, no sobre la identidad:
 
-![Curva del bug](figs/fig5_margen_agro_bug.png)
+![Curva del bug](../figs/fig5_margen_agro_bug.png)
 
 2. Invirtiendo la curva, el % agro "real" implícito en la estimación reproduce ILOSTAT en todo el espectro:
 
@@ -215,7 +215,7 @@ Con la agregación corregida, el margen agro reproduce ILOSTAT en todo el espect
 | USA | 8,0 | 1,7 | ~1,4 |
 | ARG | 3,7 | 0,7 | ~0,5 |
 
-![Margen agro antes/después](figs/fig6_margen_agro_antes_despues.png)
+![Margen agro antes/después](../figs/fig6_margen_agro_antes_despues.png)
 
 ### 9.2 Resultados post-corrección vs IPUMS
 
@@ -238,7 +238,7 @@ directo de `013` sobre los mismos datos vigentes (MAE 5,7; ρ 0,84), como debía
 agregación, la trivariada estimada y el marginal directo son consistentes, con o sin el refresh de
 `raw_data`.
 
-![Celda de interés antes/después](figs/fig7_celda_clave_antes_despues.png)
+![Celda de interés antes/después](../figs/fig7_celda_clave_antes_despues.png)
 
 ### 9.3 Matiz honesto: el MAE bruto de la celda de interés
 

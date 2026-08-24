@@ -56,7 +56,7 @@ composición está más volcada a calificaciones media/alta.
 
 ## Gráfico de conjunto
 
-![Coordenadas paralelas por cluster PIMSA](figs/fig_014_parcoord_clusters.png)
+![Coordenadas paralelas por cluster PIMSA](../figs/fig_014_parcoord_clusters.png)
 
 Cada línea es un país (color = cluster); los cuatro ejes son, de izquierda a derecha, TCP/TF calif. baja,
 TCP/TF no agro, no agro calif. baja (margen), y la celda de interés (TCP/TF no agro calif. baja). Los outliers

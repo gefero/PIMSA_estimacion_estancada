@@ -175,8 +175,14 @@ Scripts de validación:
 - `./data/test_ipf/` — salidas de las pruebas de validación (ver abajo).
 - `./data/estimacion_tcp_final_corregida.csv` / `./data/tabla_tcps_final_sums_corregida.csv` — estimación y
   tabla final calculadas con el pipeline Python (`016`), equivalentes a las de R para comparación directa.
-- `./reports/` — informes de análisis (`analisis_pruebas_ipf.md`, `testeo_python_vs_r_20260824.md`) y sus
-  figuras (`./reports/figs/`).
+- `./reports/` — `informe_resultados.md` (**informe consolidado**, único punto de entrada: resultados del
+  último ejercicio de estimación/validación — EPH, IPUMS, self-test, análisis por cluster/ingreso/región —
+  sin el historial de corrección del bug de agregación) y `./reports/figs/` (figuras, compartidas con
+  `parciales/`).
+- `./reports/parciales/` — informes intermedios/históricos que documentan el proceso (`analisis_pruebas_ipf.md`
+  con el historial completo de detección y corrección del bug de agregación, `testeo_python_vs_r_20260824.md`
+  con la validación cruzada R vs. Python, y las corridas `_v3` de validación y de `014` tal como se generaron
+  antes de consolidarse en `informe_resultados.md`).
 
 ## Pruebas realizadas
 
@@ -190,12 +196,12 @@ Scripts de validación:
   países. Insumo: `./data/ipums_ifp_v2_tcp_by_calif.csv`. Este cruce fue el que permitió detectar el bug de
   agregación de `011` (margen "Agro" implícito en la estimación publicada +24,8 pp por encima de IPUMS antes
   de la corrección; −2,6 pp después). Resultados en `./data/test_ipf/` (`comp_raking_ipums_full*.csv`,
-  `metricas_por_celda*.csv`, `celda_clave_paises*.csv`) y en `./reports/analisis_pruebas_ipf.md`.
+  `metricas_por_celda*.csv`, `celda_clave_paises*.csv`) y en `./reports/parciales/analisis_pruebas_ipf.md`.
   **Re-corrida al día (2026-08-24, sufijo `_v3`)** contra el `raw_data` vigente (commit `55a01f8`) con
   `src/015_analisis_pruebas_ipf.R`, usando `./data/estimacion/20260824_estimacion_tcp_final_v2.csv` (R) como
   insumo. Resultados prácticamente idénticos a la corrida anterior (`_v2`, sobre `raw_data` pre-refresh):
   MAE 12 celdas 2,15 pp, Pearson 0,928, sesgo margen agro −2,5 pp — sin señal de que el bug de agregación
-  haya reaparecido. Detalle y trazabilidad completa en `./reports/analisis_pruebas_ipf.md` §9.
+  haya reaparecido. Detalle y trazabilidad completa en `./reports/parciales/analisis_pruebas_ipf.md` §9.
 
 - **Validación cruzada R vs. Python del IPF (`mipfp::Ipfp` vs. implementación propia)**: se corrió el IPF de
   forma independiente en R (paquete `mipfp` real) y en Python (`016`) sobre los mismos insumos agregados
@@ -204,7 +210,7 @@ Scripts de validación:
   ~10 países (Senegal, Burkina Faso, Guinea-Bissau, entre los mayores) con diferencias de hasta 1,75 pp,
   atribuible a inconsistencia entre los márgenes bivariados de entrada de esos países (límite conocido del
   método, no bug de implementación). Detalle completo, metodología y tabla país por país en
-  `./reports/testeo_python_vs_r_20260824.md`; salidas en `./data/test_ipf/estimacion_R_mipfp_full_independiente.csv`,
+  `./reports/parciales/testeo_python_vs_r_20260824.md`; salidas en `./data/test_ipf/estimacion_R_mipfp_full_independiente.csv`,
   `./data/test_ipf/comparacion_python_vs_R_completa.csv` y `./data/test_ipf/celda_interes_comparacion_final.csv`.
 
 ## Cambios realizados (changelog resumido)
@@ -225,7 +231,7 @@ Scripts de validación:
 
 **Resuelto (2026-08-24): re-corrida de la prueba IPUMS-IPF (mundo) contra los datos vigentes.** El
 `raw_data` de ILOSTAT se había refrescado (commit `55a01f8`, revisiones de la serie 2009-2019) después de
-que se generaran los resultados de validación IPUMS que figuraban en `./reports/analisis_pruebas_ipf.md` §9
+que se generaran los resultados de validación IPUMS que figuraban en `./reports/parciales/analisis_pruebas_ipf.md` §9
 (commit `9bf0624`). Se resolvió así:
 
 1. Se confirmó que `./data/estimacion/20260824_estimacion_tcp_final_v2.csv` (salida real de `mipfp::Ipfp`
@@ -234,7 +240,7 @@ que se generaran los resultados de validación IPUMS que figuraban en `./reports
 2. Se portó `./src/015_analisis_pruebas_ipf.py` a R/tidyverse (`./src/015_analisis_pruebas_ipf.R`, mismos
    `--estimacion`/`--sufijo`) para no depender de Python, y se corrió con
    `--estimacion ./data/estimacion/20260824_estimacion_tcp_final_v2.csv --sufijo _v3`.
-3. Se actualizó `./reports/analisis_pruebas_ipf.md` §9 con los resultados `_v3` (tabla comparativa de tres
+3. Se actualizó `./reports/parciales/analisis_pruebas_ipf.md` §9 con los resultados `_v3` (tabla comparativa de tres
    columnas: publicada con bug / corregida sobre `raw_data` pre-refresh / corregida sobre `raw_data`
    vigente), dejando registro explícito de commits y archivos usados.
 
