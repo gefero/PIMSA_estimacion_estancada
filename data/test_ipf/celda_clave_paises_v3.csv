@@ -1,0 +1,46 @@
+iso3c,calificacion,ocupacion,rama,raking_porc,ipums_porc,n_raw,diff,region,income_group_2,cluster_pimsa,prop_tcp_fliares_no_agro,rank_ipums,rank_raking
+GHA,1.Baja,3.TCP_fliares,2.No_agro,1.474903102619074,3.83106864865559,41767,-2.356165546036516,Sub-Saharan Africa,03 Medios-bajos ingresos,C4. Cap. escasa extensión c/peso campo,31.24309532124648,40,28
+MEX,1.Baja,3.TCP_fliares,2.No_agro,1.7780981347296594,3.853240092711957,250883,-2.075141957982298,Latin America & Caribbean,02 Medios-altos ingresos,C2. Cap. extensión reciente c/desarrollo profundidad,20.21626059985264,41,32
+MWI,1.Baja,3.TCP_fliares,2.No_agro,0.4054057966877224,2.2773827276964878,12263,-1.8719769310087653,Sub-Saharan Africa,04 Bajos ingresos,C4. Cap. escasa extensión c/peso campo,19.172595567473753,35,11
+MAR,1.Baja,3.TCP_fliares,2.No_agro,3.512060000278297,5.115726355955301,46924,-1.6036663556770043,Middle East & North Africa,03 Medios-bajos ingresos,C3. Cap. extensión c/peso campo,22.846923680911335,44,38
+FJI,1.Baja,3.TCP_fliares,2.No_agro,0.48010951541540786,1.9834563728542205,669,-1.5033468574388127,East Asia & Pacific,02 Medios-altos ingresos,C3. Cap. extensión c/peso campo,9.070986492210665,32,15
+TZA,1.Baja,3.TCP_fliares,2.No_agro,4.72800670576833,6.141368860527327,93732,-1.413362154758997,Sub-Saharan Africa,03 Medios-bajos ingresos,C5. Pequeña propiedad en el campo,20.86980887082831,45,40
+PAN,1.Baja,3.TCP_fliares,2.No_agro,2.0626538203363864,3.385347996711598,4365,-1.3226941763752116,Latin America & Caribbean,01 Altos ingresos,C2. Cap. extensión reciente c/desarrollo profundidad,20.91299258681233,39,34
+PRT,1.Baja,3.TCP_fliares,2.No_agro,0.3770820636083608,0.9873593736147339,2116,-0.6102773100063732,Europe & Central Asia,01 Altos ingresos,C2. Cap. extensión reciente c/desarrollo profundidad,13.0665135727288,22,10
+SUR,1.Baja,3.TCP_fliares,2.No_agro,2.09551911473505,2.7051992610187385,410,-0.6096801462836887,Latin America & Caribbean,02 Medios-altos ingresos,C1. Cap. avanzado,14.323269203763516,37,35
+KHM,1.Baja,3.TCP_fliares,2.No_agro,0.10277592078881163,0.6827666099928419,5967,-0.5799906892040303,East Asia & Pacific,03 Medios-bajos ingresos,C4. Cap. escasa extensión c/peso campo,20.567624374185527,16,1
+BWA,1.Baja,3.TCP_fliares,2.No_agro,1.5772478911253485,2.1397685905214403,1252,-0.5625206993960918,Sub-Saharan Africa,02 Medios-altos ingresos,C2. Cap. extensión reciente c/desarrollo profundidad,8.844638292968643,33,31
+NPL,1.Baja,3.TCP_fliares,2.No_agro,0.9661296357564793,1.521819792998988,17431,-0.5556901572425088,South Asia,03 Medios-bajos ingresos,C5. Pequeña propiedad en el campo,24.335430405340645,26,23
+ZMB,1.Baja,3.TCP_fliares,2.No_agro,1.288582731115093,1.8256341813573487,5964,-0.5370514502422556,Sub-Saharan Africa,04 Bajos ingresos,C5. Pequeña propiedad en el campo,18.76494040936234,30,25
+GRC,1.Baja,3.TCP_fliares,2.No_agro,0.15928688291678186,0.6743254689440228,2460,-0.515038586027241,Europe & Central Asia,01 Altos ingresos,C2. Cap. extensión reciente c/desarrollo profundidad,17.259766874227555,15,4
+CRI,1.Baja,3.TCP_fliares,2.No_agro,1.3238567790976188,1.7902645335855203,2726,-0.4664077544879015,Latin America & Caribbean,02 Medios-altos ingresos,C2. Cap. extensión reciente c/desarrollo profundidad,18.33874153182648,29,26
+RWA,1.Baja,3.TCP_fliares,2.No_agro,0.5246507215114081,0.926321378689414,3210,-0.4016706571780059,Sub-Saharan Africa,04 Bajos ingresos,C5. Pequeña propiedad en el campo,17.733901367022764,21,16
+ESP,1.Baja,3.TCP_fliares,2.No_agro,0.15196544841254445,0.323861118005342,4915,-0.17189566959279756,Europe & Central Asia,01 Altos ingresos,C1. Cap. avanzado,15.05198089753451,7,3
+HUN,1.Baja,3.TCP_fliares,2.No_agro,0.1163330241719165,0.21316754765744636,419,-0.09683452348552986,Europe & Central Asia,01 Altos ingresos,C1. Cap. avanzado,9.674985038209549,3,2
+MUS,1.Baja,3.TCP_fliares,2.No_agro,0.5502520480004266,0.6185328631712815,321,-0.06828081517085494,Sub-Saharan Africa,02 Medios-altos ingresos,C2. Cap. extensión reciente c/desarrollo profundidad,13.445131440938754,12,17
+BEN,1.Baja,3.TCP_fliares,2.No_agro,0.4519343602827514,0.47729195346325415,1529,-0.025357593180502735,Sub-Saharan Africa,03 Medios-bajos ingresos,C4. Cap. escasa extensión c/peso campo,42.65086485241647,10,12
+ITA,1.Baja,3.TCP_fliares,2.No_agro,0.608428917777497,0.6251937994768408,7077,-0.01676488169934387,Europe & Central Asia,01 Altos ingresos,C1. Cap. avanzado,22.403358261649352,13,18
+CHE,1.Baja,3.TCP_fliares,2.No_agro,0.270861402273397,0.27625640461688594,312,-0.005395002343488942,Europe & Central Asia,01 Altos ingresos,C1. Cap. avanzado,8.435078208300418,6,8
+IRL,1.Baja,3.TCP_fliares,2.No_agro,0.2550692987054271,0.24963891514060021,420,0.0054303835648268906,Europe & Central Asia,01 Altos ingresos,C1. Cap. avanzado,12.246506411900556,5,7
+PRI,1.Baja,3.TCP_fliares,2.No_agro,0.64352906647052,0.6343825665859564,331,0.00914649988456362,Latin America & Caribbean,01 Altos ingresos,C1. Cap. avanzado,11.40462230693459,14,19
+PSE,1.Baja,3.TCP_fliares,2.No_agro,1.0553080232148733,1.0397223625208143,899,0.015585660694058978,Middle East & North Africa,03 Medios-bajos ingresos,C2. Cap. extensión reciente c/desarrollo profundidad,18.922098516745884,23,24
+USA,1.Baja,3.TCP_fliares,2.No_agro,0.4657646142743256,0.44971794089063755,28914,0.016046673383688037,North America,01 Altos ingresos,C1. Cap. avanzado,5.988282774374169,9,14
+ARM,1.Baja,3.TCP_fliares,2.No_agro,0.2022652476189851,0.16496427372560304,172,0.03730097389338205,Europe & Central Asia,02 Medios-altos ingresos,C3. Cap. extensión c/peso campo,7.6286407214011716,2,5
+GIN,1.Baja,3.TCP_fliares,2.No_agro,0.9141812932745536,0.858869003311332,3473,0.05531228996322157,Sub-Saharan Africa,04 Bajos ingresos,C5. Pequeña propiedad en el campo,35.91217888154047,20,21
+ROU,1.Baja,3.TCP_fliares,2.No_agro,0.8053251156774206,0.7457652747211206,6313,0.05955984095629996,Europe & Central Asia,01 Altos ingresos,C3. Cap. extensión c/peso campo,5.601028613200981,17,20
+SVK,1.Baja,3.TCP_fliares,2.No_agro,0.4639358540346937,0.3955209636714525,746,0.06841489036324117,Europe & Central Asia,01 Altos ingresos,C2. Cap. extensión reciente c/desarrollo profundidad,12.052222328633226,8,13
+MNG,1.Baja,3.TCP_fliares,2.No_agro,0.929529508728077,0.8541751601879515,766,0.07535434854012557,East Asia & Pacific,03 Medios-bajos ingresos,C3. Cap. extensión c/peso campo,19.904122712006338,19,22
+NLD,1.Baja,3.TCP_fliares,2.No_agro,0.35501121664394436,0.24929919610406046,572,0.1057120205398839,Europe & Central Asia,01 Altos ingresos,C1. Cap. avanzado,14.094203389914457,4,9
+FIN,1.Baja,3.TCP_fliares,2.No_agro,0.2285343653660785,0.002726083163710381,3,0.22580828220236812,Europe & Central Asia,01 Altos ingresos,C1. Cap. avanzado,10.551746945942185,1,6
+BOL,1.Baja,3.TCP_fliares,2.No_agro,1.5156774163228657,1.1990900706370229,4499,0.3165873456858428,Latin America & Caribbean,03 Medios-bajos ingresos,C3. Cap. extensión c/peso campo,31.93946112832107,25,29
+IRN,1.Baja,3.TCP_fliares,2.No_agro,1.5563867107186982,1.1614563418122994,4037,0.39493036890639877,Middle East & North Africa,03 Medios-bajos ingresos,C3. Cap. extensión c/peso campo,27.161124022273203,24,30
+VNM,1.Baja,3.TCP_fliares,2.No_agro,1.9729189386604913,1.5565764453006798,69232,0.41634249335981144,East Asia & Pacific,03 Medios-bajos ingresos,C4. Cap. escasa extensión c/peso campo,19.170433508955295,28,33
+BRA,1.Baja,3.TCP_fliares,2.No_agro,2.3615893878728027,1.5249679421991924,109410,0.8366214456736103,Latin America & Caribbean,02 Medios-altos ingresos,C2. Cap. extensión reciente c/desarrollo profundidad,19.96841759695433,27,36
+TGO,1.Baja,3.TCP_fliares,2.No_agro,1.4681632876594255,0.6039347266406019,1247,0.8642285610188236,Sub-Saharan Africa,04 Bajos ingresos,C4. Cap. escasa extensión c/peso campo,40.20402852056055,11,27
+SLE,1.Baja,3.TCP_fliares,2.No_agro,3.292306681749434,2.3331878834102753,6363,0.9591187983391589,Sub-Saharan Africa,04 Bajos ingresos,C5. Pequeña propiedad en el campo,29.542656027302957,36,37
+ECU,1.Baja,3.TCP_fliares,2.No_agro,5.268440102387047,2.914328037597389,15385,2.3541120647896583,Latin America & Caribbean,02 Medios-altos ingresos,C3. Cap. extensión c/peso campo,27.307311067967905,38,41
+PER,1.Baja,3.TCP_fliares,2.No_agro,7.026271349543382,4.611485781313564,56337,2.414785568229818,Latin America & Caribbean,02 Medios-altos ingresos,C3. Cap. extensión c/peso campo,28.658955851745542,43,43
+HND,1.Baja,3.TCP_fliares,2.No_agro,3.5185511438034744,0.8131008957954801,1661,2.7054502480079945,Latin America & Caribbean,03 Medios-bajos ingresos,C3. Cap. extensión c/peso campo,25.54251209644176,18,39
+DOM,1.Baja,3.TCP_fliares,2.No_agro,5.3108510330729635,1.8326388140261922,4930,3.478212219046771,Latin America & Caribbean,02 Medios-altos ingresos,C2. Cap. extensión reciente c/desarrollo profundidad,32.840865514735235,31,42
+SEN,1.Baja,3.TCP_fliares,2.No_agro,12.284260401552222,4.044256396235072,9019,8.24000400531715,Sub-Saharan Africa,03 Medios-bajos ingresos,C4. Cap. escasa extensión c/peso campo,35.491980692421606,42,45
+KEN,1.Baja,3.TCP_fliares,2.No_agro,10.560099176940032,2.2684710567398207,43680,8.291628120200212,Sub-Saharan Africa,03 Medios-bajos ingresos,C4. Cap. escasa extensión c/peso campo,35.411322077050656,34,44

@@ -146,10 +146,17 @@ Pipeline de estimación en R (orden de ejecución):
   celda de interés) y el join con la clasificación de países.
 - `./src/014_tcp_estancada_analysis.R` — análisis sustantivo (clusters, regiones, etc.) sobre la tabla final.
 
-Scripts de validación (Python, no dependen de `Rilostat` ni de rutas locales fuera del repo):
-- `./src/015_analisis_pruebas_ipf.py` — análisis de las dos pruebas de validación (EPH e IPUMS). Parametrizado
-  con `--estimacion <csv>` (estimación IPF a validar) y `--sufijo <str>` (sufijo de las salidas), para poder
-  correrlo contra distintas versiones de la estimación sin pisar resultados previos.
+Scripts de validación:
+- `./src/015_analisis_pruebas_ipf.R` — análisis de las dos pruebas de validación (EPH e IPUMS), en
+  R/tidyverse (`dplyr`/`tidyr`/`purrr`/`readr`/`stringr`/`ggplot2`). Mismos parámetros que la versión Python
+  (`--estimacion <csv>`, `--sufijo <str>`). **Camino usado actualmente** para no depender de Python; el
+  mapeo país→iso3c usa `./data/outputs/country_classification.csv` en vez de `pycountry` (dos excepciones
+  manuales: Iran→"Iran, Islamic Rep.", Palestine→"West Bank and Gaza"). Requiere `r-base-core` +
+  `r-cran-{dplyr,tidyr,purrr,readr,stringr,ggplot2,glue,tibble}` (instalables vía apt con
+  `--no-install-recommends`, sin necesitar CRAN directo). Nota: correrlo con `LC_ALL=C.UTF-8` si el locale
+  del sistema es `C`/`POSIX` — si no, los acentos y símbolos (ρ) se corrompen en las figuras.
+- `./src/015_analisis_pruebas_ipf.py` — misma lógica en Python (pandas/numpy/matplotlib/pycountry), no
+  depende de `Rilostat` ni de rutas locales fuera del repo. Se mantiene como implementación alternativa/histórica.
 - `./src/016_pipeline_corregido.py` + `./src/ipf_utils.py` — reimplementación en Python del pipeline
   011→012→013 (agregación corregida + IPF propio), usada para (a) tener una estimación reproducible en
   entornos sin R/`Rilostat`, y (b) validar de forma independiente los resultados de `mipfp::Ipfp` en R.
@@ -184,9 +191,11 @@ Scripts de validación (Python, no dependen de `Rilostat` ni de rutas locales fu
   agregación de `011` (margen "Agro" implícito en la estimación publicada +24,8 pp por encima de IPUMS antes
   de la corrección; −2,6 pp después). Resultados en `./data/test_ipf/` (`comp_raking_ipums_full*.csv`,
   `metricas_por_celda*.csv`, `celda_clave_paises*.csv`) y en `./reports/analisis_pruebas_ipf.md`.
-  **⚠️ DESACTUALIZADA**: estos resultados se generaron en el commit `9bf0624`, **antes** de que se
-  refrescara `./data/raw_data/` con una descarga más nueva de ILOSTAT (commit `55a01f8`). Falta re-correr
-  `015` contra la estimación vigente — ver pendiente en "Tu tarea".
+  **Re-corrida al día (2026-08-24, sufijo `_v3`)** contra el `raw_data` vigente (commit `55a01f8`) con
+  `src/015_analisis_pruebas_ipf.R`, usando `./data/estimacion/20260824_estimacion_tcp_final_v2.csv` (R) como
+  insumo. Resultados prácticamente idénticos a la corrida anterior (`_v2`, sobre `raw_data` pre-refresh):
+  MAE 12 celdas 2,15 pp, Pearson 0,928, sesgo margen agro −2,5 pp — sin señal de que el bug de agregación
+  haya reaparecido. Detalle y trazabilidad completa en `./reports/analisis_pruebas_ipf.md` §9.
 
 - **Validación cruzada R vs. Python del IPF (`mipfp::Ipfp` vs. implementación propia)**: se corrió el IPF de
   forma independiente en R (paquete `mipfp` real) y en Python (`016`) sobre los mismos insumos agregados
@@ -214,21 +223,24 @@ Scripts de validación (Python, no dependen de `Rilostat` ni de rutas locales fu
 
 ## Tu tarea
 
-**Pendiente prioritario: re-correr la prueba IPUMS-IPF (mundo) contra los datos vigentes.** El `raw_data`
-de ILOSTAT se refrescó (commit `55a01f8`, con revisiones de la serie 2009-2019) **después** de que se
-generaran los resultados de validación IPUMS que hoy figuran en `./reports/analisis_pruebas_ipf.md` §9
-(commit `9bf0624`, ver ⚠️ en "Pruebas realizadas" arriba). Falta:
+**Resuelto (2026-08-24): re-corrida de la prueba IPUMS-IPF (mundo) contra los datos vigentes.** El
+`raw_data` de ILOSTAT se había refrescado (commit `55a01f8`, revisiones de la serie 2009-2019) después de
+que se generaran los resultados de validación IPUMS que figuraban en `./reports/analisis_pruebas_ipf.md` §9
+(commit `9bf0624`). Se resolvió así:
 
-1. Confirmar/regenerar `./data/estimacion_tcp_final_corregida.csv` con `./src/016_pipeline_corregido.py`
-   sobre el `raw_data` actual (o usar la estimación de R vigente en `./data/estimacion/`, ambas ya
-   validadas entre sí — ver "Validación cruzada R vs. Python" arriba).
-2. Re-correr `./src/015_analisis_pruebas_ipf.py --estimacion <esa estimación> --sufijo <algo nuevo>` para
-   comparar contra IPUMS con los datos actuales.
-3. Actualizar `./reports/analisis_pruebas_ipf.md` §9 con los resultados nuevos (reemplazando los basados en
-   `9bf0624`), dejando registro explícito de qué versión de `raw_data`/estimación se usó.
+1. Se confirmó que `./data/estimacion/20260824_estimacion_tcp_final_v2.csv` (salida real de `mipfp::Ipfp`
+   en R, commiteada junto con el refresh de `raw_data` en `55a01f8`) ya estaba generada sobre los datos
+   vigentes — no hizo falta re-ejecutar `011`→`012`→`013`.
+2. Se portó `./src/015_analisis_pruebas_ipf.py` a R/tidyverse (`./src/015_analisis_pruebas_ipf.R`, mismos
+   `--estimacion`/`--sufijo`) para no depender de Python, y se corrió con
+   `--estimacion ./data/estimacion/20260824_estimacion_tcp_final_v2.csv --sufijo _v3`.
+3. Se actualizó `./reports/analisis_pruebas_ipf.md` §9 con los resultados `_v3` (tabla comparativa de tres
+   columnas: publicada con bug / corregida sobre `raw_data` pre-refresh / corregida sobre `raw_data`
+   vigente), dejando registro explícito de commits y archivos usados.
 
-(La prueba EPH-IPF Argentina no requiere re-correrse: no depende de `raw_data` de ILOSTAT.)
+(La prueba EPH-IPF Argentina no requirió re-correrse: no depende de `raw_data` de ILOSTAT; se re-generó
+igual, sin cambios, como subproducto de correr `015`.)
 
-Otros próximos pasos sugeridos: re-correr `014` (análisis por clusters/regiones) sobre
+Próximos pasos sugeridos: re-correr `014` (análisis por clusters/regiones) sobre
 `tabla_tcps_final_sums.csv` ya corregida, y estimar un factor de corrección del sesgo de método del IPF
-(subestimación estructural de la celda de interés, detectada en el self-test IPUMS).
+(subestimación estructural de la celda de interés, ≈−0,33 pp en el self-test IPUMS `_v3`).

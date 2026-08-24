@@ -187,6 +187,18 @@ summarise(n = mean(obs_value, na.rm = TRUE))
 
 Los pasos 1, 2 y 4 de "próximos pasos" fueron ejecutados. La agregación se corrigió en `src/011_...R` (patrón `sum` por `time` → `mean` entre años en las tres tablas, más `3-Alta`→`3.Alta`, `names_sort` y dedupe del join de `013`), y se construyó un pipeline Python reproducible desde las tablas crudas versionadas (`data/raw_data/`): `src/016_pipeline_corregido.py` (+ `src/ipf_utils.py`). Salidas: `data/estimacion_tcp_final_corregida.csv` (159 países) y `data/tabla_tcps_final_sums_corregida.csv` (181 países únicos, sin duplicados).
 
+> **Actualización 2026-08-24 (re-run `_v3`, R/tidyverse, `raw_data` vigente).** El `raw_data` de ILOSTAT
+> se refrescó en el commit `55a01f8` (revisiones de la serie 2009-2019), **posterior** a la corrida que
+> generó los resultados originales de esta sección (commit `9bf0624`, columna "Corregida" en 9.2). Se
+> re-corrió la prueba IPUMS-IPF contra los datos vigentes con un script nuevo,
+> `src/015_analisis_pruebas_ipf.R` (puerto en R/tidyverse de `015_analisis_pruebas_ipf.py`, sin depender de
+> Python), usando como insumo `data/estimacion/20260824_estimacion_tcp_final_v2.csv` — la estimación real de
+> `mipfp::Ipfp` en R, commiteada junto con el refresh de `raw_data` en `55a01f8` (no `016`/Python).
+> Salidas con sufijo `_v3` en `data/test_ipf/` y `reports/figs/`. Resultado: las métricas se mantienen en
+> el mismo rango que la columna "Corregida" (diferencias de centésimas/décimas de pp, atribuibles a las
+> revisiones de ILOSTAT), sin señal de que el bug de agregación haya reaparecido — ver columna nueva en 9.2.
+> La columna "Corregida" (commit `9bf0624`) se conserva para trazabilidad histórica.
+
 ### 9.1 Verificación de que el bug es la causa
 
 Aplicando a las tablas crudas la agregación *tal como estaba escrita* (`mean` sin `time`) y corriendo el IPF, se **reproduce la estimación publicada** con correlación global **0,994** entre las 1 908 celdas (margen agro r = 0,988). Las diferencias residuales (mediana 0,2 pp/celda) corresponden a revisiones de ILOSTAT entre la descarga original y la actual. Es decir: el pipeline publicado *es* el pipeline con el bug.
@@ -207,28 +219,52 @@ Con la agregación corregida, el margen agro reproduce ILOSTAT en todo el espect
 
 ### 9.2 Resultados post-corrección vs IPUMS
 
-| Métrica vs IPUMS (46 países) | Publicada (bug) | Corregida |
-|---|---:|---:|
-| 12 celdas — MAE | 4,91 pp | **2,16 pp** |
-| 12 celdas — Pearson | 0,785 | **0,927** |
-| 12 celdas — Spearman | 0,798 | **0,933** |
-| Celda de interés — ρ Spearman | 0,706 | **0,800** |
-| Celda de interés — Pearson | 0,543 | **0,609** |
-| Celda de interés — sesgo | −0,62 pp | +0,38 pp |
-| Margen agro — sesgo | +24,8 pp | **−2,6 pp** |
-| Margen TCP/TF × No agro — MAE / ρ | 8,9 / 0,70 | **5,7 / 0,84** |
+| Métrica vs IPUMS (46 países†) | Publicada (bug) | Corregida (commit `9bf0624`, `raw_data` pre-refresh) | Corregida (commit `55a01f8`, `raw_data` vigente, `_v3`) |
+|---|---:|---:|---:|
+| 12 celdas — MAE | 4,91 pp | 2,16 pp | **2,15 pp** |
+| 12 celdas — Pearson | 0,785 | 0,927 | **0,928** |
+| 12 celdas — Spearman | 0,798 | 0,933 | **0,933** |
+| Celda de interés — ρ Spearman | 0,706 | 0,800 | **0,798** |
+| Celda de interés — Pearson | 0,543 | 0,609 | **0,605** |
+| Celda de interés — sesgo | −0,62 pp | +0,38 pp | **+0,32 pp** |
+| Margen agro — sesgo | +24,8 pp | −2,6 pp | **−2,5 pp** |
+| Margen TCP/TF × No agro — MAE / ρ | 8,9 / 0,70 | 5,7 / 0,84 | **5,7 / 0,83** |
 
-El margen "TCP/TF × No agro" del IPF corregido (MAE 5,7; ρ 0,84) converge con el cálculo directo de `013` (5,6; 0,85), como debía ocurrir: una vez corregida la agregación, la trivariada estimada y el marginal directo son consistentes.
+† En la corrida `_v3`, Canadá (CAN) aparece en IPUMS pero no en la estimación OIT-IPF vigente (159 países),
+igual que en las corridas anteriores; la celda de interés queda con n=45 países (el resto de las celdas, 46).
+
+El margen "TCP/TF × No agro" del IPF corregido (`_v3`: MAE 5,7; ρ 0,83) sigue convergiendo con el cálculo
+directo de `013` sobre los mismos datos vigentes (MAE 5,7; ρ 0,84), como debía ocurrir: una vez corregida la
+agregación, la trivariada estimada y el marginal directo son consistentes, con o sin el refresh de
+`raw_data`.
 
 ![Celda de interés antes/después](figs/fig7_celda_clave_antes_despues.png)
 
 ### 9.3 Matiz honesto: el MAE bruto de la celda de interés
 
-El MAE bruto de la celda de interés sube levemente (0,99 → 1,12 pp) pese a que ρ mejora (0,71 → 0,80) y el sesgo se centra. La causa son **dos outliers, Senegal y Kenia**, donde el desacuerdo es de **fuentes**, no del pipeline: las encuestas OIT les asignan 26% y 35% de empleo de baja calificación, mientras sus censos dicen 9% y 16% — el IPF sólo refleja fielmente esos márgenes de entrada. Excluyéndolos, la celda corregida da **MAE 0,75 pp y sesgo ≈ 0 (−0,03 pp)**, muy cerca del techo teórico que anticipaba el self-test (error de método puro: 0,38 pp). La estimación corregida, por tanto, ya no arrastra sesgo sistemático de insumos: el residuo es método (interacción de tercer orden) más ruido de fuente por país.
+El MAE bruto de la celda de interés sube levemente respecto del error de método puro (self-test IPUMS: 0,38
+pp) pese a que ρ y el sesgo mejoran frente a la estimación con el bug. La causa son **dos outliers, Senegal
+y Kenia**, donde el desacuerdo es de **fuentes**, no del pipeline: las encuestas OIT les asignan 26% y 35%
+de empleo de baja calificación, mientras sus censos dicen 9% y 16% — el IPF sólo refleja fielmente esos
+márgenes de entrada. En la corrida `_v3` (`raw_data` vigente): MAE bruto 1,10 pp y sesgo +0,32 pp con los 45
+países; excluyendo Senegal y Kenia, **MAE 0,76 pp y sesgo ≈ 0 (−0,05 pp)** sobre 43 países — prácticamente
+idéntico al patrón ya documentado sobre `raw_data` pre-refresh (MAE 0,75 pp, sesgo −0,03 pp), y muy cerca
+del techo teórico del self-test (0,38 pp). La estimación corregida, por tanto, sigue sin arrastrar sesgo
+sistemático de insumos tras el refresh: el residuo es método (interacción de tercer orden) más ruido de
+fuente por país.
 
 ### 9.4 Qué queda pendiente
 
-- **Cross-check en R** (usuario, local): re-correr `011`→`012` con `Rilostat` y comparar contra `data/estimacion_tcp_final_corregida.csv` (debería coincidir salvo tolerancia numérica y revisiones de ILOSTAT).
-- **Factor de corrección del sesgo de método** (próximos pasos §3): estimable ahora sobre la estimación corregida a partir del self-test IPUMS.
-- **Re-correr `014`** (análisis sustantivo por clusters) sobre `tabla_tcps_final_sums_corregida.csv`.
-- Reproducibilidad: `016` es el camino canónico desde el repo; el pipeline R sigue dependiendo de `Rilostat` (bloqueado en este entorno) y de rutas `./data/estimacion_estancada/`.
+- ~~**Cross-check en R**~~ — **resuelto**: se corrió `mipfp::Ipfp` real en R sobre los mismos 159 países y
+  se comparó contra la implementación Python (`016`), con correlación 0,9955 y sesgo medio ≈0 en la celda
+  de interés (commit `7adcb08`, detalle en `reports/testeo_python_vs_r_20260824.md`).
+- ~~**Re-correr la prueba IPUMS-IPF contra el `raw_data` vigente**~~ — **resuelto** en esta actualización
+  (2026-08-24, corrida `_v3`, ver nota de versión al inicio de §9 y tabla en 9.2).
+- **Factor de corrección del sesgo de método** (próximos pasos §3): estimable ahora sobre la estimación
+  corregida a partir del self-test IPUMS (`_v3`: sesgo −0,33 pp en la celda de interés, ver `selftest_ipf_ipums_v3.csv`).
+- **Re-correr `014`** (análisis sustantivo por clusters) sobre `tabla_tcps_final_sums_corregida.csv` o sobre
+  `data/estimacion/tabla_tcps_final_sums.csv` (R, vigente).
+- Reproducibilidad: `src/015_analisis_pruebas_ipf.R` (R/tidyverse) es ahora el camino usado para la
+  validación, sin depender de Python; `016` (Python) se mantiene como implementación alternativa ya
+  validada de forma cruzada. El pipeline de estimación (`011`→`013`) sigue dependiendo de `Rilostat` para
+  la descarga original de ILOSTAT.
