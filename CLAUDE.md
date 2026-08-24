@@ -159,6 +159,9 @@ Scripts de validación (Python, no dependen de `Rilostat` ni de rutas locales fu
   agregación de `011` (margen "Agro" implícito en la estimación publicada +24,8 pp por encima de IPUMS antes
   de la corrección; −2,6 pp después). Resultados en `./data/test_ipf/` (`comp_raking_ipums_full*.csv`,
   `metricas_por_celda*.csv`, `celda_clave_paises*.csv`) y en `./reports/analisis_pruebas_ipf.md`.
+  **⚠️ DESACTUALIZADA**: estos resultados se generaron en el commit `9bf0624`, **antes** de que se
+  refrescara `./data/raw_data/` con una descarga más nueva de ILOSTAT (commit `55a01f8`). Falta re-correr
+  `015` contra la estimación vigente — ver pendiente en "Tu tarea".
 
 - **Validación cruzada R vs. Python del IPF (`mipfp::Ipfp` vs. implementación propia)**: se corrió el IPF de
   forma independiente en R (paquete `mipfp` real) y en Python (`016`) sobre los mismos insumos agregados
@@ -186,8 +189,21 @@ Scripts de validación (Python, no dependen de `Rilostat` ni de rutas locales fu
 
 ## Tu tarea
 
-Las dos pruebas de validación (EPH-IPF Argentina e IPUMS-IPF mundo) están completas y documentadas en
-`./reports/analisis_pruebas_ipf.md`, con la corrección del bug de agregación ya aplicada y verificada
-(`./reports/testeo_python_vs_r_20260824.md`). Próximos pasos sugeridos: re-correr `014` (análisis por
-clusters/regiones) sobre `tabla_tcps_final_sums.csv` ya corregida, y estimar un factor de corrección del
-sesgo de método del IPF (subestimación estructural de la celda de interés, detectada en el self-test IPUMS).
+**Pendiente prioritario: re-correr la prueba IPUMS-IPF (mundo) contra los datos vigentes.** El `raw_data`
+de ILOSTAT se refrescó (commit `55a01f8`, con revisiones de la serie 2009-2019) **después** de que se
+generaran los resultados de validación IPUMS que hoy figuran en `./reports/analisis_pruebas_ipf.md` §9
+(commit `9bf0624`, ver ⚠️ en "Pruebas realizadas" arriba). Falta:
+
+1. Confirmar/regenerar `./data/estimacion_tcp_final_corregida.csv` con `./src/016_pipeline_corregido.py`
+   sobre el `raw_data` actual (o usar la estimación de R vigente en `./data/estimacion/`, ambas ya
+   validadas entre sí — ver "Validación cruzada R vs. Python" arriba).
+2. Re-correr `./src/015_analisis_pruebas_ipf.py --estimacion <esa estimación> --sufijo <algo nuevo>` para
+   comparar contra IPUMS con los datos actuales.
+3. Actualizar `./reports/analisis_pruebas_ipf.md` §9 con los resultados nuevos (reemplazando los basados en
+   `9bf0624`), dejando registro explícito de qué versión de `raw_data`/estimación se usó.
+
+(La prueba EPH-IPF Argentina no requiere re-correrse: no depende de `raw_data` de ILOSTAT.)
+
+Otros próximos pasos sugeridos: re-correr `014` (análisis por clusters/regiones) sobre
+`tabla_tcps_final_sums.csv` ya corregida, y estimar un factor de corrección del sesgo de método del IPF
+(subestimación estructural de la celda de interés, detectada en el self-test IPUMS).
