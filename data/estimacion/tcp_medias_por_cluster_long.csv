@@ -1,0 +1,49 @@
+cluster_pimsa,indicador,value
+C1. Cap. avanzado,prop_tcp_fliares_calif_baja_mean_w,0.6963305938784137
+C1. Cap. avanzado,prop_tcp_fliares_calif_baja_mean,0.8005377987334209
+C1. Cap. avanzado,prop_tcp_fliares_no_agro_mean_w,8.18454056723902
+C1. Cap. avanzado,prop_tcp_fliares_no_agro_mean,10.312589829106079
+C1. Cap. avanzado,prop_no_agro_calif_baja_mean_w,10.21093066135165
+C1. Cap. avanzado,prop_no_agro_calif_baja_mean,10.488269906393404
+C1. Cap. avanzado,prop_tcp_fliares_no_agro_calif_baja_mean_w,0.6050174397717389
+C1. Cap. avanzado,prop_tcp_fliares_no_agro_calif_baja_mean,0.6187653446475515
+C2. Cap. extensión reciente c/desarrollo profundidad,prop_tcp_fliares_calif_baja_mean_w,3.549415343292363
+C2. Cap. extensión reciente c/desarrollo profundidad,prop_tcp_fliares_calif_baja_mean,3.1758575035018226
+C2. Cap. extensión reciente c/desarrollo profundidad,prop_tcp_fliares_no_agro_mean_w,21.634519400205253
+C2. Cap. extensión reciente c/desarrollo profundidad,prop_tcp_fliares_no_agro_mean,17.09879475442737
+C2. Cap. extensión reciente c/desarrollo profundidad,prop_no_agro_calif_baja_mean_w,12.595360404594384
+C2. Cap. extensión reciente c/desarrollo profundidad,prop_no_agro_calif_baja_mean,12.325197010224592
+C2. Cap. extensión reciente c/desarrollo profundidad,prop_tcp_fliares_no_agro_calif_baja_mean_w,2.0578147164838474
+C2. Cap. extensión reciente c/desarrollo profundidad,prop_tcp_fliares_no_agro_calif_baja_mean,1.6013087777133046
+C3. Cap. extensión c/peso campo,prop_tcp_fliares_calif_baja_mean_w,5.192713688734591
+C3. Cap. extensión c/peso campo,prop_tcp_fliares_calif_baja_mean,5.408868231637809
+C3. Cap. extensión c/peso campo,prop_tcp_fliares_no_agro_mean_w,21.46696777501398
+C3. Cap. extensión c/peso campo,prop_tcp_fliares_no_agro_mean,20.051762409063485
+C3. Cap. extensión c/peso campo,prop_no_agro_calif_baja_mean_w,12.043424011776
+C3. Cap. extensión c/peso campo,prop_no_agro_calif_baja_mean,10.855208665039711
+C3. Cap. extensión c/peso campo,prop_tcp_fliares_no_agro_calif_baja_mean_w,1.8724426716387192
+C3. Cap. extensión c/peso campo,prop_tcp_fliares_no_agro_calif_baja_mean,2.209749852551962
+C4. Cap. escasa extensión c/peso campo,prop_tcp_fliares_calif_baja_mean_w,17.843052095818027
+C4. Cap. escasa extensión c/peso campo,prop_tcp_fliares_calif_baja_mean,6.7922618408525945
+C4. Cap. escasa extensión c/peso campo,prop_tcp_fliares_no_agro_mean_w,29.350761169375854
+C4. Cap. escasa extensión c/peso campo,prop_tcp_fliares_no_agro_mean,25.878418398455512
+C4. Cap. escasa extensión c/peso campo,prop_no_agro_calif_baja_mean_w,10.935014209767756
+C4. Cap. escasa extensión c/peso campo,prop_no_agro_calif_baja_mean,7.3289418099324575
+C4. Cap. escasa extensión c/peso campo,prop_tcp_fliares_no_agro_calif_baja_mean_w,6.212156137111202
+C4. Cap. escasa extensión c/peso campo,prop_tcp_fliares_no_agro_calif_baja_mean,2.8869799016046476
+C5. Pequeña propiedad en el campo,prop_tcp_fliares_calif_baja_mean_w,11.701191019467606
+C5. Pequeña propiedad en el campo,prop_tcp_fliares_calif_baja_mean,8.021054760715424
+C5. Pequeña propiedad en el campo,prop_tcp_fliares_no_agro_mean_w,18.99734705028345
+C5. Pequeña propiedad en el campo,prop_tcp_fliares_no_agro_mean,21.17927900648834
+C5. Pequeña propiedad en el campo,prop_no_agro_calif_baja_mean_w,6.707103393758393
+C5. Pequeña propiedad en el campo,prop_no_agro_calif_baja_mean,7.466082752896983
+C5. Pequeña propiedad en el campo,prop_tcp_fliares_no_agro_calif_baja_mean_w,3.1181756800342404
+C5. Pequeña propiedad en el campo,prop_tcp_fliares_no_agro_calif_baja_mean,2.7636876190596396
+NA,prop_tcp_fliares_calif_baja_mean_w,3.4573295784059517
+NA,prop_tcp_fliares_calif_baja_mean,3.509799539836454
+NA,prop_tcp_fliares_no_agro_mean_w,11.476468504255502
+NA,prop_tcp_fliares_no_agro_mean,9.708526574123173
+NA,prop_no_agro_calif_baja_mean_w,13.691806159345921
+NA,prop_no_agro_calif_baja_mean,12.891325161766007
+NA,prop_tcp_fliares_no_agro_calif_baja_mean_w,1.7364851565865933
+NA,prop_tcp_fliares_no_agro_calif_baja_mean,1.8466675233882897
