@@ -95,15 +95,20 @@ no_agro_calif_baja <- calif_rama_agg %>%
 
 tcp_fliares_no_agro_calif_baja <- estanc %>%
         filter(calificacion=="1.Baja" & rama=="2.No_agro" & ocupacion == "3.TCP_fliares") %>%
-        mutate(indicador = "tcp_fliares_no_agro_calif_baja",
-               ref_area.label = countrycode::countrycode(iso3c, 
-                                                         origin = 'iso3c', 
-                                                         destination = 'country.name',
-                                                         custom_match = TRUE),
-               n = NA) %>%
         rename(ref_area = iso3c,
                prop = freq) %>%
-        select(ref_area, ref_area.label, indicador,n, prop)
+        # ref_area.label debe salir de las mismas tablas ILOSTAT que usan
+        # los demás indicadores (no de countrycode): countrycode devuelve
+        # nombres distintos para varios países (ej. "Bolivia" vs
+        # "Bolivia, Plurinational State of"), y como pivot_wider() agrupa
+        # por todas las columnas no pivoteadas, dos labels distintos para
+        # el mismo país partían la fila en dos (una con NA en este
+        # indicador, otra con NA en el resto) -- 27 países duplicados.
+        left_join(ocup_totales %>% select(ref_area, ref_area.label),
+                  by = "ref_area") %>%
+        mutate(indicador = "tcp_fliares_no_agro_calif_baja",
+               n = NA) %>%
+        select(ref_area, ref_area.label, indicador, n, prop)
 
 
 ocup_totales <- ocup_totales %>%
