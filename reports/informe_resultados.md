@@ -39,6 +39,19 @@ no puede captarla. La Prueba 1 (§1) valida que el algoritmo reconstruye bien la
 extra es chica o nula; el self-test dentro de la Prueba 2 (§2.3) mide directamente cuánto pesa esa
 limitación en la celda de interés.
 
+### Períodos de referencia de los datos
+
+| Fuente | Cobertura temporal | Notas |
+|---|---|---|
+| ILOSTAT (`calif_rama`, `catocup_rama`, `catocup_calif`) | **2009–2019** | Ventana agregada de las tres tablas bivariadas (confirmado sobre `data/raw_data/`). Varía por país: de los 175 países con datos, 33 aportan un único año puntual, 63 tienen el panel completo de 11 años, y el resto valores intermedios. `011` promedia, por país, los años disponibles dentro de esa ventana — no todos los países están medidos en el mismo momento. |
+| IPUMS International (censos) | **No disponible en el extracto vigente** | Cada país aporta una muestra censal puntual, pero el año censal **no se conserva** en `data/ipums_ifp_v2_tcp_by_calif.csv` (limitación ya documentada en `reports/parciales/analisis_pruebas_ipf.md`; pendiente recuperarlo desde la extracción original de IPUMS, `102_tcp_by_calif.R`, que sí agrupa por `YEAR` en un paso intermedio no conservado en el CSV final). |
+
+Esto importa para leer §1 y §2: parte de la discrepancia entre la estimación OIT-IPF (promedio 2009–2019) y
+el patrón IPUMS puede deberse a desfase temporal —cada censo IPUMS es un corte puntual, no necesariamente
+dentro de esa ventana— y no solo a desacuerdo de fuente o a la limitación de método discutida en §2.3. No es
+posible, con los datos actualmente en el repo, separar cuánto de la discrepancia por país corresponde a cada
+uno de esos tres factores.
+
 ---
 
 ## 1. Comparación con EPH (Argentina)
