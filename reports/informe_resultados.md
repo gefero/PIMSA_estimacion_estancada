@@ -39,6 +39,22 @@ no puede captarla. La Prueba 1 (§1) valida que el algoritmo reconstruye bien la
 extra es chica o nula; el self-test dentro de la Prueba 2 (§2.3) mide directamente cuánto pesa esa
 limitación en la celda de interés.
 
+### Cómo se agregaron los datos de ILOSTAT
+
+Las tres tablas bivariadas se descargan de la API de ILOSTAT (`Rilostat::get_ilostat`, sexo total, 2009–2019)
+en su nivel de desagregación original —niveles de calificación, categorías de situación en el empleo
+(ICSE-93) y actividad económica tal como los publica la OIT— y luego se recodifican a las categorías
+gruesas del proyecto: calificación (Baja / Media / Alta), situación en el empleo (Asalariado/patrón vs.
+TCP/familiares, que agrupa tres categorías ICSE-93 distintas) y rama (Agro vs. No agro, que agrupa las
+~5 categorías de actividad económica de ILOSTAT que no son agricultura). Como cada categoría gruesa reúne
+varias categorías finas de ILOSTAT, la agregación se hace en dos pasos por país: primero se **suman** las
+categorías finas dentro de cada año (para no perder población al recodificar), y recién sobre esos totales
+anuales ya sumados se calcula el **promedio entre los años disponibles** en la ventana 2009–2019 —nunca al
+revés, porque promediar directo sobre datos todavía desagregados por categoría fina y año subestima
+sistemáticamente a las categorías que agrupan más subcomponentes. El resultado son las tres tablas agregadas
+por país (`data/estimacion/calif_rama_agg.csv`, `catocup_rama_agg.csv`, `catocup_calif_agg.csv`) que
+alimentan el IPF.
+
 ### Períodos de referencia de los datos
 
 | Fuente | Cobertura temporal | Notas |
