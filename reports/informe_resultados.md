@@ -55,6 +55,33 @@ sistemáticamente a las categorías que agrupan más subcomponentes. El resultad
 por país (`data/estimacion/calif_rama_agg.csv`, `catocup_rama_agg.csv`, `catocup_calif_agg.csv`) que
 alimentan el IPF.
 
+La siguiente tabla detalla esa recodificación, categoría fina de ILOSTAT por categoría fina, tal como está
+definida en `src/011_preproc_estimacion_tcp_estancada.R`:
+
+| Dimensión | Categoría original ILOSTAT | Categoría agregada del proyecto |
+|---|---|---|
+| Calificación | `OCU_SKILL_L1` — Skill level 1 (low) | 1.Baja |
+| Calificación | `OCU_SKILL_L2` — Skill level 2 (medium) | 2.Media |
+| Calificación | `OCU_SKILL_L3-4` — Skill levels 3 y 4 (high) | 3.Alta |
+| Calificación | `OCU_SKILL_X` — No clasificado | *(excluida)* |
+| Situación en el empleo | `STE_ICSE93_1` — Employees (asalariados) | 1.Asalariado_patr |
+| Situación en el empleo | `STE_ICSE93_2` — Employers (empleadores) | 1.Asalariado_patr |
+| Situación en el empleo | `STE_ICSE93_3` — Own-account workers (cuenta propia) | 3.TCP_fliares |
+| Situación en el empleo | `STE_ICSE93_4` — Members of producers' cooperatives | 3.TCP_fliares |
+| Situación en el empleo | `STE_ICSE93_5` — Contributing family workers (familiares) | 3.TCP_fliares |
+| Situación en el empleo | `STE_ICSE93_6` — No clasificable por situación | *(excluida)* |
+| Rama de actividad | `ECO_AGGREGATE_AGR` — Agriculture | 1.Agro |
+| Rama de actividad | `ECO_AGGREGATE_CON` — Construction | 2.No_agro |
+| Rama de actividad | `ECO_AGGREGATE_MAN` — Manufacturing | 2.No_agro |
+| Rama de actividad | `ECO_AGGREGATE_MEL` — Mining and quarrying; Electricity, gas and water supply | 2.No_agro |
+| Rama de actividad | `ECO_AGGREGATE_MKT` — Trade, Transportation, Accommodation and Food, and Business and Administrative Services | 2.No_agro |
+| Rama de actividad | `ECO_AGGREGATE_PUB` — Public Administration, Community, Social and other Services | 2.No_agro |
+| Rama de actividad | `ECO_AGGREGATE_X` — No clasificado | *(excluida)* |
+
+Rama es la dimensión con más categorías finas agrupadas (5 → "No agro"), lo que explica por qué el orden
+suma-primero-promedia-después es más sensible ahí que en las otras dos dimensiones: es donde más población
+se pierde si se promedia antes de sumar.
+
 ### Períodos de referencia de los datos
 
 | Fuente | Cobertura temporal | Notas |
