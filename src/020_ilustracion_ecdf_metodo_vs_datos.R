@@ -11,9 +11,12 @@
 #   LC_ALL=C.UTF-8 Rscript src/020_ilustracion_ecdf_metodo_vs_datos.R
 
 suppressMessages({library(dplyr);library(readr);library(ggplot2)}); options(readr.show_col_types=FALSE)
-st <- read_csv("data/test_ipf/selftest_ipf_ipums_v3.csv") %>% filter(calificacion=="1.Baja",ocupacion=="3.TCP_fliares",rama=="2.No_agro") %>% transmute(iso3c, metodo=abs(err))
-cp <- read_csv("data/test_ipf/comp_raking_ipums_full_v3.csv") %>% filter(calificacion=="1.Baja",ocupacion=="3.TCP_fliares",rama=="2.No_agro") %>% transmute(iso3c, completo=abs(raking_porc-ipums_porc))
-real <- inner_join(st,cp,by="iso3c")
+# Los 46 países del self-test. La verdad `ipums_true` vale 0 donde IPUMS no tiene casos en la celda (Francia);
+# usar comp_raking_ipums_full (que descarta esa celda) dejaría 45 países y cambiaría las medianas.
+st <- read_csv("data/test_ipf/selftest_ipf_ipums_v3.csv") %>% filter(calificacion=="1.Baja",ocupacion=="3.TCP_fliares",rama=="2.No_agro") %>% transmute(iso3c, metodo=abs(err), verdad=ipums_true)
+est <- read_csv("data/estimacion/20260824_estimacion_tcp_final_v2.csv") %>% filter(calificacion=="1.Baja",ocupacion=="3.TCP_fliares",rama=="2.No_agro") %>% select(iso3c, raking=freq)
+real <- inner_join(st,est,by="iso3c") %>% mutate(completo=abs(raking-verdad)) %>% select(iso3c, metodo, completo)
+stopifnot(nrow(real)==nrow(st))
 set.seed(7); n <- nrow(real)
 # Simulación: el método falla incluso con datos perfectos (errores típicos ~3 pp), y los datos agregan poco
 sim_metodo   <- rlnorm(n, log(3), 0.55)

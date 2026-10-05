@@ -345,9 +345,18 @@ cat(sprintf("Celda clave: MAE %.3f pp | bias %.3f pp | Spearman %.3f\n",
             mean(abs(kst$err)), mean(kst$err), cor(kst$ipums_true, kst$ipf_self, method = "spearman")))
 
 # --- Figura 4: ECDF de |error| en la celda clave, método vs pipeline ---
+# El error del pipeline se calcula sobre los mismos 46 países del self-test. `key` (45 países) omite a
+# los países donde IPUMS no tiene casos en la celda clave, porque el inner_join de `comp` descarta esa
+# celda (en v3, Francia): ahí la verdad es 0, no un dato faltante, y la estimación sí da un valor > 0.
+pipe_key <- kst %>%
+  select(iso3c, calificacion, ocupacion, rama, ipums_true) %>%
+  inner_join(rk %>% select(iso3c, calificacion, ocupacion, rama, raking_porc),
+             by = c("iso3c", "calificacion", "ocupacion", "rama")) %>%
+  mutate(err_abs = abs(raking_porc - ipums_true))
+stopifnot(nrow(pipe_key) == nrow(kst))
 ecdf_df <- bind_rows(
   tibble(err_abs = abs(kst$err), fuente = "Sólo supuesto IPF (self-test IPUMS)"),
-  tibble(err_abs = abs(key$diff), fuente = "Pipeline completo OIT-IPF vs. IPUMS")
+  tibble(err_abs = pipe_key$err_abs, fuente = "Pipeline completo OIT-IPF vs. IPUMS")
 )
 fig4 <- ggplot(ecdf_df, aes(x = err_abs, color = fuente)) +
   stat_ecdf(geom = "step", linewidth = 1) +
