@@ -382,45 +382,49 @@ reemplaza el criterio de §3.1, §3.3 y §3.4.
 
 **Por cluster PIMSA**
 
-| Cluster | TCP/TF totales | TCP/TF calif. baja | TCP/TF no agro | **TCP/TF no agro calif. baja** |
+| Cluster | % TCP/TF calif. baja (marginal OIT) | % TCP/TF no agro (marginal OIT) | % no agro calif. baja (marginal OIT) | **% TCP/TF no agro calif. baja (estimación IPF)** |
 |---|---:|---:|---:|---:|
-| C1. Cap. avanzado | 9,5% | 0,7% | 8,2% | **0,6%** |
-| C2. Cap. extensión reciente c/desarrollo profundidad | 28,3% | 3,6% | 21,6% | **2,1%** |
-| C3. Cap. extensión c/peso campo | 43,0% | 5,2% | 21,5% | **1,9%** |
-| C4. Cap. escasa extensión c/peso campo | 70,2% | 17,8% | 29,4% | **6,2%** |
-| C5. Pequeña propiedad en el campo | 79,3% | 11,7% | 19,0% | **3,1%** |
+| C1. Cap. avanzado | 0,7% | 8,2% | 10,2% | **0,6%** |
+| C2. Cap. extensión reciente c/desarrollo profundidad | 3,5% | 21,6% | 12,6% | **2,1%** |
+| C3. Cap. extensión c/peso campo | 5,2% | 21,5% | 12,0% | **1,9%** |
+| C4. Cap. escasa extensión c/peso campo | 17,8% | 29,4% | 10,9% | **6,2%** |
+| C5. Pequeña propiedad en el campo | 11,7% | 19,0% | 6,7% | **3,1%** |
+
+*(El % de TCP/TF total, de C1 a C5, es 9,5%, 28,3%, 43,0%, 70,2%, 79,3%; está en `data/estimacion/tcp_indicadores_por_cluster.csv`.)*
 
 **Por grupo de ingreso**
 
-| Grupo | TCP/TF calif. baja | TCP/TF no agro | **TCP/TF no agro calif. baja** |
-|---|---:|---:|---:|
-| 01 Altos ingresos | 1,0% | 10,0% | **0,8%** |
-| 02 Medios-altos ingresos | 3,8% | 16,9% | **1,8%** |
-| 03 Medios-bajos ingresos | 14,3% | 27,2% | **5,0%** |
-| 04 Bajos ingresos | 11,6% | 20,6% | **3,2%** |
+| Grupo | % TCP/TF calif. baja (marginal OIT) | % TCP/TF no agro (marginal OIT) | % no agro calif. baja (marginal OIT) | **% TCP/TF no agro calif. baja (estimación IPF)** |
+|---|---:|---:|---:|---:|
+| 01 Altos ingresos | 1,0% | 10,0% | 9,9% | **0,8%** |
+| 02 Medios-altos ingresos | 3,8% | 16,9% | 12,6% | **1,8%** |
+| 03 Medios-bajos ingresos | 14,3% | 27,2% | 11,4% | **5,0%** |
+| 04 Bajos ingresos | 11,6% | 20,6% | 6,6% | **3,2%** |
 
 **Por región**
 
-| Región | TCP/TF calif. baja | TCP/TF no agro | **TCP/TF no agro calif. baja** |
-|---|---:|---:|---:|
-| South Asia | 18,4% | 30,4% | **7,1%** |
-| Sub-Saharan Africa | 10,6% | 22,2% | **3,8%** |
-| Latin America & Caribbean | 5,2% | 23,6% | **2,6%** |
-| East Asia & Pacific | 7,3% | 19,3% | **1,6%** |
-| Middle East & North Africa | 3,2% | 17,1% | **1,7%** |
-| Europe & Central Asia | 1,0% | 9,6% | **0,3%** |
-| North America | 0,5% | 6,0% | **0,5%** |
+| Región | % TCP/TF calif. baja (marginal OIT) | % TCP/TF no agro (marginal OIT) | % no agro calif. baja (marginal OIT) | **% TCP/TF no agro calif. baja (estimación IPF)** |
+|---|---:|---:|---:|---:|
+| South Asia | 18,4% | 30,4% | 11,9% | **7,1%** |
+| Sub-Saharan Africa | 10,6% | 22,2% | 8,6% | **3,8%** |
+| Latin America & Caribbean | 5,2% | 23,6% | 13,7% | **2,6%** |
+| East Asia & Pacific | 7,3% | 19,3% | 11,3% | **1,6%** |
+| Middle East & North Africa | 3,2% | 17,1% | 11,7% | **1,7%** |
+| Europe & Central Asia | 1,0% | 9,6% | 8,7% | **0,4%** |
+| North America | 0,5% | 6,0% | 8,6% | **0,5%** |
+
+Todas las columnas son medias ponderadas por empleo, en % del empleo total del país. Las tres primeras salen de los marginales de las tablas bivariadas de la OIT (agregados en `011`/`013`); la cuarta, de la trivariada estimada con IPF. Los valores provienen de `data/estimacion/tcp_indicadores_por_{cluster,ingreso,region}.csv` (salida de `014`).
 
 **Lectura.**
 
 - **Por cluster.** La celda crece al pasar del capitalismo avanzado a los clusters de menor extensión: 0,6% (C1)
   → 2,1% (C2) → 1,9% (C3) → 6,2% (C4), diez veces más entre los extremos. C2 y C3 son prácticamente iguales.
-  C5 (3,1%) queda por debajo de C4 aunque tiene el mayor TCP/TF total (79,3%): ahí el TCP/TF es sobre todo
+  C5 (3,1%) queda por debajo de C4 aunque tiene el mayor TCP/TF total (79,3% del empleo): ahí el TCP/TF es sobre todo
   agrícola (el 76% del total; en C4, el 58%).
 - **Por ingreso.** El máximo está en los países de ingreso medio-bajo (5,0%), no en los de ingreso más bajo
   (3,2%). Los de ingresos altos (0,8%) y medios-altos (1,8%) quedan por debajo.
 - **Por región.** South Asia (7,1%) y Sub-Saharan Africa (3,8%) encabezan, seguidas de Latinoamérica (2,6%).
-  Europa y Asia Central (0,3%) y Norteamérica (0,5%) tienen los valores más bajos.
+  Europa y Asia Central (0,4%) y Norteamérica (0,5%) tienen los valores más bajos.
 
 ### 3.2 Qué hay detrás de las medias: la distribución entre países
 
@@ -552,7 +556,7 @@ original de este informe; no se cotejaron de nuevo contra El Capital, I, cap. 23
 | Implicación de la hipótesis | Qué se observa | Veredicto |
 |---|---|---|
 | (H1) Cuanto menor la capacidad del capital para absorber el empleo no agrario como asalariado, mayor la celda | Cae de 7,8% (menos de 50% de asalariados) a 0,5% (más de 90%); r ponderada −0,75, −0,54 sin India (§3.3) | **Consistente.** Parte de la relación es contable; la composición por calificación es estable salvo en el tramo de India. |
-| (H2) La celda es mínima donde el capital avanzado absorbe en asalariado regular | C1 0,6%; ingresos altos 0,8%; Europa y Asia Central 0,3%; Norteamérica 0,5% (§3.1) | **Consistente.** |
+| (H2) La celda es mínima donde el capital avanzado absorbe en asalariado regular | C1 0,6%; ingresos altos 0,8%; Europa y Asia Central 0,4%; Norteamérica 0,5% (§3.1) | **Consistente.** |
 | (H3) La celda es máxima cuando la separación del campo avanzó pero la absorción es débil: joroba respecto del peso del agro | Sube hasta 30–50% de agro (5,4%) y baja con más de 50% (2,9%) (§3.3) | **Consistente en la forma**; la ubicación del pico depende de India (sin ella, entre 15 y 30%). |
 | (H4) Donde el campo todavía retiene a la mayoría, la superpoblación es sobre todo latente y la celda es menor | C5 3,1% (con 76% de su TCP/TF en la agricultura) frente a C4 6,2%; ingresos bajos 3,2% frente a medios-bajos 5,0% (§3.1) | **Consistente.** |
 
