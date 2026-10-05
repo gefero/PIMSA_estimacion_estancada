@@ -42,7 +42,7 @@ write_csv(por_cluster, file.path(OUT, "tcp_indicadores_por_cluster.csv"))
 por_ingreso <- tcps_sums %>%
         group_by(income_group_2) %>%
         summarise(
-                across(prop_tcp_fliares_calif_baja:tcp_fliares_no_agro_resto,
+                across(prop_tcp_fliares_totales:tcp_fliares_no_agro_resto,
                        ~weighted.mean(.x, prop_ocup_totales))
         ) %>%
         ungroup() %>%
@@ -55,7 +55,7 @@ write_csv(por_ingreso, file.path(OUT, "tcp_indicadores_por_ingreso.csv"))
 por_region <- tcps_sums %>%
         group_by(region) %>%
         summarise(
-                across(prop_tcp_fliares_calif_baja:tcp_fliares_no_agro_resto,
+                across(prop_tcp_fliares_totales:tcp_fliares_no_agro_resto,
                        ~weighted.mean(.x, prop_ocup_totales))
         ) %>%
         ungroup() %>%

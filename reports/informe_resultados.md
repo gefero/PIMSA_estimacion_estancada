@@ -382,38 +382,36 @@ reemplaza el criterio de §3.1, §3.3 y §3.4.
 
 **Por cluster PIMSA**
 
-| Cluster | % TCP/TF calif. baja (marginal OIT) | % TCP/TF no agro (marginal OIT) | % no agro calif. baja (marginal OIT) | **% TCP/TF no agro calif. baja (estimación IPF)** |
-|---|---:|---:|---:|---:|
-| C1. Cap. avanzado | 0,7% | 8,2% | 10,2% | **0,6%** |
-| C2. Cap. extensión reciente c/desarrollo profundidad | 3,5% | 21,6% | 12,6% | **2,1%** |
-| C3. Cap. extensión c/peso campo | 5,2% | 21,5% | 12,0% | **1,9%** |
-| C4. Cap. escasa extensión c/peso campo | 17,8% | 29,4% | 10,9% | **6,2%** |
-| C5. Pequeña propiedad en el campo | 11,7% | 19,0% | 6,7% | **3,1%** |
-
-*(El % de TCP/TF total, de C1 a C5, es 9,5%, 28,3%, 43,0%, 70,2%, 79,3%; está en `data/estimacion/tcp_indicadores_por_cluster.csv`.)*
+| Cluster | % TCP/TF total (marginal OIT) | % TCP/TF calif. baja (marginal OIT) | % TCP/TF no agro (marginal OIT) | % no agro calif. baja (marginal OIT) | **% TCP/TF no agro calif. baja (estimación IPF)** |
+|---|---:|---:|---:|---:|---:|
+| C1. Cap. avanzado | 9,5% | 0,7% | 8,2% | 10,2% | **0,6%** |
+| C2. Cap. extensión reciente c/desarrollo profundidad | 28,3% | 3,5% | 21,6% | 12,6% | **2,1%** |
+| C3. Cap. extensión c/peso campo | 43,0% | 5,2% | 21,5% | 12,0% | **1,9%** |
+| C4. Cap. escasa extensión c/peso campo | 70,2% | 17,8% | 29,4% | 10,9% | **6,2%** |
+| C5. Pequeña propiedad en el campo | 79,3% | 11,7% | 19,0% | 6,7% | **3,1%** |
 
 **Por grupo de ingreso**
 
-| Grupo | % TCP/TF calif. baja (marginal OIT) | % TCP/TF no agro (marginal OIT) | % no agro calif. baja (marginal OIT) | **% TCP/TF no agro calif. baja (estimación IPF)** |
-|---|---:|---:|---:|---:|
-| 01 Altos ingresos | 1,0% | 10,0% | 9,9% | **0,8%** |
-| 02 Medios-altos ingresos | 3,8% | 16,9% | 12,6% | **1,8%** |
-| 03 Medios-bajos ingresos | 14,3% | 27,2% | 11,4% | **5,0%** |
-| 04 Bajos ingresos | 11,6% | 20,6% | 6,6% | **3,2%** |
+| Grupo | % TCP/TF total (marginal OIT) | % TCP/TF calif. baja (marginal OIT) | % TCP/TF no agro (marginal OIT) | % no agro calif. baja (marginal OIT) | **% TCP/TF no agro calif. baja (estimación IPF)** |
+|---|---:|---:|---:|---:|---:|
+| 01 Altos ingresos | 12,0% | 1,0% | 10,0% | 9,9% | **0,8%** |
+| 02 Medios-altos ingresos | 27,3% | 3,8% | 16,9% | 12,6% | **1,8%** |
+| 03 Medios-bajos ingresos | 62,7% | 14,3% | 27,2% | 11,4% | **5,0%** |
+| 04 Bajos ingresos | 79,6% | 11,6% | 20,6% | 6,6% | **3,2%** |
 
 **Por región**
 
-| Región | % TCP/TF calif. baja (marginal OIT) | % TCP/TF no agro (marginal OIT) | % no agro calif. baja (marginal OIT) | **% TCP/TF no agro calif. baja (estimación IPF)** |
-|---|---:|---:|---:|---:|
-| South Asia | 18,4% | 30,4% | 11,9% | **7,1%** |
-| Sub-Saharan Africa | 10,6% | 22,2% | 8,6% | **3,8%** |
-| Latin America & Caribbean | 5,2% | 23,6% | 13,7% | **2,6%** |
-| East Asia & Pacific | 7,3% | 19,3% | 11,3% | **1,6%** |
-| Middle East & North Africa | 3,2% | 17,1% | 11,7% | **1,7%** |
-| Europe & Central Asia | 1,0% | 9,6% | 8,7% | **0,4%** |
-| North America | 0,5% | 6,0% | 8,6% | **0,5%** |
+| Región | % TCP/TF total (marginal OIT) | % TCP/TF calif. baja (marginal OIT) | % TCP/TF no agro (marginal OIT) | % no agro calif. baja (marginal OIT) | **% TCP/TF no agro calif. baja (estimación IPF)** |
+|---|---:|---:|---:|---:|---:|
+| South Asia | 71,5% | 18,4% | 30,4% | 11,9% | **7,1%** |
+| Sub-Saharan Africa | 72,5% | 10,6% | 22,2% | 8,6% | **3,8%** |
+| Latin America & Caribbean | 32,4% | 5,2% | 23,6% | 13,7% | **2,6%** |
+| East Asia & Pacific | 41,5% | 7,3% | 19,3% | 11,3% | **1,6%** |
+| Middle East & North Africa | 27,7% | 3,2% | 17,1% | 11,7% | **1,7%** |
+| Europe & Central Asia | 14,6% | 1,0% | 9,6% | 8,7% | **0,4%** |
+| North America | 6,6% | 0,5% | 6,0% | 8,6% | **0,5%** |
 
-Todas las columnas son medias ponderadas por empleo, en % del empleo total del país. Las tres primeras salen de los marginales de las tablas bivariadas de la OIT (agregados en `011`/`013`); la cuarta, de la trivariada estimada con IPF. Los valores provienen de `data/estimacion/tcp_indicadores_por_{cluster,ingreso,region}.csv` (salida de `014`).
+Todas las columnas son medias ponderadas por empleo, en % del empleo total del país. Las cuatro primeras salen de los marginales de las tablas bivariadas de la OIT (agregados en `011`/`013`); la quinta, de la trivariada estimada con IPF. Los valores provienen de `data/estimacion/tcp_indicadores_por_{cluster,ingreso,region}.csv` (salida de `014`).
 
 **Lectura.**
 
