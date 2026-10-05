@@ -226,27 +226,81 @@ Scripts de validación:
    en consecuencia.
 4. Agregado el pipeline paralelo en Python (`016` + `ipf_utils.py`) y el script de validación parametrizado
    (`015`), para poder correr y validar la estimación sin depender de R/`Rilostat`.
+5. Re-corrida `_v3` de la validación IPUMS-IPF sobre `raw_data` vigente, portando `015` a R/tidyverse
+   (`015_analisis_pruebas_ipf.R`); corrida de `014` (antes rota: ruta vieja, paquete `gt` no instalable,
+   sin guardado de salidas); consolidación de `./reports/` en `informe_resultados.md` + `parciales/`, con
+   descripción del método IPF, agregación de ILOSTAT (tabla de mapeo de categorías) y períodos de
+   referencia agregados. Detalle completo en "Resumen de sesión" abajo.
+
+## Resumen de sesión (2026-08-24, commits `1946691`..`a2f7428`)
+
+Sesión de re-validación y documentación, en R/tidyverse por pedido explícito del usuario (nada de Python
+en ningún paso nuevo). Entorno: sandbox sin R preinstalado; se resolvió con
+`apt-get install --no-install-recommends r-base-core r-cran-{dplyr,tidyr,purrr,readr,stringr,ggplot2,glue,
+tibble,ggally,knitr}` (122 paquetes, sin tocar el metapaquete `r-cran-tidyverse` que arrastra ~1900). Correr
+scripts R con `LC_ALL=C.UTF-8` — si no, tildes y símbolos (ρ) se corrompen en consola/figuras.
+
+**Qué se hizo, en orden:**
+
+1. **Re-corrida IPUMS-IPF (`_v3`)**: confirmado por `git log` que `data/estimacion/20260824_estimacion_tcp_final_v2.csv`
+   (R, `mipfp::Ipfp`) ya estaba generada sobre `raw_data` vigente (commit `55a01f8`) — no hizo falta
+   re-ejecutar `011`-`013`. Se portó `015_analisis_pruebas_ipf.py` a R/tidyverse completo (`015_analisis_pruebas_ipf.R`:
+   mismo `--estimacion`/`--sufijo`, mapeo país→iso3c vía `country_classification.csv` en vez de `pycountry`,
+   self-test IPF reimplementado en R base con arrays). Resultados `_v3` casi idénticos a `_v2`: MAE 12
+   celdas 2,15 pp, Pearson 0,928, sesgo margen agro −2,5 pp.
+2. **Bug de rutas en `015`**: la detección de ubicación del script (`get_script_dir()`/`normalizePath()`)
+   fallaba si se corría sin `--file=` en `commandArgs()` (p. ej. `source()` en RStudio) — el fallback
+   devolvía el cwd de la sesión y calculaba `ROOT` un nivel por encima del repo. Corregido a rutas
+   relativas fijas (`./data`, `./reports/figs`), igual que el resto de `src/*.R` — correr siempre con la
+   raíz del repo como working directory.
+3. **Corrida de `014`** (análisis por cluster/ingreso/región, antes nunca re-corrido tras la reorganización
+   de carpetas): ruta vieja `./data/estimacion_estancada/` → `./data/estimacion/tabla_tcps_final_sums.csv`;
+   paquete `gt` no instalable (ni apt ni CRAN directo, bloqueado) → reemplazado por `knitr::kable()`; se
+   agregó guardado de las 4 tablas resumen (`data/estimacion/tcp_*.csv`) y de la figura de coordenadas
+   paralelas (`reports/figs/fig_014_parcoord_clusters.png`), que antes no persistían nada.
+4. **Reportes y reorganización de `./reports/`**: se armaron reportes "limpios" (solo resultados `_v3`, sin
+   el historial de corrección del bug de agregación) para EPH+IPUMS y para cluster/ingreso/región (este
+   último con una lectura teórica agregada: TCP/TF baja calif. no agro como expresión estadística de la
+   superpoblación relativa **estancada**, distinguida de la **latente** —retenida en el campo— y la
+   **flotante**). Después se consolidaron en un único `./reports/informe_resultados.md` (secciones: método
+   IPF, agregación de ILOSTAT con tabla de mapeo de categorías finas→gruesas, períodos de referencia,
+   comparación EPH e implicancias, comparación IPUMS e implicancias —incluye self-test y chequeo de
+   consistencia del margen—, resultados sustantivos + lectura teórica). Los informes intermedios/históricos
+   (incluido el que documenta el bug) quedaron archivados en `./reports/parciales/`.
+
+**Puntos conceptuales discutidos en el chat (no volcados a ningún archivo — útil tenerlos presentes si se
+retoma el tema):**
+- Lógica del self-test: por qué se corre el IPF país por país (nunca pooleado) y por qué hay que sumar los
+  conteos IPUMS antes de calcular porcentajes (mismo principio suma-antes-que-divide que en `011`).
+- Sesgo (`mean(diff)`, con signo) vs. MAE (`mean(abs(diff))`): el sesgo chico de la celda de interés
+  (+0,32 pp) esconde errores país por país más grandes que se cancelan en el promedio; el self-test aísla
+  un sesgo de método negativo (−0,33 pp) que queda parcialmente tapado por el sesgo positivo de los
+  outliers de fuente.
+- Cómo leer el gráfico ECDF de `fig4_ecdf_error_descomposicion_v3.png` (no es un gráfico apilado: dos
+  curvas de distribución acumulada superpuestas, una por fuente de error).
+- Lluvia de ideas sobre causas adicionales del error IPUMS-IPF más allá del desacuerdo de fuentes: desfase
+  temporal (ILOSTAT promedia 2009-2019 con cobertura de 1 a 11 años según el país; IPUMS es un censo
+  puntual sin año conservado), definiciones operativas distintas (pregunta de clase de trabajador censal
+  vs. encuesta de fuerza de trabajo, crosswalk ocupacional, límites de "no agro"), calidad/tamaño muestral
+  por celda, armonización propia de ILOSTAT, ponderadores distintos. **Pendiente, no ejecutado**: cruzar
+  `error_abs` contra `n_raw` en `data/test_ipf/comp_raking_ipums_full_v3.csv` (ruido muestral) y contra la
+  cantidad de años con dato en `data/raw_data/` por país (exposición a desfase temporal).
 
 ## Tu tarea
 
-**Resuelto (2026-08-24): re-corrida de la prueba IPUMS-IPF (mundo) contra los datos vigentes.** El
-`raw_data` de ILOSTAT se había refrescado (commit `55a01f8`, revisiones de la serie 2009-2019) después de
-que se generaran los resultados de validación IPUMS que figuraban en `./reports/parciales/analisis_pruebas_ipf.md` §9
-(commit `9bf0624`). Se resolvió así:
+No hay pendiente prioritario bloqueante. Próximos pasos sugeridos, en orden de costo creciente:
 
-1. Se confirmó que `./data/estimacion/20260824_estimacion_tcp_final_v2.csv` (salida real de `mipfp::Ipfp`
-   en R, commiteada junto con el refresh de `raw_data` en `55a01f8`) ya estaba generada sobre los datos
-   vigentes — no hizo falta re-ejecutar `011`→`012`→`013`.
-2. Se portó `./src/015_analisis_pruebas_ipf.py` a R/tidyverse (`./src/015_analisis_pruebas_ipf.R`, mismos
-   `--estimacion`/`--sufijo`) para no depender de Python, y se corrió con
-   `--estimacion ./data/estimacion/20260824_estimacion_tcp_final_v2.csv --sufijo _v3`.
-3. Se actualizó `./reports/parciales/analisis_pruebas_ipf.md` §9 con los resultados `_v3` (tabla comparativa de tres
-   columnas: publicada con bug / corregida sobre `raw_data` pre-refresh / corregida sobre `raw_data`
-   vigente), dejando registro explícito de commits y archivos usados.
+1. **Chequeos empíricos sobre causas del error IPUMS-IPF** (barato, datos ya disponibles): correlacionar
+   `error_abs` de `comp_raking_ipums_full_v3.csv` contra `n_raw` (¿es ruido muestral?) y contra la cantidad
+   de años con dato por país en `data/raw_data/` (¿es exposición a desfase temporal?). Discutido en chat,
+   no implementado.
+2. **Recuperar el año censal por país en el extracto IPUMS** (`102_tcp_by_calif.R` ya agrupa por `YEAR` en
+   un paso intermedio que no llega al CSV final `data/ipums_ifp_v2_tcp_by_calif.csv`) — permitiría separar
+   desfase temporal de desacuerdo de fuente de verdad, no solo por conteo de años ILOSTAT. Requiere el
+   `.rds` de microdatos IPUMS crudo, que no está versionado en el repo.
+3. **Factor de corrección del sesgo de método del IPF**: estimable a partir del self-test IPUMS `_v3`
+   (sesgo −0,33 pp en la celda de interés) — ver §2.3 de `reports/informe_resultados.md`.
+4. Cross-check en R de `011`→`012` contra `data/estimacion_tcp_final_corregida.csv` ya se hizo (commit
+   `7adcb08`, ver `reports/parciales/testeo_python_vs_r_20260824.md`) — no repetir salvo que vuelva a
+   refrescarse `raw_data`.
 
-(La prueba EPH-IPF Argentina no requirió re-correrse: no depende de `raw_data` de ILOSTAT; se re-generó
-igual, sin cambios, como subproducto de correr `015`.)
-
-Próximos pasos sugeridos: re-correr `014` (análisis por clusters/regiones) sobre
-`tabla_tcps_final_sums.csv` ya corregida, y estimar un factor de corrección del sesgo de método del IPF
-(subestimación estructural de la celda de interés, ≈−0,33 pp en el self-test IPUMS `_v3`).
