@@ -193,17 +193,79 @@ respectivamente), la celda de interés queda con **MAE 0,76 pp y sesgo −0,05 p
 
 ### 2.3 Descomponiendo el error: self-test del método IPF
 
-Para separar cuánto del error de 2.2 viene de los **insumos** (OIT vs. censo) y cuánto del **método** (el
-supuesto de máxima entropía / no-interacción de tercer orden del IPF), se corrió un experimento adicional:
-se tomó la distribución conjunta *verdadera* de cada país según IPUMS, se generaron sus tres márgenes
-bivariados (perfectamente consistentes entre sí, porque vienen de la misma tabla), y se corrió el IPF sobre
-esos márgenes para reconstruir la trivariada. Cualquier diferencia entre la trivariada reconstruida y la
-verdadera solo puede deberse al método, no a desacuerdo de fuentes.
+**La pregunta.** En 2.2 la estimación se aparta de IPUMS. Ese desvío puede tener dos orígenes muy distintos:
+(a) que los **insumos** de la OIT y del censo no midan lo mismo (error de fuente), o (b) que el **método**, aun
+con insumos perfectos, no reconstruya bien la distribución conjunta (error de método). Con los datos reales no
+se pueden separar, porque los dos actúan a la vez. El self-test crea una situación en la que el error (a)
+**no puede existir**, y así deja a la vista el (b).
 
-- **MAE global:** 0,31 pp | **percentil 90 del error absoluto:** 1,05 pp | **máximo:** 2,37 pp
-- **Celda de interés:** MAE 0,38 pp | **sesgo −0,33 pp** | Spearman 0,90
+**Qué supone el IPF y por qué eso puede fallar.** Las tres tablas bivariadas (Calificación × Situación,
+Situación × Rama, Calificación × Rama) no alcanzan para determinar la trivariada: queda sin fijar una
+dimensión que ninguna de ellas contiene, la **interacción de tercer orden**. En lenguaje llano, es la
+pregunta de si *la relación entre calificación y situación en el empleo es la misma en el agro que en el no
+agro*. Frente a esa pregunta sin respuesta, el IPF elige la solución de **máxima entropía**, que equivale a
+suponer que la relación **es idéntica** en las dos ramas (interacción nula). Si en un país esa relación
+difiere entre ramas, el IPF no tiene cómo enterarse, y se equivoca.
+
+**El experimento, paso a paso.**
+
+1. Para cada país se toma la distribución conjunta **observada** en el censo IPUMS (12 celdas: 3 calificaciones
+   × 2 situaciones × 2 ramas). Es la "verdad".
+2. A partir de esa tabla se calculan sus tres márgenes bivariados. Son **perfectamente consistentes entre sí**,
+   porque salen de la misma tabla: no hay desacuerdo de fuentes ni diferencias de cobertura o de año.
+3. Se corre el IPF sobre esos márgenes, partiendo de una semilla uniforme, igual que en la estimación real.
+4. Se compara la trivariada reconstruida con la verdad del paso 1. Como los márgenes son exactos, **toda
+   diferencia es atribuible al supuesto de interacción nula**, y a nada más.
+
+**Por qué se hace país por país y con conteos sumados.** Cada país tiene su propia estructura de asociación:
+reconstruir con los márgenes de un país es un problema distinto al de otro. Mezclar países en una sola tabla
+crearía interacciones que no existen dentro de ninguno (la relación entre variables en el conjunto puede
+diferir de la de cada parte). Por la misma razón, los conteos de IPUMS se suman *antes* de calcular
+porcentajes (el mismo principio de sumar antes de promediar que corrigió el bug de `011`).
+
+**Resultados** (46 países, 552 celdas):
+
+- **MAE global:** 0,31 pp | **percentil 90 del error absoluto:** 1,05 pp | **máximo:** 2,37 pp.
+- **Celda de interés:** MAE 0,38 pp, mediana del error absoluto 0,16 pp, **sesgo −0,33 pp**, Spearman 0,90.
+  El error es negativo (el IPF subestima) en 37 de los 46 países.
 
 ![Descomposición del error en la celda de interés](figs/fig4_ecdf_error_descomposicion_v3.png)
+
+**Por qué el sesgo es negativo: se puede medir.** El supuesto de interacción nula tiene una contraparte
+observable en IPUMS: la diferencia entre la asociación Calificación baja × TCP/TF en el no agro y en el agro,
+medida como diferencia de log razón de odds (se suma 0,001 pp a cada celda para evitar logaritmos de cero).
+En 36 de los 46 países es **positiva** (mediana 1,73): ser TCP/TF está mucho más asociado a la baja
+calificación en el sector no agrario que en el agrario, de modo que el supuesto de relación idéntica
+subestima la celda. La relación se verifica país por país:
+
+- Spearman entre esa interacción y el error del self-test en la celda de interés: **−0,78** (R² lineal 0,40).
+- En los **36 países con interacción positiva el error es negativo en los 36**.
+- Dos ejemplos: en **DOM** la interacción es casi nula (−0,24) y el IPF acierta (1,98 vs. 1,83 verdadero,
+  error +0,15 pp); en **PER**, una de las más altas de la muestra (5,75), el IPF da 2,28 y el censo 4,61
+  (error −2,34 pp).
+
+**Una consecuencia de diseño.** Como el IPF respeta exactamente los márgenes bivariados, los errores de las 12
+celdas no son libres: la interacción de tercer orden en una tabla 3 × 2 × 2 tiene solo (3−1)(2−1)(2−1) = 2
+grados de libertad, así que el error de un país queda determinado por **dos números**. Se ve en los
+resultados: los errores medios de las cuatro celdas de baja calificación son ±0,33 pp con signo alternante
+(−0,33 en TCP/TF no agro, +0,33 en asalariado no agro, +0,33 en TCP/TF agro, −0,33 en asalariado agro), y los
+de la calificación media son ±0,40; los errores de baja, media y alta calificación suman cero en cada par
+situación × rama.
+
+**Qué mide y qué no mide.**
+
+- Mide el error del método **en su mejor escenario**. Es un piso de error: en la estimación real hay
+  además error de fuente (que, según §2.5, es el componente dominante).
+- No mide si la interacción nula es razonable *en general*: lo muestra en los 46 países de IPUMS, y no hay
+  garantía de que valga en los 159 de la estimación.
+- Este experimento coincide con la combinación "todo-IPUMS" de la parte A y con el escalón 3 de la parte B de
+  §2.5: son la misma cosa vista desde el otro lado.
+
+**Qué implica para leer la estimación.** El sesgo de método es pequeño (−0,33 pp, frente a un MAE de 1,07 pp
+de la estimación real en la celda de interés, §2.5) y tiene un signo y una causa identificables. Pero **no
+justifica por sí solo decir que la estimación es un "piso"**: el error de fuente tiene signo contrario en
+promedio (+0,32 pp en 2.2) y es mayor. La lectura como piso descansa, sobre todo, en la
+definición restrictiva del indicador (solo ocupaciones elementales, §3).
 
 ### 2.4 Consistencia del margen TCP/TF × No agro entre tres fuentes
 
@@ -219,9 +281,67 @@ de las tablas bivariadas OIT (sin pasar por el IPF), y (c) el valor observado en
 Los dos caminos de estimación (vía IPF y cálculo directo) coinciden entre sí de forma prácticamente
 perfecta, y ambos se apartan de IPUMS en magnitudes y direcciones similares.
 
+### 2.5 Abriendo el error de fuente: composición, asociación y tiempo
+
+**Pregunta.** El self-test (2.3) muestra que el método explica poco del desacuerdo con IPUMS (MAE 0,31 pp en
+las 12 celdas), de modo que casi todo es *error de fuente*. ¿En qué consiste? ¿Las fuentes difieren en *cuánta
+gente* hay en cada categoría (composición) o en *cómo se combinan* (asociación)? ¿Y cuánto podría deberse a que
+la OIT promedia varios años mientras IPUMS es un censo puntual? (Detalle completo en
+`reports/parciales/descomposicion_error_ipums.md`; scripts `src/017_*.R` y `src/018_*.R`.)
+
+**Método.** Se intervienen los insumos y se mide cuánto cambia el error contra IPUMS:
+
+- **A. Intercambio de piezas.** Cada tabla bivariada se separa en *composición* (los tres márgenes
+  univariados, comunes a las tres tablas) y *asociación* (la estructura interna de cada tabla, ajustada a la
+  composición elegida). Esto da 4 piezas intercambiables entre OIT e IPUMS, y 16 combinaciones, que se corren
+  con IPF y se reparten con **valores de Shapley** (las contribuciones suman exactamente la reducción total
+  del error). Tomar una tabla bivariada entera de cada fuente no sirve: sus márgenes compartidos se
+  contradicen y el IPF no converge. Se excluyen 6 países cuyas combinaciones no convergen por celdas en cero
+  de IPUMS (quedan 40).
+- **B. Escalera.** Se ajusta la trivariada OIT a IPUMS por etapas: márgenes univariados, y luego bivariados.
+- **C. Sensibilidad al año.** Se rehace la estimación OIT un año por vez (misma agregación que `011`) y se mide
+  cuánto varía la celda de interés entre años, comparado con el error contra IPUMS. Se informa con y sin los
+  país-años cuyas tres tablas son demasiado inconsistentes entre sí (13 de 339).
+
+**Resultados.**
+
+| Pieza (A, Shapley, 40 países) | Reducción media del MAE 12 celdas | Mediana |
+|---|---:|---:|
+| **Composición (márgenes univariados)** | **1,10 pp** | 0,80 |
+| Asociación Situación × Calificación | 0,13 | 0,08 |
+| Asociación Calificación × Rama | 0,13 | 0,04 |
+| Asociación Situación × Rama | 0,05 | 0,004 |
+
+| Escalón (B, 46 países) | MAE 12 celdas | MAE celda de interés |
+|---|---:|---:|
+| 0. OIT-IPF | 2,11 pp | 1,07 pp |
+| 1. + márgenes univariados de IPUMS | 0,83 | 0,62 |
+| 2. + márgenes bivariados de IPUMS (= self-test) | 0,31 | 0,38 |
+
+(El MAE del escalón 0 es 2,11 y no 2,15 como en 2.1 porque aquí se promedian las 12 celdas de cada país,
+incluidas las que no están en el cruce de 2.1.)
+
+![Shapley por pieza](figs/fig_017_shapley_margenes.png)
+![Escalera](figs/fig_017_escalera.png)
+
+- **La composición explica ~78 % de la reducción del error** (la pieza dominante en 38 de 40 países), y
+  con solo igualar los márgenes univariados el MAE cae un 61 %. La asociación aporta poco y concentrada en pocos países.
+- **El tiempo explica diferencias del orden de 1 pp, no las grandes.** En la celda de interés, el rango entre
+  años (mediana 0,75 pp) es casi el doble del error con el promedio (mediana 0,41 pp), y en 17 de 36 países
+  algún año reproduce a IPUMS. Pero cinco países (DOM, HND, PER, MEX, FJI) quedan a más de 1 pp de IPUMS en
+  *todos* los años, y Senegal en +7,7 a +10 pp.
+
+![Sensibilidad temporal](figs/fig_018_sensibilidad_temporal.png)
+
+**Lectura y límites.** El desacuerdo con IPUMS es sobre todo de composición, no de método ni de estructura
+de asociación; mejorar la estimación depende de los márgenes univariados de entrada. El análisis no dice
+*qué* categoría concentra la diferencia, ni cuál de las dos fuentes acierta, y el desfase real no se mide
+(solo su orden de magnitud posible: no se conoce el año de cada censo IPUMS ni se cubre fuera de 2009-2019).
+La muestra es chica (40 a 46 países) y no se hicieron tests de significancia.
+
 ### Implicancias
 
-Tres lecturas se desprenden de esta prueba, en conjunto:
+Cuatro lecturas se desprenden de esta prueba, en conjunto:
 
 1. **La estimación converge razonablemente con una fuente externa independiente** (Spearman 0,80 en la celda
    de interés, sobre 45 países), con un sesgo pequeño y sin evidencia de distorsión sistemática grande.
@@ -235,17 +355,32 @@ Tres lecturas se desprenden de esta prueba, en conjunto:
    self-test de la celda de interés): incluso con márgenes de entrada perfectos, el supuesto de máxima
    entropía no captura una interacción de tercer orden real presente en los datos (dentro del sector no
    agrícola, ser TCP/TF está más asociado a la baja calificación de lo que predicen los márgenes bivariados
-   por separado). **La estimación final debe leerse, en consecuencia, como un piso razonable de la magnitud
-   real**, no como una medida sin sesgo.
+   por separado). **Este sesgo de método es pequeño y de signo conocido, pero no alcanza para
+   afirmar que la estimación sea un piso**: el error de fuente es mayor y de signo contrario en promedio
+   (§2.3). La lectura como piso descansa en la definición restrictiva del indicador (§3), no en el sesgo.
+4. **El error de fuente es sobre todo de composición** (§2.5): las fuentes difieren principalmente en cuánta
+   gente hay en cada categoría, no en cómo se combinan, y el desfase temporal solo explica diferencias del
+   orden de 1 pp. Los desacuerdos mayores (DOM, HND, PER, MEX, Senegal) no se resuelven eligiendo otro año.
 
 ---
 
 ## 3. Resultados sustantivos: cluster PIMSA, ingreso y región
 
-*Fuente: `data/estimacion/tabla_tcps_final_sums.csv` (181 países). Valores: medias ponderadas por
-`prop_ocup_totales`.*
+*Fuentes: `data/estimacion/tabla_tcps_final_sums.csv` (181 filas), corridas `src/014_tcp_estancada_analysis.R` (medias
+ponderadas) y `src/019_distribuciones_apartado3.R` (distribuciones entre países y contraste de mecanismos).
+Todas las cifras son % del empleo total del país. **Muestra:** 155 países con todas las variables (22 de las
+181 filas no tienen la celda de interés, y 4 más tienen otras variables en blanco).*
 
-### Por cluster PIMSA
+**Criterio de lectura.** El análisis de este apartado se apoya en las **medias ponderadas por empleo** (el peso
+de cada país en el empleo total, `prop_ocup_totales`). Es la medida que responde a la pregunta del proyecto en
+términos de población: *¿qué fracción de los trabajadores de cada tipo de país está en esta situación?* Los
+países grandes pesan más porque tienen más trabajadores. §3.2 es una **aclaración** sobre qué hay detrás de
+esas medias (cuántos países hay en cada grupo, su dispersión y cuánto pesa el país mayor de cada uno); no
+reemplaza el criterio de §3.1, §3.3 y §3.4.
+
+### 3.1 Las medias ponderadas por empleo (014)
+
+**Por cluster PIMSA**
 
 | Cluster | TCP/TF totales | TCP/TF calif. baja | TCP/TF no agro | **TCP/TF no agro calif. baja** |
 |---|---:|---:|---:|---:|
@@ -255,11 +390,7 @@ Tres lecturas se desprenden de esta prueba, en conjunto:
 | C4. Cap. escasa extensión c/peso campo | 70,2% | 17,8% | 29,4% | **6,2%** |
 | C5. Pequeña propiedad en el campo | 79,3% | 11,7% | 19,0% | **3,1%** |
 
-Gradiente claro y monótono entre C1 y C4: a menor desarrollo de las capacidades productivas, mayor peso del
-TCP/TF total y de su fracción de baja calificación no agro (0,6% → 6,2%, 10x entre extremos). C5 rompe la
-monotonía porque su alto TCP/TF total es sobre todo agrícola (fuera de la celda de interés).
-
-### Por grupo de ingreso
+**Por grupo de ingreso**
 
 | Grupo | TCP/TF calif. baja | TCP/TF no agro | **TCP/TF no agro calif. baja** |
 |---|---:|---:|---:|
@@ -268,10 +399,7 @@ monotonía porque su alto TCP/TF total es sobre todo agrícola (fuera de la celd
 | 03 Medios-bajos ingresos | 14,3% | 27,2% | **5,0%** |
 | 04 Bajos ingresos | 11,6% | 20,6% | **3,2%** |
 
-Relación no lineal: el pico está en ingreso medio-bajo (5,0%), no en el más pobre (3,2%) — coherente con el
-patrón por cluster (C4 > C5).
-
-### Por región
+**Por región**
 
 | Región | TCP/TF calif. baja | TCP/TF no agro | **TCP/TF no agro calif. baja** |
 |---|---:|---:|---:|
@@ -283,48 +411,184 @@ patrón por cluster (C4 > C5).
 | Europe & Central Asia | 1,0% | 9,6% | **0,3%** |
 | North America | 0,5% | 6,0% | **0,5%** |
 
-South Asia y Sub-Saharan Africa concentran los valores más altos; Europa/Asia Central y Norteamérica los más
-bajos.
+**Lectura.**
 
-![Coordenadas paralelas por cluster PIMSA](figs/fig_014_parcoord_clusters.png)
+- **Por cluster.** La celda crece al pasar del capitalismo avanzado a los clusters de menor extensión: 0,6% (C1)
+  → 2,1% (C2) → 1,9% (C3) → 6,2% (C4), diez veces más entre los extremos. C2 y C3 son prácticamente iguales.
+  C5 (3,1%) queda por debajo de C4 aunque tiene el mayor TCP/TF total (79,3%): ahí el TCP/TF es sobre todo
+  agrícola (el 76% del total; en C4, el 58%).
+- **Por ingreso.** El máximo está en los países de ingreso medio-bajo (5,0%), no en los de ingreso más bajo
+  (3,2%). Los de ingresos altos (0,8%) y medios-altos (1,8%) quedan por debajo.
+- **Por región.** South Asia (7,1%) y Sub-Saharan Africa (3,8%) encabezan, seguidas de Latinoamérica (2,6%).
+  Europa y Asia Central (0,3%) y Norteamérica (0,5%) tienen los valores más bajos.
 
-### Lectura teórica: TCP/TF de baja calificación no agraria como superpoblación estancada
+### 3.2 Qué hay detrás de las medias: la distribución entre países
 
-El indicador es, por diseño, un **piso mínimo** de la superpoblación relativa urbana disfrazada de trabajo
+![Distribución entre países de la celda de interés](figs/fig_019_distribucion_celda_grupos.png)
+
+Para la celda de interés (TCP/TF de baja calificación no agro). *Media ponderada* es la de §3.1;
+*sin el país mayor* recalcula esa media sacando el país de mayor peso del grupo.
+
+| Grupo | n países | Media ponderada | Media simple | **Mediana** | P25–P75 | Media pond. sin el país mayor |
+|---|---:|---:|---:|---:|---|---|
+| **Cluster** | | | | | | |
+| C1. Cap. avanzado | 38 | 0,61 | 0,62 | **0,32** | 0,20–0,69 | 0,66 (sin USA, 29% del peso) |
+| C2. Ext. reciente c/desarrollo profundidad | 37 | 2,06 | 1,60 | **1,06** | 0,35–2,36 | 1,89 (sin BRA, 35%) |
+| C3. Ext. c/peso campo | 27 | 1,87 | 2,21 | **1,54** | 0,81–2,94 | 2,02 (sin IDN, 34%) |
+| C4. Escasa ext. c/peso campo | 27 | 6,21 | 2,89 | **1,48** | 0,52–4,07 | **2,53 (sin IND, 57%)** |
+| C5. Pequeña propiedad en el campo | 18 | 3,12 | 2,76 | **1,46** | 0,76–3,52 | 2,07 (sin ETH, 22%) |
+| **Ingreso** | | | | | | |
+| 01 Altos | 46 | 0,76 | 0,67 | **0,33** | 0,20–0,76 | 0,89 (sin USA, 31%) |
+| 02 Medios-altos | 40 | 1,82 | 1,62 | **1,18** | 0,47–2,20 | 1,65 (sin BRA, 24%) |
+| 03 Medios-bajos | 47 | 4,97 | 2,61 | **1,60** | 0,96–3,20 | **2,17 (sin IND, 41%)** |
+| 04 Bajos | 21 | 3,18 | 3,16 | **1,47** | 0,71–4,67 | 2,10 (sin ETH, 22%) |
+| **Región** | | | | | | |
+| Latin America & Caribbean | 28 | 2,60 | 2,49 | **2,08** | 1,37–2,87 | 2,73 (sin BRA, 36%) |
+| Sub-Saharan Africa | 39 | 3,77 | 3,17 | **1,61** | 0,74–4,38 | 3,25 (sin ETH, 14%) |
+| East Asia & Pacific | 25 | 1,56 | 1,41 | **1,38** | 0,42–1,97 | 1,55 (sin IDN, 30%) |
+| Middle East & North Africa | 12 | 1,69 | 1,28 | **1,02** | 0,53–1,68 | 1,51 (sin EGY, 32%) |
+| South Asia | 8 | 7,05 | 2,73 | **0,94** | 0,71–3,52 | **1,62 (sin IND, 74%)** |
+| North America | 1 | 0,47 | 0,47 | **0,47** | — | — (solo USA; falta Canadá) |
+| Europe & Central Asia | 42 | 0,35 | 0,44 | **0,28** | 0,17–0,46 | 0,42 (sin RUS, 22%) |
+
+(Excluidos de la tabla: un país sin dato de ingreso, VEN, y los 8 sin cluster asignado. Salida completa en
+`data/estimacion/tcp_distribucion_celda_por_grupo.csv`.)
+
+**Hallazgos**
+
+1. **India explica los tres "picos" de las medias ponderadas.** Pesa el 57% de C4, el 41% de ingresos
+   medios-bajos y el 74% de South Asia, y su valor (9,0%) está muy por encima del resto de cada grupo. Sin
+   India, el 6,2% de C4 baja a 2,5%, el 5,0% de ingresos medios-bajos a 2,2% y el 7,1% de South Asia a 1,6%.
+   El "pico en ingreso medio-bajo" y la "concentración en South Asia" **son India**. La mediana de South Asia
+   (0,94%) es, de hecho, una de las más bajas de las regiones.
+2. **La diferencia sólida es entre el polo avanzado y el resto, y no un gradiente.** La mediana de C1 (0,32%)
+   es más de cuatro veces menor que la de los otros cuatro clusters juntos (1,47%; Wilcoxon p = 3 × 10⁻⁷). Entre
+   C2 y C5 **no hay diferencias detectables** (medianas 1,06, 1,54, 1,48 y 1,46; Kruskal-Wallis p = 0,28); C5
+   no "rompe" una monotonía porque no hay monotonía que romper. Lo mismo vale para el ingreso: 0,33% en
+   países de ingresos altos frente a 1,18%, 1,60% y 1,47% en los otros tres grupos. Entre países, la celda se
+   asocia positivamente con la posición en el cluster (Spearman 0,43) y con la pobreza (0,48), pero es una
+   asociación moderada y casi toda proviene del contraste entre el polo avanzado y el resto.
+3. **El orden de las regiones depende de la medida.** Con media ponderada encabezan South Asia (7,05) y
+   Sub-Saharan Africa (3,77); con media simple, Sub-Saharan Africa (3,17), South Asia (2,73) y Latinoamérica
+   (2,49); con mediana, **Latinoamérica (2,08)**, Sub-Saharan Africa (1,61) y East Asia & Pacific (1,38).
+   Solo Europa y Asia Central, y Norteamérica quedan consistentemente en el extremo bajo.
+4. **La dispersión interna es grande.** En Sub-Saharan Africa, la mediana es 1,6% pero el rango va de 0,2 a
+   12,4%; en Latinoamérica, de 0,1 a 7,0%. Las diferencias entre las medianas de los grupos intermedios
+   (1,0 a 1,6%) son menores que el rango intercuartil de cualquiera de ellos.
+5. **El extremo alto de la distribución es donde la estimación es menos confiable.** Los países con los
+   valores más altos son SOM (12,4), SEN (12,3), KEN (10,6), CPV (9,2), IND (9,0), GMB (7,7), AFG (7,2) y
+   PER (7,0). De ellos, Senegal y Kenia son los dos mayores desacuerdos con IPUMS (la OIT está unos 8 pp por
+   encima del censo; ver Implicancias de §2 y §2.5), y Perú también está por encima del censo (+2,4 pp). Somalia, Cabo Verde,
+   Gambia y Afganistán no tienen contraparte IPUMS y no pueden verificarse. **Tampoco la tiene India**, el país
+   que determina las medias ponderadas de C4, de ingresos medios-bajos y de South Asia.
+
+### 3.3 Contraste con los mecanismos: peso de la agricultura y absorción asalariada
+
+La lectura teórica de §3.4 supone que la celda crece cuando la población ya se separó de la agricultura pero
+**no** fue absorbida por el asalariado regular. Dos implicaciones de esa hipótesis pueden contrastarse con
+indicadores derivados de la propia trivariada estimada: la relación con el peso de la agricultura en el empleo
+y con la proporción de asalariados dentro del empleo no agrario. Todo está ponderado por empleo; la columna
+"sin el país mayor" repite la media sacando el país de mayor peso de cada tramo (la aclaración de §3.2).
+
+![Celda de interés frente al peso de la agricultura y a la absorción asalariada](figs/fig_019_agro_y_absorcion.png)
+
+| Peso de la agricultura en el empleo | n | Peso en el empleo | **Media ponderada de la celda** | Sin el país mayor | TCP/TF dentro del empleo no agrario | Baja calificación dentro del TCP/TF no agrario |
+|---|---:|---:|---:|---|---:|---:|
+| < 5% | 40 | 22,2% | **0,57** | 0,63 (sin USA, 34%) | 9,3% | 6,3% |
+| 5–15% | 29 | 15,5% | **1,71** | 1,43 (sin BRA, 30%) | 18,0% | 10,6% |
+| 15–30% | 31 | 11,0% | **2,34** | 2,51 (sin PHL, 18%) | 28,0% | 10,9% |
+| **30–50%** | 33 | 40,2% | **5,36** | 2,14 (sin IND, 47%) | 49,4% | 18,7% |
+| > 50% | 22 | 9,8% | **2,86** | 1,93 (sin ETH, 19%) | 54,0% | 15,2% |
+
+| Asalariados dentro del empleo no agrario | n | Peso en el empleo | **Media ponderada de la celda** | Sin el país mayor | TCP/TF dentro del empleo no agrario | Baja calificación dentro del TCP/TF no agrario |
+|---|---:|---:|---:|---|---:|---:|
+| < 50% | 23 | 26,9% | **7,77** | 4,92 (sin IND, 70%) | 59,9% | 24,8% |
+| 50–65% | 25 | 20,9% | **1,91** | 2,05 (sin IDN, 29%) | 41,6% | 7,9% |
+| 65–80% | 37 | 21,1% | **1,88** | 1,74 (sin BRA, 22%) | 27,1% | 8,9% |
+| 80–90% | 41 | 10,7% | **0,90** | 1,07 (sin DEU, 19%) | 13,0% | 7,7% |
+| > 90% | 29 | 19,1% | **0,51** | 0,54 (sin USA, 39%) | 5,9% | 9,0% |
+
+Correlaciones ponderadas por empleo entre países: celda y % de asalariados en el no agro, **−0,75** (−0,54 sin
+India); celda y peso de la agricultura, **+0,50** (+0,37 sin India); fracción de baja calificación dentro del
+TCP/TF no agrario y % de asalariados, −0,55.
+
+1. **La celda cae con la absorción asalariada, de forma monótona.** Pasa de 7,8% en los países donde menos de la
+   mitad del empleo no agrario es asalariado a 0,5% en los que superan el 90%. **Parte de esta relación es
+   contable**: el empleo no agrario es asalariado o TCP/TF, y la celda es una fracción del TCP/TF no agrario,
+   así que menos asalariados implica más TCP/TF por definición (la columna "TCP/TF dentro del empleo no
+   agrario" sube de 5,9% a 59,9%). La parte que no es mecánica es la *composición* de ese TCP/TF: la fracción
+   de baja calificación dentro de él es estable, entre 7,7% y 9,0%, en cuatro de los cinco tramos; solo se
+   dispara (24,8%) en el tramo de menor absorción, que es 70% India.
+2. **Con el peso de la agricultura hay una joroba.** La celda sube con el peso del agro hasta el tramo
+   30–50% (0,57 → 1,71 → 2,34 → 5,36) y baja cuando el agro supera el 50% del empleo (2,86). En el tramo con
+   mayor celda, el TCP/TF abarca la mitad del empleo no agrario (49,4%) y la baja calificación pesa el 18,7%
+   de él. La posición del pico depende de India (47% del peso de ese tramo): sin ella la media del tramo
+   30–50% es 2,14, por debajo de la del tramo 15–30% (2,51), pero la caída posterior al pico se mantiene
+   en ambos cálculos (2,86 y 1,93 para el tramo con más de 50% de agro).
+
+### 3.4 Lectura teórica: TCP/TF de baja calificación no agraria como superpoblación estancada
+
+**El indicador.** Es, por diseño, un **piso mínimo** de la superpoblación relativa urbana disfrazada de trabajo
 por cuenta propia: se restringe a las "ocupaciones elementales" (grupo 9 de la CIUO-08) para no forzar la
 hipótesis, dejando afuera —indiscriminada en la calificación media— a buena parte de la capa que también
-podría leerse como proletaria (talleristas, choferes, comerciantes menores, repartidores en moto, etc.).
+podría leerse como proletaria (talleristas, choferes, comerciantes menores, repartidores en moto, etc.). Que
+sea un piso se debe a esa restricción conceptual, no a un sesgo estadístico (§2.3).
 
-Marx caracteriza a la superpoblación **estancada** por una ocupación "sumamente irregular", condiciones de
-vida "por debajo del nivel medio normal de la clase obrera" y una disposición a aceptar el "máximo de tiempo
-de trabajo" por el "mínimo de salario" —rasgos que la hacen, a la vez, "campo de reclutamiento" inagotable
-para el capital y depósito de una población que éste ya no necesita regularizar. A diferencia de la
-superpoblación **flotante** (la que rota dentro y fuera del empleo asalariado regular en los propios centros
+**Las categorías.** Marx caracteriza a la superpoblación **estancada** por una ocupación "sumamente
+irregular", condiciones de vida "por debajo del nivel medio normal de la clase obrera" y una disposición a
+aceptar el "máximo de tiempo de trabajo" por el "mínimo de salario" —rasgos que la hacen, a la vez, "campo de
+reclutamiento" inagotable para el capital y depósito de una población que éste ya no necesita regularizar. Se
+distingue de la **flotante** (la que rota dentro y fuera del empleo asalariado regular en los propios centros
 de la gran industria) y de la **latente** (la que la penetración capitalista todavía no termina de expulsar
-del campo, manteniéndola dentro de la agricultura como fuerza de trabajo virtualmente disponible), la
-estancada es precisamente la que ya fue separada de sus medios de vida agrarios pero **no** fue absorbida
-por el trabajo asalariado regular: queda flotando en los intersticios urbanos y semi-urbanos, y el
-"cuentapropismo" de baja calificación —el cartonero, el repartidor, el vendedor ambulante, el changarín— es
-una de sus formas fenoménicas más visibles, aunque estadísticamente quede emplastada bajo la misma categoría
-que el pequeño propietario exitoso.
+del campo, manteniéndola dentro de la agricultura como fuerza de trabajo virtualmente disponible). La
+estancada es entonces la que ya fue separada de sus medios de vida agrarios pero **no** fue absorbida por el
+trabajo asalariado regular, y el "cuentapropismo" de baja calificación —el cartonero, el repartidor, el
+vendedor ambulante, el changarín— es una de sus formas fenoménicas más visibles, aunque estadísticamente
+quede emplastada bajo la misma categoría que el pequeño propietario exitoso. *(Las citas son las del texto
+original de este informe; no se cotejaron de nuevo contra El Capital, I, cap. 23.)*
 
-Leído así, el gradiente por cluster PIMSA (C1→C4: 0,6% → 6,2%) es un gradiente en la **capacidad del capital
-para absorber, en trabajo asalariado regular, a la población que su propia extensión separa de los medios de
-vida agrarios**. Cuanto menor esa capacidad relativa de absorción (C4: "extensión escasa"), mayor la fracción
-de esa población que queda flotando como estancada en circuitos urbanos no agrarios de baja calificación, en
-vez de ser regularizada como asalariada. C5 rompe la monotonía porque ahí la separación respecto de los
-medios de vida agrarios todavía no se completó: la superpoblación sigue estando, predominantemente, en su
-forma **latente** (retenida dentro del campo) más que en su forma estancada no agraria.
+**Qué implicaría la hipótesis, y qué dicen los datos** (medias ponderadas por empleo):
 
-La misma lógica explica el pico no monótono por ingreso (medio-bajo, no el más pobre) y la concentración
-regional en South Asia y Sub-Saharan Africa: son las zonas donde el proceso de expulsión agraria ya avanzó lo
-suficiente como para generar una masa urbana considerable, pero donde la industrialización y el empleo
-asalariado formal no crecieron al mismo ritmo para absorberla. En los países de ingreso más bajo, esa masa
-todavía tiende a estar retenida como superpoblación latente dentro del propio campo; en los países de
-ingreso alto, la capacidad de absorción asalariada reduce la celda casi a cero. El patrón es compatible con
-leer al TCP/TF de baja calificación no agraria no como una capa de pequeños empresarios en potencia, sino
-como una expresión estadística —parcial y necesariamente subestimada, por la restricción a ocupaciones
-elementales y por el sesgo de método documentado en §2.3— de la superpoblación relativa estancada.
+| Implicación de la hipótesis | Qué se observa | Veredicto |
+|---|---|---|
+| (H1) Cuanto menor la capacidad del capital para absorber el empleo no agrario como asalariado, mayor la celda | Cae de 7,8% (menos de 50% de asalariados) a 0,5% (más de 90%); r ponderada −0,75, −0,54 sin India (§3.3) | **Consistente.** Parte de la relación es contable; la composición por calificación es estable salvo en el tramo de India. |
+| (H2) La celda es mínima donde el capital avanzado absorbe en asalariado regular | C1 0,6%; ingresos altos 0,8%; Europa y Asia Central 0,3%; Norteamérica 0,5% (§3.1) | **Consistente.** |
+| (H3) La celda es máxima cuando la separación del campo avanzó pero la absorción es débil: joroba respecto del peso del agro | Sube hasta 30–50% de agro (5,4%) y baja con más de 50% (2,9%) (§3.3) | **Consistente en la forma**; la ubicación del pico depende de India (sin ella, entre 15 y 30%). |
+| (H4) Donde el campo todavía retiene a la mayoría, la superpoblación es sobre todo latente y la celda es menor | C5 3,1% (con 76% de su TCP/TF en la agricultura) frente a C4 6,2%; ingresos bajos 3,2% frente a medios-bajos 5,0% (§3.1) | **Consistente.** |
+
+**Lectura.** La celda de interés se comporta como cabría esperar si expresara población sobrante para el capital
+en el sentido de la superpoblación **estancada**:
+
+- es mínima donde el capital avanzado absorbe el trabajo en forma asalariada (C1, altos ingresos, Europa y
+  Norteamérica) y máxima donde esa absorción es más débil (menos de la mitad del empleo no agrario es asalariado);
+- sigue una joroba respecto del peso del agro: crece mientras la población se separa del campo y decrece cuando
+  el agro todavía retiene a la mayoría, que es donde la superpoblación toma sobre todo la forma latente (C5 e
+  ingresos bajos, con un TCP/TF total muy alto pero concentrado en el campo);
+- se concentra en South Asia y en Sub-Saharan Africa, las zonas donde el proceso de expulsión agraria ya generó
+  una masa urbana considerable sin que la industrialización y el empleo asalariado formal crecieran al mismo
+  ritmo para absorberla. En los países de ingreso alto, la absorción asalariada reduce la celda casi a cero.
+
+Leído así, el gradiente por cluster (C1→C4: 0,6% → 6,2%) es un gradiente en la **capacidad del capital para
+absorber, en trabajo asalariado regular, a la población que su propia extensión separa de los medios de vida
+agrarios**. El patrón es compatible con leer al TCP/TF de baja calificación no agraria no como una capa de
+pequeños empresarios en potencia, sino como una expresión estadística —parcial, por la restricción a
+ocupaciones elementales— de la superpoblación relativa estancada.
+
+**Límites de la lectura**
+
+- **Es compatibilidad, no contrastación frente a alternativas.** Los mismos patrones podrían producirse por
+  diferencias en cómo cada relevamiento codifica las ocupaciones elementales o por la estructura del comercio y
+  los servicios personales, que el indicador por sí solo no puede distinguir. Y la relación con la absorción
+  asalariada (H1) es en parte contable.
+- **El peso de India.** Con medias ponderadas, India determina buena parte de los valores de C4, de los
+  ingresos medios-bajos, de South Asia y de los tramos extremos de §3.3 (§3.2 y la columna "sin el país
+  mayor"). No tiene contraparte IPUMS, de modo que su valor (9,0%) no pudo verificarse. Entre los países de
+  mayor valor que sí tienen contraparte (Senegal y Kenia), la OIT está unos 8 pp por encima del censo.
+- **Error de medición.** El error de la celda frente a IPUMS tiene mediana de 0,4 pp (§2.5), pero según §2.5 es
+  sobre todo de composición, la misma información con la que se construyen el peso de la agricultura y la
+  absorción asalariada.
+- **Cobertura.** Quedan afuera 22 de las 181 filas (sin la tabla Calificación × Situación), y Norteamérica es un
+  solo país (falta Canadá).
 
 ---
 
@@ -335,9 +599,14 @@ elementales y por el sesgo de método documentado en §2.3— de la superpoblaci
   distorsión propia apreciable.
 - **IPUMS**: contra un patrón externo independiente, la celda de interés muestra correlación moderada-alta
   (Spearman 0,80) y sesgo pequeño (+0,32 pp), con los mayores desacuerdos atribuibles a discrepancias de
-  fuente (OIT vs. censo) en dos países puntuales, no al pipeline. El self-test aísla un sesgo estructural
-  de subestimación (−0,33 pp): la estimación final debe leerse como un piso.
-- **Sustantivo**: el gradiente por cluster, ingreso y región es consistente con la hipótesis de que el
-  TCP/TF de baja calificación no agraria funciona como expresión estadística de la superpoblación relativa
+  fuente (OIT vs. censo) en dos países puntuales, no al pipeline. El self-test aísla un sesgo de método
+  pequeño y de signo conocido (−0,33 pp, por la interacción de tercer orden que el IPF supone nula); el error
+  de fuente es mayor y es sobre todo de composición (§2.5).
+- **Sustantivo**: con medias ponderadas por empleo, la celda de interés crece del capitalismo avanzado (0,6% en
+  C1) a los clusters de menor extensión (6,2% en C4), con el máximo en ingresos medio-bajos (5,0%) y en South
+  Asia (7,1%), y cae con la absorción asalariada del empleo no agrario (de 7,8% a 0,5%, relación en parte
+  contable). Sigue además una joroba respecto del peso de la agricultura (máximo con 30–50% del empleo en el
+  agro). El patrón es compatible con leerla como expresión estadística de la superpoblación relativa
   **estancada** — concentrada donde la separación respecto de los medios de vida agrarios ya avanzó pero la
-  absorción asalariada regular no la siguió al mismo ritmo.
+  absorción asalariada regular no la siguió al mismo ritmo. India pesa mucho en estas medias y no tiene
+  contraparte IPUMS (§3.2).

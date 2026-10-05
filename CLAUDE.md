@@ -157,6 +157,13 @@ Scripts de validación:
   del sistema es `C`/`POSIX` — si no, los acentos y símbolos (ρ) se corrompen en las figuras.
 - `./src/015_analisis_pruebas_ipf.py` — misma lógica en Python (pandas/numpy/matplotlib/pycountry), no
   depende de `Rilostat` ni de rutas locales fuera del repo. Se mantiene como implementación alternativa/histórica.
+- `./src/017_descomposicion_error_ipums.R` y `./src/018_sensibilidad_temporal_ipums.R` — descomposición del
+  error de fuente IPUMS-IPF (composición vs. asociación con Shapley, escalera de ajuste, y sensibilidad al año
+  de la estimación OIT). Informe: `./reports/parciales/descomposicion_error_ipums.md` (resumen en §2.5 del
+  informe consolidado).
+- `./src/019_distribuciones_apartado3.R` — distribución entre países de la celda de interés por cluster,
+  ingreso y región (n, medianas, rangos, sensibilidad al país de mayor peso) y contraste con el peso del agro
+  y la absorción asalariada. Complementa a `014` (medias ponderadas por empleo, dominadas por India).
 - `./src/016_pipeline_corregido.py` + `./src/ipf_utils.py` — reimplementación en Python del pipeline
   011→012→013 (agregación corregida + IPF propio), usada para (a) tener una estimación reproducible en
   entornos sin R/`Rilostat`, y (b) validar de forma independiente los resultados de `mipfp::Ipfp` en R.

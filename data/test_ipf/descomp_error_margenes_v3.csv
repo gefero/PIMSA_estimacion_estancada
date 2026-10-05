@@ -1,0 +1,321 @@
+pieza,contrib,medida,iso3c,error_total_celda
+Composición (márgenes univariados),0.03180096911499,"celda clave (pp, con signo)",BEN,-0.025357593243645504
+Asociación Situación × Calificación,-0.04166759372673564,"celda clave (pp, con signo)",BEN,-0.025357593243645504
+Asociación Situación × Rama,-7.521164609393302e-4,"celda clave (pp, con signo)",BEN,-0.025357593243645504
+Asociación Calificación × Rama,-0.004254224975750814,"celda clave (pp, con signo)",BEN,-0.025357593243645504
+Composición (márgenes univariados),0.5677578176503804,MAE 12 celdas (pp),BEN,-0.025357593243645504
+Asociación Situación × Calificación,0.010683339729411207,MAE 12 celdas (pp),BEN,-0.025357593243645504
+Asociación Situación × Rama,0.011180515194651882,MAE 12 celdas (pp),BEN,-0.025357593243645504
+Asociación Calificación × Rama,0.0032016136729660725,MAE 12 celdas (pp),BEN,-0.025357593243645504
+Composición (márgenes univariados),-0.02417989686125745,"celda clave (pp, con signo)",BOL,0.316587345853248
+Asociación Situación × Calificación,-0.10977774780081444,"celda clave (pp, con signo)",BOL,0.316587345853248
+Asociación Situación × Rama,0.012093904831912656,"celda clave (pp, con signo)",BOL,0.316587345853248
+Asociación Calificación × Rama,0.22386725422743742,"celda clave (pp, con signo)",BOL,0.316587345853248
+Composición (márgenes univariados),0.33949234076517365,MAE 12 celdas (pp),BOL,0.316587345853248
+Asociación Situación × Calificación,0.327973644817376,MAE 12 celdas (pp),BOL,0.316587345853248
+Asociación Situación × Rama,-0.006308947025673229,MAE 12 celdas (pp),BOL,0.316587345853248
+Asociación Calificación × Rama,0.048282044947552054,MAE 12 celdas (pp),BOL,0.316587345853248
+Composición (márgenes univariados),0.03661346536619886,"celda clave (pp, con signo)",BRA,0.836621445864753
+Asociación Situación × Calificación,0.5293254235265035,"celda clave (pp, con signo)",BRA,0.836621445864753
+Asociación Situación × Rama,-0.18268017937761222,"celda clave (pp, con signo)",BRA,0.836621445864753
+Asociación Calificación × Rama,0.2081317771920034,"celda clave (pp, con signo)",BRA,0.836621445864753
+Composición (márgenes univariados),0.43913084409169545,MAE 12 celdas (pp),BRA,0.836621445864753
+Asociación Situación × Calificación,0.3539669489088604,MAE 12 celdas (pp),BRA,0.836621445864753
+Asociación Situación × Rama,0.02782549281318217,MAE 12 celdas (pp),BRA,0.836621445864753
+Asociación Calificación × Rama,0.02952053588927928,MAE 12 celdas (pp),BRA,0.836621445864753
+Composición (márgenes univariados),0.14280378593991402,"celda clave (pp, con signo)",BWA,-0.5625206990652716
+Asociación Situación × Calificación,0.7215402344457836,"celda clave (pp, con signo)",BWA,-0.5625206990652716
+Asociación Situación × Rama,-0.15695228609411613,"celda clave (pp, con signo)",BWA,-0.5625206990652716
+Asociación Calificación × Rama,0.30735169939653456,"celda clave (pp, con signo)",BWA,-0.5625206990652716
+Composición (márgenes univariados),0.30903926636918116,MAE 12 celdas (pp),BWA,-0.5625206990652716
+Asociación Situación × Calificación,0.029746475281514754,MAE 12 celdas (pp),BWA,-0.5625206990652716
+Asociación Situación × Rama,-0.05770232122413587,MAE 12 celdas (pp),BWA,-0.5625206990652716
+Asociación Calificación × Rama,0.1510207011647042,MAE 12 celdas (pp),BWA,-0.5625206990652716
+Composición (márgenes univariados),0.045241876112945334,"celda clave (pp, con signo)",CHE,-0.005395002183471609
+Asociación Situación × Calificación,0.007515073717805845,"celda clave (pp, con signo)",CHE,-0.005395002183471609
+Asociación Situación × Rama,-0.03848470086930806,"celda clave (pp, con signo)",CHE,-0.005395002183471609
+Asociación Calificación × Rama,0.0026011398466269237,"celda clave (pp, con signo)",CHE,-0.005395002183471609
+Composición (márgenes univariados),0.7507558141548916,MAE 12 celdas (pp),CHE,-0.005395002183471609
+Asociación Situación × Calificación,0.03037202456976758,MAE 12 celdas (pp),CHE,-0.005395002183471609
+Asociación Situación × Rama,0.013406344101412494,MAE 12 celdas (pp),CHE,-0.005395002183471609
+Asociación Calificación × Rama,0.0032675672953952823,MAE 12 celdas (pp),CHE,-0.005395002183471609
+Composición (márgenes univariados),0.40309626419205985,"celda clave (pp, con signo)",CRI,-0.46640775387823785
+Asociación Situación × Calificación,-0.9631651174086575,"celda clave (pp, con signo)",CRI,-0.46640775387823785
+Asociación Situación × Rama,-0.25194760649283243,"celda clave (pp, con signo)",CRI,-0.46640775387823785
+Asociación Calificación × Rama,0.7191266047469942,"celda clave (pp, con signo)",CRI,-0.46640775387823785
+Composición (márgenes univariados),0.7961608907012158,MAE 12 celdas (pp),CRI,-0.46640775387823785
+Asociación Situación × Calificación,0.2967563705754777,MAE 12 celdas (pp),CRI,-0.46640775387823785
+Asociación Situación × Rama,-0.020000982392224972,MAE 12 celdas (pp),CRI,-0.46640775387823785
+Asociación Calificación × Rama,0.4292355888009154,MAE 12 celdas (pp),CRI,-0.46640775387823785
+Composición (márgenes univariados),3.0509302196552106,"celda clave (pp, con signo)",DOM,3.478212219636886
+Asociación Situación × Calificación,0.9591516359094349,"celda clave (pp, con signo)",DOM,3.478212219636886
+Asociación Situación × Rama,-0.7800437688857613,"celda clave (pp, con signo)",DOM,3.478212219636886
+Asociación Calificación × Rama,0.10152150658648076,"celda clave (pp, con signo)",DOM,3.478212219636886
+Composición (márgenes univariados),2.328680817278358,MAE 12 celdas (pp),DOM,3.478212219636886
+Asociación Situación × Calificación,0.06696414598844364,MAE 12 celdas (pp),DOM,3.478212219636886
+Asociación Situación × Rama,0.3912955390394124,MAE 12 celdas (pp),DOM,3.478212219636886
+Asociación Calificación × Rama,0.003450420416490603,MAE 12 celdas (pp),DOM,3.478212219636886
+Composición (márgenes univariados),1.3314881725960155,"celda clave (pp, con signo)",ECU,2.354112064210853
+Asociación Situación × Calificación,2.2854619505495455,"celda clave (pp, con signo)",ECU,2.354112064210853
+Asociación Situación × Rama,-0.14803303951719574,"celda clave (pp, con signo)",ECU,2.354112064210853
+Asociación Calificación × Rama,0.43754765373934756,"celda clave (pp, con signo)",ECU,2.354112064210853
+Composición (márgenes univariados),1.2752425453887524,MAE 12 celdas (pp),ECU,2.354112064210853
+Asociación Situación × Calificación,0.0399399073185839,MAE 12 celdas (pp),ECU,2.354112064210853
+Asociación Situación × Rama,-0.047330703504839984,MAE 12 celdas (pp),ECU,2.354112064210853
+Asociación Calificación × Rama,0.11772193847317773,MAE 12 celdas (pp),ECU,2.354112064210853
+Composición (márgenes univariados),0.16995384224158697,"celda clave (pp, con signo)",ESP,-0.17189566942466308
+Asociación Situación × Calificación,-0.20290953204592466,"celda clave (pp, con signo)",ESP,-0.17189566942466308
+Asociación Situación × Rama,-0.02105435689148667,"celda clave (pp, con signo)",ESP,-0.17189566942466308
+Asociación Calificación × Rama,-0.02991126108235169,"celda clave (pp, con signo)",ESP,-0.17189566942466308
+Composición (márgenes univariados),1.2038640276244479,MAE 12 celdas (pp),ESP,-0.17189566942466308
+Asociación Situación × Calificación,0.1494603139666859,MAE 12 celdas (pp),ESP,-0.17189566942466308
+Asociación Situación × Rama,-0.002156040152889561,MAE 12 celdas (pp),ESP,-0.17189566942466308
+Asociación Calificación × Rama,0.007972771274311487,MAE 12 celdas (pp),ESP,-0.17189566942466308
+Composición (márgenes univariados),0.029939275790834267,"celda clave (pp, con signo)",FIN,0.20489530719674473
+Asociación Situación × Calificación,0.17425508145366378,"celda clave (pp, con signo)",FIN,0.20489530719674473
+Asociación Situación × Rama,0.0021994334076201796,"celda clave (pp, con signo)",FIN,0.20489530719674473
+Asociación Calificación × Rama,-0.001147142090851946,"celda clave (pp, con signo)",FIN,0.20489530719674473
+Composición (márgenes univariados),1.0361802429826443,MAE 12 celdas (pp),FIN,0.20489530719674473
+Asociación Situación × Calificación,-0.017439796129522418,MAE 12 celdas (pp),FIN,0.20489530719674473
+Asociación Situación × Rama,0.035668001257977415,MAE 12 celdas (pp),FIN,0.20489530719674473
+Asociación Calificación × Rama,0.0034347320996363927,MAE 12 celdas (pp),FIN,0.20489530719674473
+Composición (márgenes univariados),0.009792886826636852,"celda clave (pp, con signo)",FJI,-1.503346857744057
+Asociación Situación × Calificación,-0.1763439896145073,"celda clave (pp, con signo)",FJI,-1.503346857744057
+Asociación Situación × Rama,0.09454607240588055,"celda clave (pp, con signo)",FJI,-1.503346857744057
+Asociación Calificación × Rama,-0.35092532439374785,"celda clave (pp, con signo)",FJI,-1.503346857744057
+Composición (márgenes univariados),0.41644958212725447,MAE 12 celdas (pp),FJI,-1.503346857744057
+Asociación Situación × Calificación,-0.008119165273030533,MAE 12 celdas (pp),FJI,-1.503346857744057
+Asociación Situación × Rama,0.14560585893922856,MAE 12 celdas (pp),FJI,-1.503346857744057
+Asociación Calificación × Rama,0.04148440775414378,MAE 12 celdas (pp),FJI,-1.503346857744057
+Composición (márgenes univariados),0,"celda clave (pp, con signo)",FRA,0
+Asociación Situación × Calificación,0,"celda clave (pp, con signo)",FRA,0
+Asociación Situación × Rama,0,"celda clave (pp, con signo)",FRA,0
+Asociación Calificación × Rama,0,"celda clave (pp, con signo)",FRA,0
+Composición (márgenes univariados),1.1841654502191121,MAE 12 celdas (pp),FRA,0
+Asociación Situación × Calificación,0.0522026840588518,MAE 12 celdas (pp),FRA,0
+Asociación Situación × Rama,-0.006198590392441777,MAE 12 celdas (pp),FRA,0
+Asociación Calificación × Rama,0.0026473202390518537,MAE 12 celdas (pp),FRA,0
+Composición (márgenes univariados),-0.7035224500087504,"celda clave (pp, con signo)",GHA,-2.3561655461803777
+Asociación Situación × Calificación,-0.5686623530644527,"celda clave (pp, con signo)",GHA,-2.3561655461803777
+Asociación Situación × Rama,-0.04458206159599161,"celda clave (pp, con signo)",GHA,-2.3561655461803777
+Asociación Calificación × Rama,-0.8571962618219453,"celda clave (pp, con signo)",GHA,-2.3561655461803777
+Composición (márgenes univariados),0.7940394501129202,MAE 12 celdas (pp),GHA,-2.3561655461803777
+Asociación Situación × Calificación,0.09309437464749513,MAE 12 celdas (pp),GHA,-2.3561655461803777
+Asociación Situación × Rama,0.05376281244214805,MAE 12 celdas (pp),GHA,-2.3561655461803777
+Asociación Calificación × Rama,0.17832282987342687,MAE 12 celdas (pp),GHA,-2.3561655461803777
+Composición (márgenes univariados),-0.09579729546288905,"celda clave (pp, con signo)",GIN,0.05531228993945936
+Asociación Situación × Calificación,0.1539067422246186,"celda clave (pp, con signo)",GIN,0.05531228993945936
+Asociación Situación × Rama,-8.256918095149726e-4,"celda clave (pp, con signo)",GIN,0.05531228993945936
+Asociación Calificación × Rama,4.6376567027323057e-4,"celda clave (pp, con signo)",GIN,0.05531228993945936
+Composición (márgenes univariados),0.806434493864864,MAE 12 celdas (pp),GIN,0.05531228993945936
+Asociación Situación × Calificación,0.030784726899328308,MAE 12 celdas (pp),GIN,0.05531228993945936
+Asociación Situación × Rama,0.052114293996876906,MAE 12 celdas (pp),GIN,0.05531228993945936
+Asociación Calificación × Rama,0.0016259647602176743,MAE 12 celdas (pp),GIN,0.05531228993945936
+Composición (márgenes univariados),-0.05211223834218632,"celda clave (pp, con signo)",GRC,-0.5150385858979488
+Asociación Situación × Calificación,-0.08755081766242241,"celda clave (pp, con signo)",GRC,-0.5150385858979488
+Asociación Situación × Rama,-0.09932136470400019,"celda clave (pp, con signo)",GRC,-0.5150385858979488
+Asociación Calificación × Rama,0.11589814372221313,"celda clave (pp, con signo)",GRC,-0.5150385858979488
+Composición (márgenes univariados),0.26870519955497957,MAE 12 celdas (pp),GRC,-0.5150385858979488
+Asociación Situación × Calificación,0.24167865830201038,MAE 12 celdas (pp),GRC,-0.5150385858979488
+Asociación Situación × Rama,-0.05839558487714592,MAE 12 celdas (pp),GRC,-0.5150385858979488
+Asociación Calificación × Rama,0.037236883699459766,MAE 12 celdas (pp),GRC,-0.5150385858979488
+Composición (márgenes univariados),1.8843957719144688,"celda clave (pp, con signo)",HND,2.7054502482539653
+Asociación Situación × Calificación,0.5496791174305644,"celda clave (pp, con signo)",HND,2.7054502482539653
+Asociación Situación × Rama,1.3197772989324807,"celda clave (pp, con signo)",HND,2.7054502482539653
+Asociación Calificación × Rama,-1.255480017580122,"celda clave (pp, con signo)",HND,2.7054502482539653
+Composición (márgenes univariados),1.638399745360718,MAE 12 celdas (pp),HND,2.7054502482539653
+Asociación Situación × Calificación,0.12129796865956109,MAE 12 celdas (pp),HND,2.7054502482539653
+Asociación Situación × Rama,0.9738236721497692,MAE 12 celdas (pp),HND,2.7054502482539653
+Asociación Calificación × Rama,0.4546552498086437,MAE 12 celdas (pp),HND,2.7054502482539653
+Composición (márgenes univariados),-0.017670676960474852,"celda clave (pp, con signo)",HUN,-0.09683452346327558
+Asociación Situación × Calificación,-0.06409998021412679,"celda clave (pp, con signo)",HUN,-0.09683452346327558
+Asociación Situación × Rama,0.002604039249141901,"celda clave (pp, con signo)",HUN,-0.09683452346327558
+Asociación Calificación × Rama,-0.006307980790278233,"celda clave (pp, con signo)",HUN,-0.09683452346327558
+Composición (márgenes univariados),0.3294472366153967,MAE 12 celdas (pp),HUN,-0.09683452346327558
+Asociación Situación × Calificación,0.017057106300100336,MAE 12 celdas (pp),HUN,-0.09683452346327558
+Asociación Situación × Rama,0.004412809124255553,MAE 12 celdas (pp),HUN,-0.09683452346327558
+Asociación Calificación × Rama,7.175597053411578e-4,MAE 12 celdas (pp),HUN,-0.09683452346327558
+Composición (márgenes univariados),0.10737786856230769,"celda clave (pp, con signo)",IRL,0.005430383915177223
+Asociación Situación × Calificación,0.06752480110125651,"celda clave (pp, con signo)",IRL,0.005430383915177223
+Asociación Situación × Rama,0.00668068185747036,"celda clave (pp, con signo)",IRL,0.005430383915177223
+Asociación Calificación × Rama,-0.09829183419136717,"celda clave (pp, con signo)",IRL,0.005430383915177223
+Composición (márgenes univariados),0.6346335859510458,MAE 12 celdas (pp),IRL,0.005430383915177223
+Asociación Situación × Calificación,0.11711547106414961,MAE 12 celdas (pp),IRL,0.005430383915177223
+Asociación Situación × Rama,0.00460599429432713,MAE 12 celdas (pp),IRL,0.005430383915177223
+Asociación Calificación × Rama,0.037841865278321306,MAE 12 celdas (pp),IRL,0.005430383915177223
+Composición (márgenes univariados),0.25430318658682377,"celda clave (pp, con signo)",IRN,0.39493036924856817
+Asociación Situación × Calificación,0.7785077386313546,"celda clave (pp, con signo)",IRN,0.39493036924856817
+Asociación Situación × Rama,0.2973287636608954,"celda clave (pp, con signo)",IRN,0.39493036924856817
+Asociación Calificación × Rama,-0.6568728305359914,"celda clave (pp, con signo)",IRN,0.39493036924856817
+Composición (márgenes univariados),0.4634282584832696,MAE 12 celdas (pp),IRN,0.39493036924856817
+Asociación Situación × Calificación,0.06706293134859669,MAE 12 celdas (pp),IRN,0.39493036924856817
+Asociación Situación × Rama,0.21548467618425615,MAE 12 celdas (pp),IRN,0.39493036924856817
+Asociación Calificación × Rama,0.16909025073958642,MAE 12 celdas (pp),IRN,0.39493036924856817
+Composición (márgenes univariados),0.09256613117549548,"celda clave (pp, con signo)",ITA,-0.016764881312555713
+Asociación Situación × Calificación,0.059462790389090636,"celda clave (pp, con signo)",ITA,-0.016764881312555713
+Asociación Situación × Rama,-0.10725288757074235,"celda clave (pp, con signo)",ITA,-0.016764881312555713
+Asociación Calificación × Rama,0.06381745671162979,"celda clave (pp, con signo)",ITA,-0.016764881312555713
+Composición (márgenes univariados),1.0729634144660802,MAE 12 celdas (pp),ITA,-0.016764881312555713
+Asociación Situación × Calificación,0.05697455128456285,MAE 12 celdas (pp),ITA,-0.016764881312555713
+Asociación Situación × Rama,-0.023381152784549584,MAE 12 celdas (pp),ITA,-0.016764881312555713
+Asociación Calificación × Rama,0.040696208970193305,MAE 12 celdas (pp),ITA,-0.016764881312555713
+Composición (márgenes univariados),10.28972334298152,"celda clave (pp, con signo)",KEN,8.29162811960423
+Asociación Situación × Calificación,2.1661824757343515,"celda clave (pp, con signo)",KEN,8.29162811960423
+Asociación Situación × Rama,0.012622582653712038,"celda clave (pp, con signo)",KEN,8.29162811960423
+Asociación Calificación × Rama,-4.208377647804733,"celda clave (pp, con signo)",KEN,8.29162811960423
+Composición (márgenes univariados),4.385815330959823,MAE 12 celdas (pp),KEN,8.29162811960423
+Asociación Situación × Calificación,0.1739590110045395,MAE 12 celdas (pp),KEN,8.29162811960423
+Asociación Situación × Rama,0.004346654219164099,MAE 12 celdas (pp),KEN,8.29162811960423
+Asociación Calificación × Rama,1.3197551696700356,MAE 12 celdas (pp),KEN,8.29162811960423
+Composición (márgenes univariados),-0.045874916396629356,"celda clave (pp, con signo)",MAR,-1.6036663550372574
+Asociación Situación × Calificación,-0.09604830618726262,"celda clave (pp, con signo)",MAR,-1.6036663550372574
+Asociación Situación × Rama,0.021321003322342918,"celda clave (pp, con signo)",MAR,-1.6036663550372574
+Asociación Calificación × Rama,0.05243241789981687,"celda clave (pp, con signo)",MAR,-1.6036663550372574
+Composición (márgenes univariados),-0.03089480847577853,MAE 12 celdas (pp),MAR,-1.6036663550372574
+Asociación Situación × Calificación,0.007870822365442603,MAE 12 celdas (pp),MAR,-1.6036663550372574
+Asociación Situación × Rama,9.629127078877676e-4,MAE 12 celdas (pp),MAR,-1.6036663550372574
+Asociación Calificación × Rama,-0.0019504895584985995,MAE 12 celdas (pp),MAR,-1.6036663550372574
+Composición (márgenes univariados),0.6577290634950907,"celda clave (pp, con signo)",MEX,-2.0751419574408043
+Asociación Situación × Calificación,-0.1977360808961867,"celda clave (pp, con signo)",MEX,-2.0751419574408043
+Asociación Situación × Rama,-0.10506456477222335,"celda clave (pp, con signo)",MEX,-2.0751419574408043
+Asociación Calificación × Rama,-1.9351517405748402,"celda clave (pp, con signo)",MEX,-2.0751419574408043
+Composición (márgenes univariados),0.38066914745717434,MAE 12 celdas (pp),MEX,-2.0751419574408043
+Asociación Situación × Calificación,0.04017071806262035,MAE 12 celdas (pp),MEX,-2.0751419574408043
+Asociación Situación × Rama,-0.043206976933026525,MAE 12 celdas (pp),MEX,-2.0751419574408043
+Asociación Calificación × Rama,0.9256140255190515,MAE 12 celdas (pp),MEX,-2.0751419574408043
+Composición (márgenes univariados),0.16640783862676203,"celda clave (pp, con signo)",MNG,0.07535434859973655
+Asociación Situación × Calificación,-0.0021019264859958955,"celda clave (pp, con signo)",MNG,0.07535434859973655
+Asociación Situación × Rama,-5.863859611855889e-4,"celda clave (pp, con signo)",MNG,0.07535434859973655
+Asociación Calificación × Rama,0.002532679843875332,"celda clave (pp, con signo)",MNG,0.07535434859973655
+Composición (márgenes univariados),1.2854412335516257,MAE 12 celdas (pp),MNG,0.07535434859973655
+Asociación Situación × Calificación,0.0743943718578793,MAE 12 celdas (pp),MNG,0.07535434859973655
+Asociación Situación × Rama,-0.00505004795219199,MAE 12 celdas (pp),MNG,0.07535434859973655
+Asociación Calificación × Rama,3.693397801215771e-4,MAE 12 celdas (pp),MNG,0.07535434859973655
+Composición (márgenes univariados),0.08872916693764196,"celda clave (pp, con signo)",MUS,-0.06828081493474869
+Asociación Situación × Calificación,-0.05737240469803448,"celda clave (pp, con signo)",MUS,-0.06828081493474869
+Asociación Situación × Rama,-0.025175593159488658,"celda clave (pp, con signo)",MUS,-0.06828081493474869
+Asociación Calificación × Rama,0.0361411567745988,"celda clave (pp, con signo)",MUS,-0.06828081493474869
+Composición (márgenes univariados),0.3052975107302739,MAE 12 celdas (pp),MUS,-0.06828081493474869
+Asociación Situación × Calificación,0.13381611282966926,MAE 12 celdas (pp),MUS,-0.06828081493474869
+Asociación Situación × Rama,-0.010505348679961954,MAE 12 celdas (pp),MUS,-0.06828081493474869
+Asociación Calificación × Rama,0.03195992963176295,MAE 12 celdas (pp),MUS,-0.06828081493474869
+Composición (márgenes univariados),0.14750005809987515,"celda clave (pp, con signo)",NLD,0.10571202056431372
+Asociación Situación × Calificación,-0.014590057095973802,"celda clave (pp, con signo)",NLD,0.10571202056431372
+Asociación Situación × Rama,0.005167512109603547,"celda clave (pp, con signo)",NLD,0.10571202056431372
+Asociación Calificación × Rama,-0.014082851240800193,"celda clave (pp, con signo)",NLD,0.10571202056431372
+Composición (márgenes univariados),0.8577535001312755,MAE 12 celdas (pp),NLD,0.10571202056431372
+Asociación Situación × Calificación,0.10617443309232881,MAE 12 celdas (pp),NLD,0.10571202056431372
+Asociación Situación × Rama,0.0033834718646615996,MAE 12 celdas (pp),NLD,0.10571202056431372
+Asociación Calificación × Rama,-0.010424006648767109,MAE 12 celdas (pp),NLD,0.10571202056431372
+Composición (márgenes univariados),0.11941099678465293,"celda clave (pp, con signo)",PAN,-1.3226941765944344
+Asociación Situación × Calificación,-0.8965596736564778,"celda clave (pp, con signo)",PAN,-1.3226941765944344
+Asociación Situación × Rama,-0.07075919110044306,"celda clave (pp, con signo)",PAN,-1.3226941765944344
+Asociación Calificación × Rama,0.9004003860998968,"celda clave (pp, con signo)",PAN,-1.3226941765944344
+Composición (márgenes univariados),0.5701257160270012,MAE 12 celdas (pp),PAN,-1.3226941765944344
+Asociación Situación × Calificación,0.19574126928906374,MAE 12 celdas (pp),PAN,-1.3226941765944344
+Asociación Situación × Rama,-0.020442393274838558,MAE 12 celdas (pp),PAN,-1.3226941765944344
+Asociación Calificación × Rama,0.10783950930340187,MAE 12 celdas (pp),PAN,-1.3226941765944344
+Composición (márgenes univariados),2.53743417443062,"celda clave (pp, con signo)",PER,2.4147855685242563
+Asociación Situación × Calificación,3.640988861260329,"celda clave (pp, con signo)",PER,2.4147855685242563
+Asociación Situación × Rama,-1.0148638420547504,"celda clave (pp, con signo)",PER,2.4147855685242563
+Asociación Calificación × Rama,-0.41209892706480966,"celda clave (pp, con signo)",PER,2.4147855685242563
+Composición (márgenes univariados),1.4555607421927823,MAE 12 celdas (pp),PER,2.4147855685242563
+Asociación Situación × Calificación,0.07052700466864388,MAE 12 celdas (pp),PER,2.4147855685242563
+Asociación Situación × Rama,-0.08944888164807559,MAE 12 celdas (pp),PER,2.4147855685242563
+Asociación Calificación × Rama,-0.023133920269965618,MAE 12 celdas (pp),PER,2.4147855685242563
+Composición (márgenes univariados),-0.027248879690223857,"celda clave (pp, con signo)",PRI,0.009146499760214533
+Asociación Situación × Calificación,0.03605857607357981,"celda clave (pp, con signo)",PRI,0.009146499760214533
+Asociación Situación × Rama,1.7256947884182014e-4,"celda clave (pp, con signo)",PRI,0.009146499760214533
+Asociación Calificación × Rama,0.00439974940270202,"celda clave (pp, con signo)",PRI,0.009146499760214533
+Composición (márgenes univariados),0.13065268249902626,MAE 12 celdas (pp),PRI,0.009146499760214533
+Asociación Situación × Calificación,0.021219688976225896,MAE 12 celdas (pp),PRI,0.009146499760214533
+Asociación Situación × Rama,-0.0031095641020461016,MAE 12 celdas (pp),PRI,0.009146499760214533
+Asociación Calificación × Rama,-8.800821144554199e-4,MAE 12 celdas (pp),PRI,0.009146499760214533
+Composición (márgenes univariados),0.5358347057749404,"celda clave (pp, con signo)",PRT,-0.6102773100750971
+Asociación Situación × Calificación,-1.0963899486607787,"celda clave (pp, con signo)",PRT,-0.6102773100750971
+Asociación Situación × Rama,-0.14785683269248248,"celda clave (pp, con signo)",PRT,-0.6102773100750971
+Asociación Calificación × Rama,0.19287298110407236,"celda clave (pp, con signo)",PRT,-0.6102773100750971
+Composición (márgenes univariados),1.9743666471977488,MAE 12 celdas (pp),PRT,-0.6102773100750971
+Asociación Situación × Calificación,0.17667856579722577,MAE 12 celdas (pp),PRT,-0.6102773100750971
+Asociación Situación × Rama,-0.08015267001994415,MAE 12 celdas (pp),PRT,-0.6102773100750971
+Asociación Calificación × Rama,0.06264471993881086,MAE 12 celdas (pp),PRT,-0.6102773100750971
+Composición (márgenes univariados),0.16448087367318429,"celda clave (pp, con signo)",ROU,0.059559840393661245
+Asociación Situación × Calificación,0.3356608583627091,"celda clave (pp, con signo)",ROU,0.059559840393661245
+Asociación Situación × Rama,0.0445304675143502,"celda clave (pp, con signo)",ROU,0.059559840393661245
+Asociación Calificación × Rama,-0.24351024127576615,"celda clave (pp, con signo)",ROU,0.059559840393661245
+Composición (márgenes univariados),0.5264167204324918,MAE 12 celdas (pp),ROU,0.059559840393661245
+Asociación Situación × Calificación,-0.027476248837165713,MAE 12 celdas (pp),ROU,0.059559840393661245
+Asociación Situación × Rama,0.05842841408119982,MAE 12 celdas (pp),ROU,0.059559840393661245
+Asociación Calificación × Rama,0.056361350794380614,MAE 12 celdas (pp),ROU,0.059559840393661245
+Composición (márgenes univariados),4.604203200362235,"celda clave (pp, con signo)",SEN,8.240004004957136
+Asociación Situación × Calificación,3.8053396197667753,"celda clave (pp, con signo)",SEN,8.240004004957136
+Asociación Situación × Rama,-0.0841164240546966,"celda clave (pp, con signo)",SEN,8.240004004957136
+Asociación Calificación × Rama,-0.17460943961539716,"celda clave (pp, con signo)",SEN,8.240004004957136
+Composición (márgenes univariados),2.8641735979157783,MAE 12 celdas (pp),SEN,8.240004004957136
+Asociación Situación × Calificación,0.8343279844283165,MAE 12 celdas (pp),SEN,8.240004004957136
+Asociación Situación × Rama,0.10591922491460667,MAE 12 celdas (pp),SEN,8.240004004957136
+Asociación Calificación × Rama,0.036418977437188686,MAE 12 celdas (pp),SEN,8.240004004957136
+Composición (márgenes univariados),0.7676852866863897,"celda clave (pp, con signo)",SLE,0.9591187983391589
+Asociación Situación × Calificación,0.1914335116527695,"celda clave (pp, con signo)",SLE,0.9591187983391589
+Asociación Situación × Rama,0,"celda clave (pp, con signo)",SLE,0.9591187983391589
+Asociación Calificación × Rama,0,"celda clave (pp, con signo)",SLE,0.9591187983391589
+Composición (márgenes univariados),4.955622866567202,MAE 12 celdas (pp),SLE,0.9591187983391589
+Asociación Situación × Calificación,0.10760991743822139,MAE 12 celdas (pp),SLE,0.9591187983391589
+Asociación Situación × Rama,0,MAE 12 celdas (pp),SLE,0.9591187983391589
+Asociación Calificación × Rama,0,MAE 12 celdas (pp),SLE,0.9591187983391589
+Composición (márgenes univariados),-1.2411345286512319,"celda clave (pp, con signo)",SUR,-0.6096801469277424
+Asociación Situación × Calificación,1.3096251434923514,"celda clave (pp, con signo)",SUR,-0.6096801469277424
+Asociación Situación × Rama,-0.24865393418351056,"celda clave (pp, con signo)",SUR,-0.6096801469277424
+Asociación Calificación × Rama,-0.10588140662050922,"celda clave (pp, con signo)",SUR,-0.6096801469277424
+Composición (márgenes univariados),0.9959048720044629,MAE 12 celdas (pp),SUR,-0.6096801469277424
+Asociación Situación × Calificación,0.2896292912676251,MAE 12 celdas (pp),SUR,-0.6096801469277424
+Asociación Situación × Rama,0.05891822542234628,MAE 12 celdas (pp),SUR,-0.6096801469277424
+Asociación Calificación × Rama,0.017782252462839532,MAE 12 celdas (pp),SUR,-0.6096801469277424
+Composición (márgenes univariados),0.15819699457338418,"celda clave (pp, con signo)",SVK,0.06841489038318538
+Asociación Situación × Calificación,-0.05641705979966651,"celda clave (pp, con signo)",SVK,0.06841489038318538
+Asociación Situación × Rama,0.005015197172764852,"celda clave (pp, con signo)",SVK,0.06841489038318538
+Asociación Calificación × Rama,-0.03541673897499213,"celda clave (pp, con signo)",SVK,0.06841489038318538
+Composición (márgenes univariados),0.6152212685753607,MAE 12 celdas (pp),SVK,0.06841489038318538
+Asociación Situación × Calificación,0.016104844887455106,MAE 12 celdas (pp),SVK,0.06841489038318538
+Asociación Situación × Rama,0.00437062647133372,MAE 12 celdas (pp),SVK,0.06841489038318538
+Asociación Calificación × Rama,0.05803458876772645,MAE 12 celdas (pp),SVK,0.06841489038318538
+Composición (márgenes univariados),0.33435019135814287,"celda clave (pp, con signo)",TGO,0.8642285607074391
+Asociación Situación × Calificación,0.8168757683276111,"celda clave (pp, con signo)",TGO,0.8642285607074391
+Asociación Situación × Rama,6.409891810982422e-4,"celda clave (pp, con signo)",TGO,0.8642285607074391
+Asociación Calificación × Rama,-0.2783539407564192,"celda clave (pp, con signo)",TGO,0.8642285607074391
+Composición (márgenes univariados),1.8197326413466257,MAE 12 celdas (pp),TGO,0.8642285607074391
+Asociación Situación × Calificación,0.4507564439103435,MAE 12 celdas (pp),TGO,0.8642285607074391
+Asociación Situación × Rama,7.079987108055311e-4,MAE 12 celdas (pp),TGO,0.8642285607074391
+Asociación Calificación × Rama,0.04021534811916704,MAE 12 celdas (pp),TGO,0.8642285607074391
+Composición (márgenes univariados),0.48997792540464113,"celda clave (pp, con signo)",TZA,-1.4133621551085183
+Asociación Situación × Calificación,0.16031496294990658,"celda clave (pp, con signo)",TZA,-1.4133621551085183
+Asociación Situación × Rama,-0.04942068715518743,"celda clave (pp, con signo)",TZA,-1.4133621551085183
+Asociación Calificación × Rama,-1.830743909946181,"celda clave (pp, con signo)",TZA,-1.4133621551085183
+Composición (márgenes univariados),0.7713610461052992,MAE 12 celdas (pp),TZA,-1.4133621551085183
+Asociación Situación × Calificación,0.1470709518446135,MAE 12 celdas (pp),TZA,-1.4133621551085183
+Asociación Situación × Rama,-0.034647618922547536,MAE 12 celdas (pp),TZA,-1.4133621551085183
+Asociación Calificación × Rama,0.3310786171862102,MAE 12 celdas (pp),TZA,-1.4133621551085183
+Composición (márgenes univariados),0.12700270340132344,"celda clave (pp, con signo)",USA,0.01604667376698915
+Asociación Situación × Calificación,-0.10373821533090843,"celda clave (pp, con signo)",USA,0.01604667376698915
+Asociación Situación × Rama,-0.02458221565536243,"celda clave (pp, con signo)",USA,0.01604667376698915
+Asociación Calificación × Rama,0.1051862535117454,"celda clave (pp, con signo)",USA,0.01604667376698915
+Composición (márgenes univariados),1.8637547882020824,MAE 12 celdas (pp),USA,0.01604667376698915
+Asociación Situación × Calificación,0.037717507880040205,MAE 12 celdas (pp),USA,0.01604667376698915
+Asociación Situación × Rama,0.011882500114970444,MAE 12 celdas (pp),USA,0.01604667376698915
+Asociación Calificación × Rama,0.03177064140384945,MAE 12 celdas (pp),USA,0.01604667376698915
+Composición (márgenes univariados),-0.5488003462275634,"celda clave (pp, con signo)",VNM,0.4163424938742344
+Asociación Situación × Calificación,-1.0726280176883103,"celda clave (pp, con signo)",VNM,0.4163424938742344
+Asociación Situación × Rama,0.460920681723048,"celda clave (pp, con signo)",VNM,0.4163424938742344
+Asociación Calificación × Rama,1.2938411199414714,"celda clave (pp, con signo)",VNM,0.4163424938742344
+Composición (márgenes univariados),1.043722529527995,MAE 12 celdas (pp),VNM,0.4163424938742344
+Asociación Situación × Calificación,0.1202482959699249,MAE 12 celdas (pp),VNM,0.4163424938742344
+Asociación Situación × Rama,0.007343380877357278,MAE 12 celdas (pp),VNM,0.4163424938742344
+Asociación Calificación × Rama,0.19546736449874758,MAE 12 celdas (pp),VNM,0.4163424938742344
+Composición (márgenes univariados),-0.19467667917443668,"celda clave (pp, con signo)",ZMB,-0.5370514506394017
+Asociación Situación × Calificación,-1.7162238781453196,"celda clave (pp, con signo)",ZMB,-0.5370514506394017
+Asociación Situación × Rama,0.22581747299034863,"celda clave (pp, con signo)",ZMB,-0.5370514506394017
+Asociación Calificación × Rama,1.7766191409269034,"celda clave (pp, con signo)",ZMB,-0.5370514506394017
+Composición (márgenes univariados),0.5627414185052642,MAE 12 celdas (pp),ZMB,-0.5370514506394017
+Asociación Situación × Calificación,0.28565639277859806,MAE 12 celdas (pp),ZMB,-0.5370514506394017
+Asociación Situación × Rama,0.1636937346974386,MAE 12 celdas (pp),ZMB,-0.5370514506394017
+Asociación Calificación × Rama,0.22933382306756064,MAE 12 celdas (pp),ZMB,-0.5370514506394017
