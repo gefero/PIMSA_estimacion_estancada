@@ -231,6 +231,46 @@ porcentajes (el mismo principio de sumar antes de promediar que corrigió el bug
 
 ![Descomposición del error en la celda de interés](figs/fig4_ecdf_error_descomposicion_v3.png)
 
+El gráfico compara dos distribuciones del error absoluto en la celda de interés a lo largo de los 46 países de IPUMS: la de la estimación real, que combina el método con los insumos de la OIT (curva verde), y la del self-test, que aplica el IPF a los márgenes del propio censo y por lo tanto aísla el error atribuible solo al método (curva azul). En ambas, la altura de la curva indica la proporción de países cuyo error no supera el valor del eje horizontal, de modo que una curva que sube rápido y se pega al techo describe una distribución con errores chicos. La curva azul queda siempre por encima de la verde: el país mediano se equivoca unos 0,16 puntos porcentuales cuando el método opera con insumos perfectos, y alrededor de 0,49 con los insumos de la OIT, y el error medio pasa de 0,38 a 1,07 puntos. La diferencia entre las curvas aumenta en la cola: el error del método nunca supera los 2,4 puntos, mientras que la estimación real llega a unos 8 en Senegal y Kenia, de modo que esos dos casos no pueden explicarse por el algoritmo y reflejan desacuerdo entre las fuentes. Así, el self-test funciona como un piso de error y la distancia entre ambas curvas da el orden de magnitud de lo que aportan los insumos, aunque no sea una resta exacta, porque ambos errores se combinan de forma no lineal. Finalmente, al ser errores absolutos, el gráfico no muestra el signo: el sesgo de subestimación del método (−0,33 puntos) debe consultarse en el texto.
+
+Para ver qué mostraría el mismo gráfico si el problema fuera el método y no los datos, la figura siguiente pone al lado de los datos reales (izquierda) una **simulación inventada** (derecha). En ella, el método se equivoca mucho incluso con márgenes perfectos —la curva azul arranca lejos del cero— y el pipeline completo queda casi pegado al self-test, porque los datos apenas agregan error. En los datos reales ocurre lo contrario: la curva azul está pegada al cero y la verde se separa claramente de ella. Los valores del panel derecho son ilustrativos, no resultados del proyecto.
+
+![Datos reales vs. simulación en la que el problema sería el método](figs/fig_020_ecdf_metodo_vs_datos.png)
+
+**Los cuatro escenarios posibles.** Hay una forma general de leer el gráfico: cada curva puede ser "buena" (pegada al
+cero, errores chicos) o "mala" (lejos del cero), y de esa combinación surge qué está fallando. La figura siguiente
+ilustra los cuatro casos con **datos simulados e inventados** (46 países por escenario, semilla fija; script
+`src/021_ilustracion_cuatro_escenarios.R`). Sirve para ver la forma de las curvas, no para sacar conclusiones sobre los
+datos del proyecto.
+
+![Cuatro escenarios simulados](figs/fig_021_cuatro_escenarios.png)
+
+1. **Método bueno, datos buenos.** Las dos curvas están pegadas al cero y entre sí (mediana simulada del error de 0,12
+   pp con el método solo y 0,18 pp en el pipeline completo). El IPF reconstruye bien y las fuentes coinciden: no hay nada
+   que corregir.
+2. **Método bueno, datos malos.** La curva azul sigue pegada al cero (0,15 pp), pero la verde se despega y queda lejos
+   (3,1 pp). Con datos perfectos el método acierta, de modo que todo el error extra viene de que las fuentes no miden lo
+   mismo. Es el patrón que, en forma atenuada, observamos en los datos reales.
+3. **Método malo, datos que casi no agregan.** La azul ya está lejos del cero (3,0 pp) y la verde casi se superpone
+   con ella (3,1 pp). El método se equivoca mucho incluso con datos perfectos, y el pipeline completo hereda ese error;
+   los datos prácticamente no suman. Es la simulación de la figura anterior.
+4. **Método malo, errores que se compensan (raro).** La azul está lejos del cero (2,0 pp) pero la verde está pegada a
+   él (0,2 pp): el pipeline real parecería mejor que el método con datos perfectos. Solo ocurre si el error de método y
+   el de los datos tienen signos opuestos y casi la misma magnitud en cada país, de modo que se anulan. Como patrón
+   general no es plausible, porque no hay razón para que esa compensación se dé en la mayoría de los países; en un
+   país aislado, sí puede suceder.
+
+**Dónde estamos nosotros.** Los datos reales se parecen al escenario 2, con una salvedad: la curva azul está pegada
+al cero (mediana de 0,16 pp, máximo de 2,4 pp), pero la verde no es "mala" en todo el recorrido. Su mediana (0,49 pp) es
+chica y solo se despega de la azul en la cola, donde unos pocos países (Senegal y Kenia, con errores de unos 8 pp)
+tienen desacuerdos de fuente grandes. Es una versión moderada del escenario 2: el método es confiable y el error
+adicional está concentrado en pocos países, no repartido en todos.
+
+Hay dos precisiones de lectura. Primero, la curva azul se juzga por sí sola (qué tan lejos del cero está respecto de las
+magnitudes que importan); la distancia entre las dos curvas sirve para atribuir el error al método o a los datos. Segundo,
+al estar en valor absoluto, el gráfico no muestra el signo del error: eso lo informan los sesgos del texto (−0,33 pp del
+método y +0,32 pp de la estimación real).
+
 **Por qué el sesgo es negativo: se puede medir.** El supuesto de interacción nula tiene una contraparte
 observable en IPUMS: la diferencia entre la asociación Calificación baja × TCP/TF en el no agro y en el agro,
 medida como diferencia de log razón de odds (se suma 0,001 pp a cada celda para evitar logaritmos de cero).
