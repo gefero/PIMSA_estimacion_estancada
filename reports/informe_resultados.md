@@ -15,6 +15,47 @@ urbana disfrazada de trabajo por cuenta propia (ver §3).
 
 ---
 
+## Cómo leer las medidas de error
+
+Casi todas las comparaciones de este informe miden qué tan lejos queda una estimación de una referencia. Para cada
+país y cada celda se define el **error con signo**, `err = estimado − referencia`: negativo si la estimación queda por
+debajo de la referencia, positivo si queda por encima. Salvo que se indique otra cosa, los errores se expresan en
+**puntos porcentuales (pp) del empleo total del país**.
+
+**Las medidas**
+
+- **MAE (error absoluto medio):** el promedio de `|err|`. Mide *cuánto* se equivoca la estimación, sin importar en qué
+  dirección: un +1 y un −1 cuentan igual y no se compensan.
+- **Mediana del error absoluto:** el error del caso típico. Si es mucho menor que el MAE, unos pocos casos grandes
+  arrastran el promedio. El **percentil 90** y el **máximo** describen esa cola.
+- **Sesgo:** el promedio de `err`, con su signo. Mide *hacia dónde* se equivoca la estimación en promedio. Un sesgo
+  distinto de 0 es un error sistemático, que va casi siempre en la misma dirección. Su valor absoluto nunca supera el
+  MAE, y lo iguala solo si todos los errores tienen el mismo signo. Un sesgo cercano a 0 no implica error chico (puede
+  haber compensación entre países), ni un MAE chico implica ausencia de sesgo.
+- **Pearson y Spearman:** miden la *concordancia* entre estimado y referencia, no el tamaño del error. Pearson captura
+  la relación lineal (y es sensible a los valores extremos); Spearman, el orden entre países. Una estimación puede
+  correlacionar muy bien y estar sistemáticamente desplazada, o al revés.
+- **Error relativo:** el error dividido por el valor de la celda. El mismo error en pp pesa mucho más en una celda de
+  1 % que en una de 30 %.
+
+**Qué mide cada comparación.** Las mismas medidas tienen distinto significado según qué se compare con qué:
+
+| Comparación | Estimado | Referencia | Qué error mide | Medidas que se reportan |
+|---|---|---|---|---|
+| EPH (§1) | IPF sobre tablas bivariadas reconstruidas de la EPH | Trivariada observada en la EPH (mismo país, fuente y período) | Solo el error del **método**, con insumos consistentes y un país | MAE ponderado, error máximo, índice de disimilitud, Pearson |
+| IPUMS vs. estimación (§2.1–2.2) | IPF con tablas de la OIT | Trivariada observada en IPUMS | Error **total**: método más fuente (OIT vs. censo, definiciones, año) | Pearson, Spearman, MAE, mediana, sesgo, por celda y por país |
+| Self-test (§2.3) | IPF sobre los márgenes de IPUMS | Trivariada de IPUMS | Solo el error del **método**, en el mejor escenario (insumos perfectos) | MAE, sesgo, mediana, percentil 90, máximo, por celda |
+| Consistencia del margen (§2.4) | Margen TCP/TF × No agro por IPF o por cálculo directo de la OIT | Margen observado en IPUMS | Error de **fuente** en un margen, y si el IPF reproduce su insumo | MAE, Pearson, Spearman |
+| Descomposición (§2.5) | IPF con piezas de la OIT reemplazadas por las de IPUMS, o con distintos años | IPUMS | **De dónde viene** el error de fuente | Reducción del MAE por pieza (Shapley), MAE por escalón, rango de la celda entre años |
+| Resultados sustantivos (§3) | — | — | **No son medidas de error**: describen niveles (% del empleo) | Medias ponderadas por empleo, medianas, rango intercuartil |
+
+**Una advertencia sobre las bases de países.** Las secciones no usan exactamente los mismos países. §2.1 y §2.2
+trabajan con las celdas presentes en el archivo de comparación con IPUMS (45 países en la celda de interés): ese cruce
+descarta a Francia, donde IPUMS no tiene casos en la celda y la verdad es 0. §2.3 y §2.5 usan los 46 países, con verdad
+0 donde corresponde. Por eso el MAE de la celda de interés es 1,10 pp en §2.2 y 1,07 pp en §2.3 y §2.5.
+
+---
+
 ## 0. El método: Iterative Proportional Fitting (IPF)
 
 ILOSTAT no publica una tabla que cruce simultáneamente las tres dimensiones que interesan (calificación de
@@ -228,6 +269,58 @@ porcentajes (el mismo principio de sumar antes de promediar que corrigió el bug
 - **MAE global:** 0,31 pp | **percentil 90 del error absoluto:** 1,05 pp | **máximo:** 2,37 pp.
 - **Celda de interés:** MAE 0,38 pp, mediana del error absoluto 0,16 pp, **sesgo −0,33 pp**, Spearman 0,90.
   El error es negativo (el IPF subestima) en 37 de los 46 países.
+
+**MAE global y por celda** (puntos porcentuales del empleo; sesgo = error medio con signo, IPF − IPUMS). El MAE
+global es 0,306 pp.
+
+Las definiciones de MAE y sesgo están en "Cómo leer las medidas de error", al inicio del informe. El sesgo *global*
+(promediando las 12 celdas de todos los países) es siempre 0 en este experimento, y no es un resultado: cada país suma
+100 en las 12 celdas, tanto en la verdad como en la reconstrucción, porque el IPF respeta los márgenes, así que los 12
+errores de un país suman cero. Lo informativo es el sesgo por celda. Tampoco debe confundirse con el de §2.2
+(+0,32 pp), que compara la estimación real contra el censo: son sesgos de signo opuesto (+0,32 pp en el pipeline
+completo, −0,33 pp en el método solo), y por eso el sesgo de método no permite concluir que la estimación sea un piso.
+
+| Calificación | Situación | Rama | % medio verdad (IPUMS) | **MAE** | Sesgo | Mediana \|error\| | Máximo |
+|---|---|---|---:|---:|---:|---:|---:|
+| Baja | Asalariado/patrón | Agro | 1,85 | **0,383** | −0,330 | 0,164 | 2,34 |
+| Baja | Asalariado/patrón | No agro | 7,19 | **0,383** | +0,330 | 0,164 | 2,34 |
+| Baja | TCP/TF | Agro | 2,00 | **0,383** | +0,330 | 0,164 | 2,34 |
+| **Baja** | **TCP/TF** | **No agro (celda de interés)** | **1,58** | **0,383** | **−0,330** | **0,164** | **2,34** |
+| Media | Asalariado/patrón | Agro | 2,20 | **0,446** | +0,403 | 0,195 | 2,37 |
+| Media | Asalariado/patrón | No agro | 29,48 | **0,446** | −0,403 | 0,195 | 2,37 |
+| Media | TCP/TF | Agro | 19,03 | **0,446** | −0,403 | 0,195 | 2,37 |
+| Media | TCP/TF | No agro | 14,56 | **0,446** | +0,403 | 0,195 | 2,37 |
+| Alta | Asalariado/patrón | Agro | 0,24 | **0,089** | −0,073 | 0,059 | 0,40 |
+| Alta | Asalariado/patrón | No agro | 19,21 | **0,089** | +0,073 | 0,059 | 0,40 |
+| Alta | TCP/TF | Agro | 0,13 | **0,089** | +0,073 | 0,059 | 0,40 |
+| Alta | TCP/TF | No agro | 2,52 | **0,089** | −0,073 | 0,059 | 0,40 |
+| **Global** | | **(12 celdas)** | 8,33 | **0,306** | 0,000 | 0,121 | 2,37 |
+
+**Lectura de la tabla.**
+
+1. **El error es chico en promedio y está concentrado en pocos países.** El MAE global es 0,31 pp, pero la mediana del
+   error (0,12 pp) es solo el 40 % de esa media: en la mayoría de los países el IPF reconstruye la tabla casi sin
+   error, y unos pocos arrastran el promedio. En la celda de interés, 10 de los 46 países tienen un error mayor a 0,5 pp
+   y 7, mayor a 1 pp.
+2. **La tabla tiene tres números independientes, no doce.** Las cuatro celdas de cada calificación tienen exactamente el
+   mismo MAE, mediana y máximo, con signos alternados (+, −, −, +). Es consecuencia de que el IPF respeta los márgenes
+   exactos: el error de un país queda determinado por los dos grados de libertad de la interacción de tercer orden (ver
+   más abajo). Además, los errores con signo de baja, media y alta calificación suman cero en cada combinación de
+   situación y rama (por ejemplo, TCP/TF no agro: −0,330 + 0,403 − 0,073 = 0).
+3. **El signo muestra hacia dónde se equivoca el método.** En TCP/TF no agro, el IPF subestima la calificación baja
+   (−0,33 pp) y la alta (−0,07), y sobreestima la media (+0,40). Es decir, reparte hacia la calificación media algo de
+   lo que en los datos pertenece a los extremos, lo que es coherente con la interacción de tercer orden descrita más abajo.
+4. **Un mismo error absoluto pesa distinto según el tamaño de la celda.** En las celdas grandes (media asalariada no
+   agro, 29,5 %; alta asalariada no agro, 19,2 %; media TCP/TF agro, 19,0 %; media TCP/TF no agro, 14,6 %) el MAE
+   equivale al 0,5–3 % de su valor. En las chicas llega al 19–68 % (alta TCP/TF agro, 68 %; alta asalariada agro, 37 %;
+   baja TCP/TF no agro, 24 %; baja asalariada agro, 21 %; media asalariada agro, 20 %; baja TCP/TF agro, 19 %). En total,
+   6 de las 12 celdas tienen un error relativo superior al 15 %. La celda de interés (1,58 % de promedio) es una de las
+   chicas: su error medio de 0,383 pp es alrededor del 24 % de su valor. El MAE absoluto es de 0,31 pp en el global y de
+   0,38 en la celda de interés (ambos chicos), pero a escala de esta celda no es despreciable.
+5. **Frente al pipeline real, el método explica una parte menor del error.** En la celda de interés, el MAE del método
+   (0,383 pp) equivale al 36 % del MAE de la estimación real (1,073 pp). La relación no es una resta exacta, porque los
+   errores se combinan de forma no lineal, pero es consistente con la conclusión de §2.5 de que el error de fuente
+   domina.
 
 ![Descomposición del error en la celda de interés](figs/fig4_ecdf_error_descomposicion_v3.png)
 
